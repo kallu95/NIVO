@@ -926,8 +926,7 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 /* standalone site (no Claude AI): hide AI entry points */
 .only-noai{display:none!important}
 .no-ai .only-noai{display:inline-flex!important}
-.no-ai [data-go="ask"],.no-ai .tn.ai,.no-ai [data-act="ai-pms"],.no-ai .aipms,.no-ai [data-act="ask-fund"],.no-ai [data-act="ask-pms"],.no-ai [data-act="ask-about"],.no-ai [data-act="pitch-tab"]{display:none!important}
-.no-ai .tab-in{grid-template-columns:repeat(4,1fr)}
+.no-ai [data-act="ai-pms"],.no-ai .aipms,.no-ai [data-act="ask-fund"],.no-ai [data-act="ask-pms"],.no-ai [data-act="ask-about"]{display:none!important}
 
 /* ===== v13: blue-to-black banner with hexagon pattern ===== */
 .hb4{background:linear-gradient(160deg,#1a52e0 0%,#0d34a8 26%,#071a5c 55%,#030a24 80%,#000000 100%)}
@@ -950,6 +949,16 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 @keyframes geo3{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-24px) rotate(30deg)}}
 @media (max-width:600px){.geo .g3{display:none}.geo .g1{width:150px}.geo .g2{width:170px}}
 @media (prefers-reduced-motion:reduce){.hx polygon.lit,.hx-glow,.geo svg{animation:none!important}}
+
+/* v17 banner spacing */
+.hb3{padding:36px 20px 40px}
+.hb3 .hb2-copy{gap:16px}
+.hb3 .hb2-eye{margin-bottom:2px}
+.hb3 .hb2-h{line-height:1.04;gap:2px}
+.hb3 .hb2-sub{margin-top:2px;line-height:1.6}
+.hb3 .hb2-cta{margin-top:8px;gap:12px}
+@media (min-width:760px){.hb3{padding:64px 48px 68px}.hb3 .hb2-copy{gap:20px}}
+@media (min-width:1080px){.hb3{padding:84px 64px 88px}}
 @media (max-width:440px){.asof{display:none}}
 @media (max-width:370px){.qa{grid-template-columns:1fr}.kvg{grid-template-columns:1fr 1fr}.big{font-size:28px}.tally{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.mark .n{stroke-dashoffset:0}}
@@ -991,7 +1000,7 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
     <span class="ind" id="ind"></span>
     <button class="tab" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M3.5 10.5 12 3.5l8.5 7V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></svg>Home</button>
     <button class="tab" data-go="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Explore</button>
-    <button class="tab cta" data-go="ask" aria-label="Ask NIVO AI"><span class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4z"/><path d="M18.5 15.5l.8 2 2 .8-2 .7-.8 2-.8-2-2-.7 2-.8z"/></svg></span>Ask AI</button>
+    <button class="tab cta" data-go="ask" aria-label="Ask NIVO"><span class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4z"/><path d="M18.5 15.5l.8 2 2 .8-2 .7-.8 2-.8-2-2-.7 2-.8z"/></svg></span>Ask NIVO</button>
     <button class="tab" data-go="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M11 3.5a8.5 8.5 0 1 0 9.5 9.5H11z"/><path d="M14.5 3.3a8.6 8.6 0 0 1 6.2 6.2h-6.2z"/></svg>Portfolio</button>
     <button class="tab" data-go="ips"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.7 7.5 9 4.3-1.3 7.5-4.5 7.5-9V6z"/><path d="M9 11.5h6M9 15h4"/></svg>My IPS</button>
   </div>
@@ -1374,8 +1383,8 @@ function heroBanner(P,h){const greet=h<12?'Good morning':h<17?'Good afternoon':'
    <p class="hb2-eye"><i></i>${greet} · ${new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short'})}</p>
    <h1 class="hb2-h"><span class="l1">Wealth that fits you.</span><span class="l2">Beyond returns.</span><span class="l3">Beyond bias.</span></h1>
    <p class="hb2-sub">Every PMS and mutual fund in India, scored on one honest yardstick and matched to the plan you set. No commission. No paid rankings.</p>
-   <div class="hb2-cta"><button class="hb2-b1 tap" data-go="ask">${I.ai}Ask NIVO</button><button class="hb2-b1 tap only-noai" data-act="xseg-pms">${I.search}Explore PMS</button>${P?`<button class="hb2-b2 tap" data-go="ips">${I.target}View my IPS</button>`:`<button class="hb2-b2 tap" data-act="wizard">${I.target}Build my IPS</button>`}</div>
-   <div class="hb2-trust">${[[D.pms.length.toLocaleString('en-IN'),'PMS'],[D.pmsProv.length,'managers'],[D.funds.length.toLocaleString('en-IN'),'mutual funds'],['₹0','commission']].map(([v,l])=>`<span><b>${v}</b> ${l}</span>`).join('')}</div></div>
+   <div class="hb2-cta"><button class="hb2-b1 tap" data-go="ask">${I.ai}Ask NIVO</button>${P?`<button class="hb2-b2 tap" data-go="ips">${I.target}View my IPS</button>`:`<button class="hb2-b2 tap" data-act="wizard">${I.target}Build my IPS</button>`}</div>
+   </div>
 </div></section>`;}
 let gId=0;function globeHTML(){const top=D.pms.find(p=>p.q!=null&&!p.fl.includes('odd'));const u='g'+(++gId);
   return `<section class="about"><div class="globe-wrap" aria-hidden="true"><div class="g-ring r1"></div><div class="g-ring r2"><i></i></div>
@@ -1782,6 +1791,60 @@ Style: plain English, warm and direct. Lead with the answer. Use ₹ with lakh a
 function md(t){let h=esc(t);h=h.replace(/\{\{pms:(p\w+)\|([^}]+)\}\}/g,(m,id,n)=>D.pmsMap.has(id)?`<button class="fchip" data-pms="${id}">${n}</button>`:`<b>${n}</b>`).replace(/\{\{(\d+)\|([^}]+)\}\}/g,(m,c,n)=>`<button class="fchip" data-fund="${c}">${n}</button>`).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
   return h.split(/\n{2,}/).map(blk=>{const ls=blk.split('\n');if(ls.every(l=>/^\s*([-•*]|\d+\.)\s+/.test(l)||!l.trim()))return '<ul>'+ls.filter(l=>l.trim()).map(l=>'<li>'+l.replace(/^\s*([-•*]|\d+\.)\s+/,'')+'</li>').join('')+'</ul>';return '<p>'+ls.join('<br>')+'</p>';}).join('');}
 const SUGS=['Which PMS strategies fit my IPS?','Compare 360 ONE, Unifi and ithought PMS strategies','Which flexi cap fund fits my IPS best?','Am I paying too much in commissions?','Is my portfolio on track for my goal?','Compare HDFC Flexi Cap and Parag Parikh Flexi Cap','Which liquid fund should I park cash in?'];
+const STOPW=new Set('what which who whom best top good great should could would will can you your yours tell about give show list find me my mine the for and are is was were how does do did with fund funds pms strategy strategies scheme schemes compare comparison vs versus between in of a an to i please know some any that this these those than then from on at by it its be has have had into out more most less least right now today invest investing investment buy sell plan or not new one also'.split(' '));
+function findProducts(q,n=3){const t=qnorm(q).split(' ').filter(w=>w.length>1&&!STOPW.has(w));const out={pms:[],funds:[],people:[],t};if(!t.length)return out;
+  const sc=(key,name)=>{let s=0,nm=0;t.forEach(w=>{if(key.includes(w)){s++;if(name.includes(w))nm++;}});return nm?s:0;};
+  out.people=D.people.map(x=>[x,sc(x.key,x.n.toLowerCase())]).filter(x=>x[1]>=Math.min(2,t.length)).sort((a,b)=>b[1]-a[1]).slice(0,n).map(x=>x[0]);
+  const pz=D.pms.map(p=>[p,sc(p.key,(p.pmFull+' '+pmAlias(p.pmFull)+' '+p.n).toLowerCase())]).filter(x=>x[1]>=Math.min(2,t.length)).sort((a,b)=>b[1]-a[1]||(b[0].q??-1)-(a[0].q??-1));out.ps=pz.length?pz[0][1]:0;out.pms=pz.slice(0,n).map(x=>x[0]);
+  const fz=D.funds.filter(f=>f.direct).map(f=>[f,sc(f.key,(f.amc+' '+f.sn).toLowerCase())]).filter(x=>x[1]>=Math.min(2,t.length)).sort((a,b)=>b[1]-a[1]||(b[0].q??-1)-(a[0].q??-1));out.fs=fz.length?fz[0][1]:0;out.funds=fz.slice(0,n).map(x=>x[0]);
+  return out;}
+const s10=v=>v==null?'—':(v/10).toFixed(1);
+function pmsLine(p){const B=D.pmsBench[p.bk]||{r:{}};const ft=S.ips?pmsFit(p).fit:null;return `- {{pms:${p.id}|${p.n}}} (${p.pm}): NIVO Score ${s10(p.q)}/10${ft!=null?`, fit ${s10(ft)}/10`:''}. 3Y ${pc(p.r3)}/yr vs ${B.name||'index'} ${pc(B.r[3])}; 5Y ${pc(p.r5)}/yr. Volatility index ${p.vi!=null?p.vi.toFixed(1):'—'}/10.`;}
+function fundLine(f){const ft=S.ips?fitFor(f).fit:null;return `- {{${f.c}|${f.sn}}} (${f.cat}): NIVO Score ${s10(f.q)}/10${ft!=null?`, fit ${s10(ft)}/10`:''}. 1Y ${pc(f.r1)}, 3Y ${pc(f.r3)}/yr, 5Y ${pc(f.r5)}/yr. Volatility index ${f.vm&&f.vm.vi!=null?f.vm.vi.toFixed(1):'—'}/10.`;}
+const MFCAT=[[/elss|tax sav/,'ELSS (tax saver)'],[/large\s*(and|&)\s*mid/,'Large & Mid Cap'],[/flexi/,'Flexi Cap'],[/multi\s*cap/,'Multi Cap'],[/large/,'Large Cap'],[/mid/,'Mid Cap'],[/small/,'Small Cap'],[/liquid|park|parking/,'Liquid'],[/arbitrage/,'Arbitrage'],[/index/,'Large Cap Index'],[/corporate bond|debt|bond/,'Corporate Bond'],[/gilt/,'Gilt'],[/hybrid|balanced/,'Aggressive Hybrid'],[/value/,'Value'],[/focus/,'Focused']];
+const PMSST=[[/small|mid|micro/,'Mid & small cap'],[/large|blue/,'Large cap'],[/quant|factor|momentum/,'Quant & factor'],[/thematic|sector|theme/,'Thematic & sector'],[/flexi|multi/,'Multi & flexi cap']];
+function localAnswer(q){const ql=q.toLowerCase(),P=S.ips,out=[];const fq=FAQ.map(x=>x[2]);
+  if(/direct|regular|commission|expense|hidden cost|paying too much/.test(ql)){const A=analyse();out.push(`**Commissions:** Regular plans pay your distributor a trail commission every year, so they return less than the Direct plan of the same fund.${S.holdings.length?` In your portfolio, Regular plans cost about **${inr(A.leak||0)} a year**.`:' Import your portfolio and NIVO shows the cost in rupees.'} For PMS, ask for fixed fee, profit share, hurdle and exit load in rupees on your amount.`);return out.join('\n\n');}
+  if(/what is (a )?pms|portfolio management service|pms minimum|minimum.*pms|50 ?lakh/.test(ql))return `**PMS (portfolio management service)** is a professionally managed stock portfolio held in your own demat account. SEBI sets the minimum at **₹50 lakh**. Fees are usually a fixed fee plus a share of profits, and you own the actual shares.\n\nNIVO tracks ${D.pms.length.toLocaleString('en-IN')} strategies. The median returned ${pc(D.pmsU.r3)} a year over 3 years and ${pc(D.pmsU.r5)} over 5 years, after fees.`;
+  if(/\bips\b|investment policy|mandate/.test(ql))return P?`Your IPS: **${P.profile}**, risk score ${s10(P.R)}/10, about ${P.eqT}% in equity, aiming for ${P.req!=null?pc(P.req)+' a year':'your goal'}. Open My IPS for the full plan.`:`An **IPS (Investment Policy Statement)** turns your goal, time and comfort with falls into clear rules: a risk score, a target mix and how to pick funds. Build yours in My IPS. It takes about two minutes, then every ranking in NIVO fits you.`;
+  if(/score|rating|how.*rank/.test(ql)&&!/best|top/.test(ql))return fq[1];
+  if(/volatil|risky|risk level|fall|crash|drawdown/.test(ql)&&!findProducts(q).pms.length&&!findProducts(q).funds.length)return `The **volatility index** (0 to 10) shows how bumpy the ride was against the closest index. 5 means it moved like the index; higher is calmer. Open any fund or PMS and see the Volatility check for its biggest fall, worst 12 months and recovery time.`;
+  if(/who pays|independent|sebi|registered|how do you make money/.test(ql))return fq[3];
+  if(/data|source|apmi|amfi|updated|how old/.test(ql))return fq[0];
+  if(/my portfolio|my holdings|on track|my goal/.test(ql)){if(!S.holdings.length)return 'You haven’t added a portfolio yet. Tap Import portfolio on Home to upload a CAS statement or add holdings by hand.';const A=analyse();return `Your portfolio is **${inr(A.tot)}** across ${S.holdings.length} holdings, ${A.eqA.toFixed(0)}% in equity${P?` against ${P.eqT}% in your IPS`:''}. ${A.weak.length?`${A.weak.length} holding${A.weak.length>1?'s are':' is'} weak for ${P?'your plan':'its category'}.`:'No weak holdings.'}${P?` Goal status: **${{ahead:'ahead',ontrack:'on track',stretch:'a stretch',gap:'off track',nogoal:'no target set'}[P.status]}**.`:''}`;}
+  // compare
+  if(/compare|\bvs\b|versus|difference between/.test(ql)){const parts=q.replace(/compare|difference between/ig,'').split(/,|\band\b|\bvs\.?\b|versus|&/i).map(x=>x.trim()).filter(x=>x.length>2);const lines=[];
+    parts.forEach(pt=>{const r=findProducts(pt,1);const wantP=/pms|strateg/i.test(q)&&!/\bfund\b/i.test(pt);if(r.pms[0]&&(wantP||!r.funds[0]||r.ps>r.fs))lines.push(pmsLine(r.pms[0]));else if(r.funds[0])lines.push(fundLine(r.funds[0]));});
+    if(lines.length>=2)return `Side by side, from NIVO's data:\n\n${lines.join('\n')}\n\nTap a name for its charts and volatility check.`;}
+  // best / top in a category
+  if(/best|top|recommend|suggest|which|good|fit/.test(ql)){
+    if(/pms|portfolio management/.test(ql)||(!MFCAT.some(([r])=>r.test(ql))&&/strateg/.test(ql))){const st=(PMSST.find(([r])=>r.test(ql))||[])[1];const ps=pmsPicks(5,st?p=>p.st===st:null);
+      return `${P?'PMS that fit your IPS best':'Top-rated PMS'}${st?' in '+st.toLowerCase():''}, at most one per manager:\n\n${ps.map(pmsLine).join('\n')}${P&&!P.pmsOK?'\n\nPMS needs ₹50 lakh or more. Treat these as ones to watch.':''}`;}
+    const c=(MFCAT.find(([r])=>r.test(ql))||[])[1];if(c&&D.cat[c]){const fs=topFunds(f=>f.cat===c,4,true);return `${P?'Best fits for your IPS':'Highest NIVO Scores'} in ${c} (Direct plans):\n\n${fs.map(fundLine).join('\n')}`;}}
+  // named products / people
+  const r=findProducts(q,4);
+  if(r.people.length){const x=r.people[0];return `**${x.n}**, ${x.r} at ${x.f}. ${x.bg} How they invest: ${x.st}${x.prov?`\n\nStrategies at ${x.prov.n}:\n\n${x.prov.ps.slice().sort((a,b)=>(b.q??-1)-(a.q??-1)).slice(0,4).map(pmsLine).join('\n')}`:''}`;}
+  if(r.pms.length||r.funds.length)return `Here's what I found:\n\n${[...r.pms.map(pmsLine),...r.funds.slice(0,4-Math.min(r.pms.length,2)).map(fundLine)].slice(0,5).join('\n')}\n\nTap a name for the full page.`;
+  return `I couldn't match that to a fund, PMS or topic. Try a name ("Marcellus", "HDFC Flexi Cap"), a type ("best small cap PMS", "top ELSS funds"), or a question like "what is a PMS?" or "am I paying too much commission?".`;}
+function localPitch(text){const sents=text.replace(/\r/g,'').split(/(?<=[.!?])\s+|\n+/).map(x=>x.replace(/\s+/g,' ').trim()).filter(x=>x.length>6);
+  const prods=new Map(),pmsF=new Map();const per=[];
+  sents.forEach(sn=>{const r=findProducts(sn,1);const lf=/\bfund\b|mutual|sip|nav/i.test(sn),lp=/pms|portfolio management|strateg/i.test(sn);const pickP=r.pms[0]&&(!r.funds[0]||(lp&&!lf)||(!lf&&r.ps>r.fs)||(r.ps>r.fs+1));const it=pickP?{k:'p',o:r.pms[0]}:r.funds[0]?{k:'f',o:r.funds[0]}:r.pms[0]?{k:'p',o:r.pms[0]}:null;if(it){if(it.k==='p')pmsF.set(it.o.id,it.o);else prods.set(it.o.c,it.o);}per.push(it);});
+  const all=[...pmsF.values()].map(o=>({k:'p',o})).concat([...prods.values()].map(o=>({k:'f',o})));const only=all.length===1?all[0]:null;
+  const claims=[];
+  sents.forEach((sn,i)=>{const l=sn.toLowerCase();const it=per[i]||only;
+    if(/guarantee|assured|risk[- ]?free|no risk|zero risk|capital protect|can'?t lose|never (fall|lose|go down)/.test(l)){claims.push({claim:sn,verdict:'misleading',finding:'Market-linked products cannot promise returns or protection from losses. SEBI does not allow assured-return claims for funds or PMS.'});return;}
+    const nums=[...l.matchAll(/(-?\d+(?:\.\d+)?)\s*%/g)].map(m=>+m[1]);
+    if(nums.length&&/return|cagr|gave|deliver|grew|earn|yield|p\.?a|a year|annual|per annum|%/.test(l)){if(!it){claims.push({claim:sn,verdict:'unverifiable',finding:'No fund or PMS from NIVO\'s database was named here, so the figure can\'t be checked.'});return;}
+      const o=it.o,yr=(l.match(/(\d)\s*(?:-|\s)?(?:y\b|yr|year)/)||[])[1];const keys=yr?['r'+yr]:['r3','r5','r1'];const k=keys.find(k=>o[k]!=null);if(!k){claims.push({claim:sn,verdict:'unverifiable',finding:`${o.n||o.sn} has no ${yr?yr+'-year':''} return on record yet.`});return;}
+      const act=o[k],cl=Math.max(...nums),d=cl-act,nm=it.k==='p'?o.n:o.sn,per2=k.slice(1)+'-year';
+      claims.push(Math.abs(d)<=1.5?{claim:sn,verdict:'true',finding:`${nm}'s ${per2} return is ${pc(act)} a year, in line with the claim.`}:d>0?{claim:sn,verdict:d>5?'misleading':'partly',finding:`${nm}'s actual ${per2} return is ${pc(act)} a year, below the ${cl}% claimed.`}:{claim:sn,verdict:'true',finding:`${nm}'s ${per2} return is ${pc(act)} a year, better than claimed.`});return;}
+    if(/\bbest\b|\btop\b|number one|#1|no\.? ?1|outperform|beat|leader|star/.test(l)&&it){const o=it.o,q=o.q;claims.push(q!=null&&q>=80?{claim:sn,verdict:'true',finding:`${it.k==='p'?o.n:o.sn} has a NIVO Score of ${s10(q)}/10, among the strongest on record.`}:{claim:sn,verdict:q!=null&&q>=60?'partly':'misleading',finding:`${it.k==='p'?o.n:o.sn} has a NIVO Score of ${s10(q)}/10${q!=null&&q<60?', below average for its peers':', good but not top of its group'}.`});}});
+  const W={true:100,partly:60,unverifiable:50,misleading:10};const sc=claims.length?Math.round(claims.reduce((t,c)=>t+W[c.verdict],0)/claims.length):50;
+  const fit=S.ips&&all.length?all.slice(0,3).map(x=>{const f=x.k==='p'?pmsFit(x.o).fit:fitFor(x.o).fit;return `${x.k==='p'?x.o.n:x.o.sn}: fit ${s10(f)}/10`;}).join('; ')+'.':'';
+  return {offline:true,score:sc,headline:!claims.length?'No checkable claims found':sc>=75?'Mostly checks out':sc>=50?'Some claims need checking':'Several red flags',
+    summary:`Found ${all.length} product${all.length===1?'':'s'} and ${claims.length} claim${claims.length===1?'':'s'} NIVO could test against APMI and AMFI data.`,
+    fit_for_you:fit?`Against your IPS: ${fit}`:'',products:[...prods.values()].map(f=>({name:f.sn,code:f.c})),pms:[...pmsF.keys()],claims,
+    questions:['What are all the fees on my amount, in rupees, for the first year and every year after?','Is this a Direct plan, and if not, how much commission do you earn?','What was the biggest fall in the last five years and how long did recovery take?','How does this compare with a low-cost index fund over five years?','Why does this suit my goal and timeline, in writing?']};}
 function renderAsk(){$('#v-ask').innerHTML=`
   <div class="ask-hero"><div class="orbit" aria-hidden="true"><i></i><div class="core">${I.ai}</div></div><h1>Ask NIVO</h1><p>Answers from APMI data on every PMS and AMFI data on every fund, checked against your IPS.</p></div>
   <div class="seg" id="askSeg"><button data-am="chat" class="${askMode==='chat'?'on':''}">Ask anything</button><button data-am="pitch" class="${askMode==='pitch'?'on':''}">Check a pitch</button></div>
@@ -1789,7 +1852,7 @@ function renderAsk(){$('#v-ask').innerHTML=`
 function drawAsk(){const box=$('#askBox');$$('#askSeg button').forEach(b=>b.classList.toggle('on',b.dataset.am===askMode));
   if(askMode==='chat'){box.innerHTML=`<div class="chat" id="chat">${S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.content):md(m.content)}</div>`).join(''):`<div class="sugs">${SUGS.map(s=>`<button class="sug tap" data-sug="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}</div>
     <form class="composer" id="cform"><textarea id="cin" rows="1" placeholder="Ask about any PMS, fund or your plan" aria-label="Message"></textarea><button type="submit" id="csend" aria-label="Send">${I.send}</button></form>
-    ${S.chat.length?'<button class="link" data-act="chat-clear" style="justify-self:start">Start a new chat</button>':''}<p class="tiny" style="margin:0;text-align:center">Uses your Claude account. Answers are research, not investment advice.</p>`;
+    ${S.chat.length?'<button class="link" data-act="chat-clear" style="justify-self:start">Start a new chat</button>':''}<p class="tiny" style="margin:0;text-align:center">${HAS_AI?'Uses your Claude account. ':'Quick answers from NIVO’s own database. '}Answers are research, not investment advice.</p>`;
     const ta=$('#cin');ta.addEventListener('input',()=>{ta.style.height='auto';ta.style.height=Math.min(120,ta.scrollHeight)+'px';});ta.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('#cform').requestSubmit();}});
     $('#cform').addEventListener('submit',e=>{e.preventDefault();if(chatCtl){chatCtl.abort();return;}const v=ta.value.trim();if(v){ta.value='';ta.style.height='auto';sendChat(v);}});}
   else{box.innerHTML=`<p class="small muted" style="margin:0">Upload or paste what your RM or wealth manager sent. NIVO finds every claim, checks it against AMFI and PMS data, and tells you what to ask.</p>
@@ -1799,7 +1862,7 @@ function drawAsk(){const box=$('#askBox');$$('#askSeg button').forEach(b=>b.clas
     <div id="pOut" style="display:flex;flex-direction:column;gap:14px"></div>`;
     const pf=$('#pf');pf.addEventListener('change',()=>{const n=pf.files.length;$('#pfL').textContent=n?(n===1?pf.files[0].name:n+' files selected'):'Upload a deck, PDF or photos';});}}
 async function sendChat(text){S.chat.push({role:'user',content:text});if(askMode!=='chat'){askMode='chat';}drawAsk();const chat=$('#chat');const bub=document.createElement('div');bub.className='msg a';bub.innerHTML='<span class="think"><span class="dots"><i></i><i></i><i></i></span>Thinking</span>';chat.appendChild(bub);bub.scrollIntoView({behavior:RM?'auto':'smooth',block:'end'});
-  const ai=await getAI();if(!ai){bub.innerHTML='<p>The AI assistant needs this page open inside Claude (the Claude app or claude.ai). Everything else in NIVO works here.</p>';S.chat.pop();return;}
+  const ai=await getAI();if(!ai){await new Promise(r=>setTimeout(r,350));const a=localAnswer(text);S.chat.push({role:'assistant',content:a});bub.innerHTML=md(a);Store.save&&Store.save();bub.scrollIntoView({behavior:RM?'auto':'smooth',block:'nearest'});return;}
   const ctl=new AbortController();chatCtl=ctl;const send=$('#csend');if(send)send.innerHTML=I.stop;let notes=[];
   const note=s=>{notes.push(s);if(!bub._t)bub.innerHTML=`<span class="think"><span class="dots"><i></i><i></i><i></i></span>${esc(s)}</span>`;};
   const turns=[{role:'user',content:chatRules()},...S.chat.slice(-12).map(m=>({role:m.role,content:m.content}))];
@@ -1815,7 +1878,7 @@ async function runPitch(sample){const out=$('#pOut');const files=sample?[]:[...(
   if(!text&&!imgs.length&&!pdfs.length){toast('Upload a file or paste the pitch first');return;}
   const steps=['Reading the pitch','Finding the funds named','Checking each claim against the data','Writing your questions'];out.innerHTML=`<div class="card"><ul class="prog-steps">${steps.map(s=>`<li><span class="tk">${I.tick}</span>${s}</li>`).join('')}</ul><button class="link" data-act="pitch-stop" style="margin-top:8px">Stop</button></div>`;const lis=$$('.prog-steps li',out);const st=i=>lis.forEach((l,j)=>l.className=j<i?'done':j===i?'now':'');st(0);
   try{if(pdfs.length){const t=await pdfText(pdfs[0],'',30);text=(text?text+'\n\n':'')+t;}}catch(e){out.innerHTML=`<div class="flag">${I.warn}<span>Couldn't read that PDF${e&&e.name==='PasswordException'?' (it is password-protected)':''}. Try screenshots of the slides instead.</span></div>`;return;}
-  const ai=await getAI();if(!ai){out.innerHTML=`<div class="flag">${I.warn}<span>The pitch checker needs this page open inside Claude (the Claude app or claude.ai).</span></div>`;return;}
+  const ai=await getAI();if(!ai){if(!text){out.innerHTML=`<div class="flag">${I.warn}<span>Photos can't be read here. Upload the PDF or paste the text instead.</span></div>`;return;}st(1);await new Promise(r=>setTimeout(r,300));st(2);await new Promise(r=>setTimeout(r,300));st(3);showPitch(localPitch(text));return;}
   if(imgs.length){try{const lim=await ai.limits();if(!lim.images){out.innerHTML=`<div class="flag">${I.warn}<span>Images can't be sent from this view. Paste the text or upload a PDF instead.</span></div>`;return;}}catch(e){}}
   const ctl=new AbortController();pitchCtl=ctl;let seen=0;const note=s=>{seen++;st(seen<2?1:2);};
   const prompt=`You are NIVO's independent pitch checker for Indian investors. Check the pitch below from a relationship manager or wealth manager.
@@ -1839,7 +1902,7 @@ function showPitch(r,sample){const out=$('#pOut');const cl=Array.isArray(r.claim
    <p style="text-align:center;margin:-4px 0 0;font:700 16px var(--f-display)">${esc(r.headline||'')}</p><p class="small muted" style="text-align:center;margin:0">${esc(r.summary||'')}</p>
    <div class="tally"><div class="g"><b>${n.true}</b><small>True</small></div><div class="a"><b>${n.partly}</b><small>Partly</small></div><div class="r"><b>${n.misleading}</b><small>Misleading</small></div><div class="u"><b>${n.unverifiable}</b><small>Unclear</small></div></div></div>
   ${r.fit_for_you?`<div class="flag info">${I.target}<span>${esc(r.fit_for_you)}</span></div>`:''}
-  ${prods.length?`<div class="sblock"><h3>Products in this pitch</h3><div class="rlist">${prods.map(p=>fundRow(D.byCode.get(+p.code))).join('')}</div></div>`:''}
+  ${prods.length||(r.pms&&r.pms.length)?`<div class="sblock"><h3>Products in this pitch</h3><div class="rlist">${(r.pms||[]).map(id=>pmsById(id)).filter(Boolean).map(p=>pmsRow(p)).join('')}${prods.map(p=>fundRow(D.byCode.get(+p.code))).join('')}</div></div>`:''}
   <div class="sec-h"><h3>Claim by claim</h3></div>${cl.map(c=>{const v=String(c.verdict||'').toLowerCase(),l=lab[v]||lab.unverifiable;return `<div class="claim"><span class="pill ${l[0]}" style="justify-self:start">${l[1]}</span><q>${esc(c.claim)}</q><p>${esc(c.finding)}</p></div>`;}).join('')}
   ${Array.isArray(r.questions)&&r.questions.length?`<div class="sec-h"><h3>Questions to ask</h3><button class="link" data-act="copy-pq">Copy all</button></div><ol class="qs" id="pqs">${r.questions.slice(0,6).map(q=>`<li>${esc(q)}</li>`).join('')}</ol>`:''}
   <p class="tiny" style="margin:0">Checked by Claude against AMFI NAVs to ${dt(D.asof)} and PMS data to ${dt(D.pmsU.asof)}. Review the findings before acting.</p>`;
@@ -1850,7 +1913,7 @@ const VIEWS=['home','explore','ask','portfolio','ips','about'];let cur='home';
 function renderView(v){if(!D)return;if(v==='home')renderHome();else if(v==='explore')renderExplore();else if(v==='ask')renderAsk();else if(v==='portfolio')renderPortfolio();else if(v==='ips')renderIPS();else if(v==='about')renderAbout();}
 function refresh(){renderView(cur);}
 function moveInd(){const on=$('.tab.on'),ind=$('#ind');if(!on||on.classList.contains('cta')){ind.style.opacity=0;return;}ind.style.opacity=1;ind.style.left=on.offsetLeft+4+'px';ind.style.width=on.offsetWidth-8+'px';}
-function route(){let v=location.hash.slice(1);if(!VIEWS.includes(v)||(!HAS_AI&&v==='ask'))v='home';cur=v;$$('.view').forEach(s=>s.hidden=s.dataset.view!==v);$$('.tab,.tn').forEach(t=>t.classList.toggle('on',t.dataset.go===v));moveInd();closeSheet();window.scrollTo({top:0});renderView(v);}
+function route(){let v=location.hash.slice(1);if(!VIEWS.includes(v))v='home';cur=v;$$('.view').forEach(s=>s.hidden=s.dataset.view!==v);$$('.tab,.tn').forEach(t=>t.classList.toggle('on',t.dataset.go===v));moveInd();closeSheet();window.scrollTo({top:0});renderView(v);}
 addEventListener('hashchange',route);addEventListener('resize',moveInd);
 function go(v){if(location.hash.slice(1)===v){route();}else location.hash=v;}
 
