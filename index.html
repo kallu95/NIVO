@@ -996,6 +996,30 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 /* v21: keep "Beyond returns." on one line on phones */
 .hb3 .hb2-h .l2{white-space:nowrap}
 @media (max-width:480px){.hb3{padding-inline:16px}.hb3 .hb2-h{font-size:min(9.4vw,44px)}}
+
+/* v22: manager profile + track photos */
+.kv4{grid-template-columns:repeat(2,1fr)}
+@media (min-width:560px){.kv4{grid-template-columns:repeat(4,1fr)}}
+.mread{display:grid;gap:8px;background:linear-gradient(140deg,rgba(26,79,214,.08),rgba(127,208,255,.10))}
+.mread p{margin:0;font-size:14.5px;line-height:1.55}
+.mp{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink2)}.mp b{color:var(--ink)}
+.ctl{list-style:none;margin:0;padding:0 0 0 6px;display:grid;gap:0}
+.ctl li{display:grid;grid-template-columns:16px 1fr;gap:12px;position:relative;padding-bottom:12px}
+.ctl li::before{content:"";position:absolute;left:5px;top:14px;bottom:-2px;width:2px;background:var(--track)}
+.ctl li:last-child::before{display:none}
+.ctl li span{width:12px;height:12px;border-radius:50%;margin-top:4px;background:var(--card-solid);border:2.5px solid var(--blue-2)}
+.ctl li:last-child span{background:var(--blue-2)}
+.ctl li p{margin:0;font-size:14px;line-height:1.5}
+.mstyle{display:flex;gap:12px;align-items:flex-start;padding:14px}.mstyle svg{width:20px;height:20px;flex:none;color:var(--blue);margin-top:2px}.mstyle p{margin:0;font-size:14.5px;line-height:1.55}
+.tbl tr.tap{cursor:pointer}
+.pcard-art .pphoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.pcard-art.has-photo .pphoto{opacity:1}
+.pcard-art.has-photo .part{visibility:hidden}
+.pcard-art.has-photo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,20,60,.45),rgba(6,20,60,0) 40%,rgba(6,20,60,.25))}
+.pcard-art .ptag{z-index:2}
+.pcredit{position:absolute;right:10px;bottom:8px;z-index:2;font:600 10px var(--f-mono);color:rgba(255,255,255,.8);display:none}
+.pcard-art.has-photo .pcredit{display:block}
+@media (min-width:760px){.pcard-art.has-photo{min-height:320px}}
 @media (max-width:440px){.asof{display:none}}
 @media (max-width:370px){.qa{grid-template-columns:1fr}.kvg{grid-template-columns:1fr 1fr}.big{font-size:28px}.tally{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.mark .n{stroke-dashoffset:0}}
@@ -1124,7 +1148,8 @@ async function loadData(){
   D={asof:mf.asof,d1:mf.d1,d3:mf.d3,d5:mf.d5,funds,byCode:new Map(funds.map(f=>[f.c,f])),isin:new Map(funds.filter(f=>f.i).map(f=>[f.i,f])),cat:mf.catStats,catNames:mf.cats,amcs:mf.amcs,bench:mf.bench,pms:pm.rows,pmsU:pm.universe,pmsSrc:pm.src,pmsProv:[...prov.values()],pmsMap:new Map(pm.rows.map(p=>[p.id,p])),people:ppl,months:mf.months,winEnd:mf.winEnd,winE:mf.months.indexOf(mf.winEnd),benchS:mf.benchSeries,pmsBench:pm.bench};
   D.people.forEach((x,i)=>{x.i=i;const fl=x.f.toLowerCase();const m=D.pmsProv.filter(o=>o.full.toLowerCase().includes(fl)).sort((a,b)=>b.aum-a.aum)[0];x.prov=m||null;
     if(m){const sc=m.ps.filter(p=>p.q!=null);const w=sc.reduce((t,p)=>t+(p.aum||1),0);x.score=sc.length?Math.round(sc.reduce((t,p)=>t+p.q*(p.aum||1),0)/w):null;m.people=(m.people||[]).concat(x);m.key+=' '+norm(x.n);m.ps.forEach(p=>p.key+=' '+norm(x.n));}
-    x.key=norm(x.n+' '+x.r+' '+x.f+' '+(m?m.full+' '+pmAlias(m.full):'')+' fund manager cio');});
+    x.fd=x.ff||(m?m.n:x.f);x.key=norm(x.n+' '+x.r+' '+x.f+' '+x.fd+' '+(m?m.full+' '+pmAlias(m.full):'')+' fund manager cio');
+    if(m){const c={};m.ps.forEach(p=>c[p.st]=(c[p.st]||0)+(p.aum||1));x.style=Object.entries(c).sort((a,b)=>b[1]-a[1])[0][0];}});
   D.amcStats={};funds.forEach(f=>{const a=D.amcStats[f.amc]||(D.amcStats[f.amc]={n:0,d:0,qs:[]});a.n++;if(f.direct){a.d++;if(f.q!=null)a.qs.push(f.q);}});
   for(const k in D.amcStats){const q=D.amcStats[k].qs.sort((a,b)=>a-b);D.amcStats[k].med=q.length?q[Math.floor(q.length/2)]:null;}
 }
@@ -1333,14 +1358,30 @@ function pmsRow(p,sk){const ft=pmsFit(p),lb=fitLab(ft.fit);const side=sk==='aum'
   return `<button class="row tap" data-pms="${p.id}">${meter(ft.fit,{size:'sm'})}<span class="t"><b>${esc(p.n)}</b><small>${esc(p.pm)}</small><span class="meta"><span class="pill ${lb[1]}">${lb[0]}</span><span class="pill plain">${esc(p.st)}</span>${p.yrs<3?'<span class="pill plain">Under 3 yrs</span>':''}</span></span><span class="side">${side[0]}<small>${side[1]}</small></span></button>`;}
 const initials=n=>n.split(/\s+/).filter(Boolean).map(w=>w[0]).filter(c=>/[A-Za-z]/.test(c)).slice(0,2).join('').toUpperCase();
 const hueOf=n=>[...n].reduce((h,c)=>(h*31+c.charCodeAt(0))%360,7);
-function personRow(x){return `<button class="row tap person" data-person="${x.i}"><span class="pav" style="--h:${hueOf(x.n)}">${initials(x.n)}</span><span class="t"><b>${esc(x.n)}</b><small>${esc(x.r)}</small><span class="meta"><span class="pill plain">${esc(x.f)}</span>${x.prov?`<span class="pill plain">${x.prov.ps.length} strateg${x.prov.ps.length>1?'ies':'y'}</span>`:''}</span></span>${meter(x.score,{size:'sm'})}</button>`;}
+function personRow(x){return `<button class="row tap person" data-person="${x.i}"><span class="pav" style="--h:${hueOf(x.n)}">${initials(x.n)}</span><span class="t"><b>${esc(x.n)}</b><small>${esc(x.r)}</small><span class="meta"><span class="pill plain">${esc(x.fd)}</span>${x.exp?`<span class="pill plain">${esc(x.exp)}</span>`:''}${x.prov?`<span class="pill plain">${x.prov.ps.length} strateg${x.prov.ps.length>1?'ies':'y'}</span>`:''}</span></span>${meter(x.score,{size:'sm'})}</button>`;}
+function personRead(x,ps){const o=x.prov;if(!o)return `${x.n}'s strategies are not in the APMI equity data NIVO tracks, so there is no score yet. Ask for the disclosure document and audited returns before investing.`;
+  const b=ps.filter(p=>p.q!=null)[0]||ps[0];const B=D.pmsBench[b.bk]||{r:{}};const lead=b.r3!=null&&B.r[3]!=null?`${pc(b.r3)} a year over 3 years against ${pc(B.r[3])} for the ${B.name.replace(/ \(50:50\)/,'')}`:b.r1!=null?`${pc(b.r1)} over the last year`:'a short record so far';
+  const tone=x.score==null?'not yet scored':x.score>=80?'among the strongest firms NIVO tracks':x.score>=65?'above the typical PMS':x.score>=50?'around the middle of the pack':'below most peers';
+  return `${esc(o.n)} scores ${sc10(x.score)}/10 on the money-weighted NIVO Score, ${tone}. Its strongest strategy, ${esc(b.n)}, returned ${lead}. Most of the money sits in ${esc((x.style||b.st).toLowerCase())}.`;}
+function personSuits(x){const st=(x.style||'').toLowerCase();const P=S.ips;
+  const base=/mid|small/.test(st)?'Investors with 7+ years who can sit through sharp falls; mid and small caps can drop 30–40% in a bad year.':/large/.test(st)?'Investors who want steadier, large-company exposure as a core holding.':/quant/.test(st)?'Investors comfortable with a rules-based process that can trail in sudden market turns.':/thematic/.test(st)?'A small satellite holding for investors who already have a diversified core.':/multi-asset/.test(st)?'Cautious investors who want a mix of assets in one account.':'Investors looking for a core equity holding across company sizes, with a 5+ year view.';
+  if(!P)return base+' Build your IPS to see if it fits you.';const ft=x.prov&&x.prov.ps.map(p=>pmsFit(p).fit??-1).sort((a,b)=>b-a)[0];
+  return base+(P.pmsOK?` For your IPS, its best strategy has a NIVO Fit of ${sc10(ft)}/10.`:' Your IPS does not allow PMS yet, so treat this as one to watch.');}
 function openPerson(i){const x=D.people[+i];if(!x)return;const o=x.prov;const ps=o?o.ps.slice().sort((a,b)=>(pmsFit(b).fit??-1)-(pmsFit(a).fit??-1)):[];
-  openSheet(`<div class="ph"><span class="pav xl" style="--h:${hueOf(x.n)}">${initials(x.n)}</span><div><p class="eyebrow">PMS fund manager</p><h2 class="sheet-h" style="padding:0">${esc(x.n)}</h2><p class="small muted" style="margin:3px 0 0">${esc(x.r)}${o?' · '+esc(o.n):''}</p></div></div>
-  ${o?`<div class="kvg"><div><small>Firm NIVO Score</small><b>${sc10(x.score)}<small>/10</small></b></div><div><small>Strategies</small><b>${o.ps.length}</b></div><div><small>Firm money managed</small><b>${aumT(o.aum)}</b></div></div>`:''}
-  <div class="card pcard2"><small class="eyebrow">Background</small><p>${esc(x.bg)}</p><small class="eyebrow">How they invest</small><p>${esc(x.st)}</p></div>
-  ${ps.length?`<div class="sblock"><h3>Strategies at ${esc(o.n)} <small>${S.ips?'ranked by fit with your IPS':'ranked by NIVO Score'}</small></h3><div class="rlist">${ps.map(p=>pmsRow(p)).join('')}</div></div>`:''}
-  <div class="btn-row"><button class="btn sec" data-act="ask-about" data-q="${esc('Tell me about '+x.n+' ('+x.r+(o?', '+o.n:'')+') and whether their PMS strategies suit my IPS.')}">${I.ai}Ask AI</button>${o?`<button class="btn sec" data-co="${esc('pm|'+o.n)}">Firm page</button>`:''}</div>
-  <p class="tiny" style="margin:0">Profile summarises public information as of ${new Date().toLocaleDateString('en-IN',{month:'short',year:'numeric'})}. Roles change, so check who manages your money in the disclosure document. Firm NIVO Score is a money-weighted average of the firm's strategies, not a rating of the person.${x.src?` Source: <a href="${esc(x.src)}" target="_blank" rel="noopener">${esc(new URL(x.src).hostname.replace('www.',''))}</a>.`:''}</p>`);}
+  const peers=D.people.filter(y=>y!==x&&y.prov&&x.style&&y.style===x.style&&y.prov!==x.prov).sort((a,b)=>(b.score??-1)-(a.score??-1)).slice(0,3);
+  const colleagues=D.people.filter(y=>y!==x&&y.prov&&o&&y.prov===o);
+  openSheet(`<div class="ph"><span class="pav xl" style="--h:${hueOf(x.n)}">${initials(x.n)}</span><div><p class="eyebrow">PMS fund manager</p><h2 class="sheet-h" style="padding:0">${esc(x.n)}</h2><p class="small muted" style="margin:3px 0 0">${esc(x.r)} · ${esc(x.fd)}</p></div></div>
+  <div class="kvg kv4"><div><small>Firm NIVO Score</small><b>${sc10(x.score)}<small>/10</small></b></div><div><small>Experience</small><b>${esc(x.exp||'—')}</b></div><div><small>Strategies</small><b>${o?o.ps.length:'—'}</b></div><div><small>Money managed</small><b>${o?aumT(o.aum):'—'}</b></div></div>
+  <div class="card mread"><p class="eyebrow">In short</p><p><b>NIVO's read:</b> ${personRead(x,ps)}</p><p><b>May suit:</b> ${esc(personSuits(x))}</p></div>
+  <div class="sblock"><h3>About</h3><p class="mp">${esc(x.bg)}</p>${x.edu?`<p class="mp"><b>Education:</b> ${esc(x.edu)}</p>`:''}</div>
+  ${x.career&&x.career.length?`<div class="sblock"><h3>Career</h3><ol class="ctl">${x.career.map(c=>`<li><span></span><p>${esc(c)}</p></li>`).join('')}</ol></div>`:''}
+  <div class="sblock"><h3>How they invest</h3><div class="card mstyle">${I.target}<p>${esc(x.st)}</p></div></div>
+  ${ps.length?`<div class="sblock"><h3>Track record <small>after fees, a year, to ${dt(D.pmsU.asof)}</small></h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Strategy</th><th>1Y</th><th>3Y</th><th>5Y</th><th>NIVO</th></tr></thead><tbody>${ps.map(p=>`<tr class="tap" data-pms="${p.id}"><td><b>${esc(p.n)}</b><br><small class="tiny">${esc(p.st)} · ${aumT(p.aum)}</small></td><td>${pc(p.r1)}</td><td>${pc(p.r3)}</td><td>${pc(p.r5)}</td><td><b>${sc10(p.q)}</b></td></tr>`).join('')}</tbody></table></div><p class="tiny" style="margin:0">Tap a strategy for its charts, volatility check and fit with your IPS. Firm figures from APMI; one manager may not run every strategy listed.</p></div>`:`<div class="flag">${I.info}<span>No strategies from ${esc(x.fd)} appear in APMI's discretionary equity data, so NIVO cannot score them yet.</span></div>`}
+  ${colleagues.length?`<div class="sblock"><h3>Also at ${esc(o.n)}</h3><div class="rlist">${colleagues.map(personRow).join('')}</div></div>`:''}
+  ${peers.length?`<div class="sblock"><h3>How they compare <small>other ${esc(x.style.toLowerCase())} managers</small></h3><div class="rlist">${peers.map(personRow).join('')}</div></div>`:''}
+  <div class="sblock"><h3>Ask before you invest</h3><ol class="qs">${['Who exactly will manage my money day to day, and who stands in if they leave?','What are the fixed fee, profit share, hurdle and exit load, in rupees on my amount?','What was the worst fall from peak in the last five years, and how long did recovery take?','How much of your own money is in the same strategy?','Has SEBI or APMI raised any issue with the firm? Ask for the disclosure document.'].map(q=>`<li>${esc(q)}</li>`).join('')}</ol></div>
+  <div class="btn-row"><button class="btn sec" data-act="ask-about" data-q="${esc('Tell me about '+x.n+' ('+x.r+', '+x.fd+') and whether their PMS strategies suit my IPS.')}">${I.ai}Ask NIVO</button>${o?`<button class="btn sec" data-co="${esc('pm|'+o.n)}">Firm page</button>`:''}</div>
+  <p class="tiny" style="margin:0">Profile written by NIVO from public information, Nov 2026. Roles change, so confirm in the disclosure document. Firm NIVO Score is a money-weighted average of the firm's strategies, not a rating of the person.${x.src&&x.src.length?` Sources: ${x.src.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}.`:''}</p>`);}
 function provRow(o){return `<button class="row tap" data-co="${esc('pm|'+o.n)}"><span class="av">${esc(o.n.replace(/[^A-Za-z0-9 ]/g,'').split(' ').filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><span class="t"><b>${esc(o.n)}</b><small>PMS manager · ${o.ps.length} strateg${o.ps.length>1?'ies':'y'} · ${aumT(o.aum)}</small></span><span class="side">${o.best>=0?sc10(o.best):'—'}<small>Best NIVO</small></span></button>`;}
 
 /* ================= HOME ================= */
@@ -1389,9 +1430,9 @@ function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.ho
   <p class="foot">NIVO works only for you. No fund house pays for a rating or a ranking.</p>`;
   animateIn($('#v-home'));startGlobe();}
 const PERSONAS=[
- {k:'first',t:'First-time PMS investor',tag:'₹50 L – ₹1 Cr',h:'Your mutual funds have done their job. Now you want to know if a PMS is worth the fees, and which one.',pts:['A straight answer on whether PMS suits you yet','A shortlist of steady strategies with long records','Fees, lock-ins and exit loads in rupees','The questions to ask before you sign'],pre:{exp:'some',corpus:7500000,goal:'grow'},art:'seed'},
- {k:'mf',t:'Graduating from mutual funds',tag:'₹25 L – ₹1 Cr',h:'Your SIPs have grown up. You want to know what to keep, what to cut, and when a PMS starts to make sense.',pts:['Every fund you own scored against its category','Commission hiding in Regular plans, in rupees','A clear keep, switch or cut list','PMS that fit you once you cross ₹50 lakh'],pre:{exp:'some',corpus:3000000,goal:'grow'},art:'steps'},
- {k:'hni',t:'Seasoned HNI',tag:'₹1 Cr and above',h:'You hold PMS, funds and perhaps AIFs across several managers. You want a second opinion with no sales agenda.',pts:['Each PMS you hold scored against its own index','A volatility check on how each one rode the falls','Style overlap across managers, side by side','AI picks to fill the gaps in your IPS'],pre:{exp:'adv',corpus:30000000,goal:'grow'},art:'tower'}];
+ {k:'first',img:'https://images.unsplash.com/photo-1573165850883-9b0e18c44bd2?w=900&q=70&auto=format&fit=crop',t:'First-time PMS investor',tag:'₹50 L – ₹1 Cr',h:'Your mutual funds have done their job. Now you want to know if a PMS is worth the fees, and which one.',pts:['A straight answer on whether PMS suits you yet','A shortlist of steady strategies with long records','Fees, lock-ins and exit loads in rupees','The questions to ask before you sign'],pre:{exp:'some',corpus:7500000,goal:'grow'},art:'seed'},
+ {k:'mf',img:'https://images.unsplash.com/photo-1758598497485-300d809e55ad?w=900&q=70&auto=format&fit=crop',t:'Graduating from mutual funds',tag:'₹25 L – ₹1 Cr',h:'Your SIPs have grown up. You want to know what to keep, what to cut, and when a PMS starts to make sense.',pts:['Every fund you own scored against its category','Commission hiding in Regular plans, in rupees','A clear keep, switch or cut list','PMS that fit you once you cross ₹50 lakh'],pre:{exp:'some',corpus:3000000,goal:'grow'},art:'steps'},
+ {k:'hni',img:'https://images.unsplash.com/photo-1771244688590-1e481dba1b5a?w=900&q=70&auto=format&fit=crop',t:'Seasoned HNI',tag:'₹1 Cr and above',h:'You hold PMS, funds and perhaps AIFs across several managers. You want a second opinion with no sales agenda.',pts:['Each PMS you hold scored against its own index','A volatility check on how each one rode the falls','Style overlap across managers, side by side','AI picks to fill the gaps in your IPS'],pre:{exp:'adv',corpus:30000000,goal:'grow'},art:'tower'}];
 const PART={seed:`<svg viewBox="0 0 120 100" class="part"><circle cx="60" cy="62" r="20" class="pa1"/><circle cx="60" cy="62" r="34" class="pa2"/><path d="M60 62 V30 M60 42 q-14 -2 -18 -14 q14 0 18 14 M60 36 q12 -2 16 -12 q-12 0 -16 12" class="pa3"/></svg>`,
  steps:`<svg viewBox="0 0 120 90" class="part"><rect x="18" y="58" width="16" height="22" rx="4" class="pa1 g1"/><rect x="42" y="46" width="16" height="34" rx="4" class="pa1 g2"/><rect x="66" y="32" width="16" height="48" rx="4" class="pa1 g3"/><rect x="90" y="16" width="16" height="64" rx="4" class="pa2 g4"/><path d="M14 52 L44 40 L70 26 L104 8" class="pa3"/></svg>`,
  tower:`<svg viewBox="0 0 120 90" class="part"><ellipse cx="60" cy="70" rx="40" ry="10" class="pa2 g1"/><ellipse cx="60" cy="54" rx="32" ry="9" class="pa1 g2"/><ellipse cx="60" cy="39" rx="24" ry="8" class="pa1 g3"/><ellipse cx="60" cy="25" rx="15" ry="6" class="pa2 g4"/><circle cx="60" cy="12" r="3.5" class="pa3d"/></svg>`};
@@ -1400,7 +1441,7 @@ function personaHTML(){const k=S.persona||'first';const p=PERSONAS.find(x=>x.k==
   <h2 class="land-h">Every investor starts <span>somewhere different.</span></h2>
   <p class="sub">Pick the one closest to you. NIVO shapes your plan, your shortlist and your AI picks around it.</p>
   <div class="ptabs" role="tablist">${PERSONAS.map(x=>`<button class="ptab ${x.k===k?'on':''}" role="tab" aria-selected="${x.k===k}" data-act="persona" data-v="${x.k}">${x.t}</button>`).join('')}</div>
-  <article class="pcard" id="pcard"><div class="pcard-art">${PART[p.art]}<span class="ptag">${p.tag}</span></div><div class="pcard-b"><h3>${p.t}</h3><p>${p.h}</p><ul>${p.pts.map(t=>`<li>${I.tick}<span>${t}</span></li>`).join('')}</ul>
+  <article class="pcard" id="pcard"><div class="pcard-art">${PART[p.art]}${p.img?`<img class="pphoto" src="${p.img}" alt="" loading="lazy" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()"><span class="pcredit">Photo: Unsplash</span>`:''}<span class="ptag">${p.tag}</span></div><div class="pcard-b"><h3>${p.t}</h3><p>${p.h}</p><ul>${p.pts.map(t=>`<li>${I.tick}<span>${t}</span></li>`).join('')}</ul>
   <div class="btn-row"><button class="btn pri" data-act="persona-go" data-v="${p.k}">${S.ips&&S.persona===p.k?'Update my track':'Start my track'}</button>${p.k==='mf'?`<button class="btn sec" data-act="import">Import my CAS</button>`:p.k==='hni'?`<button class="btn sec" data-act="xseg-pms">Browse all PMS</button>`:`<button class="btn sec" data-act="xseg-pms">See top PMS</button>`}</div></div></article></section>`;}
 function hexField(){const R=30,w=Math.sqrt(3)*R,hh=1.5*R,cols=Math.ceil(1400/w)+1,rows=Math.ceil(700/hh)+1;let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;let polys='';
   const pt=(cx,cy)=>[0,1,2,3,4,5].map(k=>{const a=Math.PI/180*(60*k-30);return (cx+R*Math.cos(a)).toFixed(1)+','+(cy+R*Math.sin(a)).toFixed(1);}).join(' ');
