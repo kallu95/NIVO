@@ -928,6 +928,58 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 .no-ai .only-noai{display:inline-flex!important}
 .no-ai [data-go="ask"],.no-ai .tn.ai,.no-ai [data-act="ai-pms"],.no-ai .aipms,.no-ai [data-act="ask-fund"],.no-ai [data-act="ask-pms"],.no-ai [data-act="ask-about"],.no-ai [data-act="pitch-tab"]{display:none!important}
 .no-ai .tab-in{grid-template-columns:repeat(4,1fr)}
+
+/* ===== v13: blue-to-black banner with hexagon pattern ===== */
+.hb4{background:linear-gradient(160deg,#1a52e0 0%,#0d34a8 26%,#071a5c 55%,#030a24 80%,#000000 100%)}
+.hb4::before{background:radial-gradient(70% 55% at 50% 0%,rgba(90,150,255,.35),transparent 65%)}
+.hb4 .au,.hb4 .hb3-pts,.hb4 .hb2-silk{display:none}
+.hx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;-webkit-mask-image:radial-gradient(120% 90% at 50% 45%,#000 25%,rgba(0,0,0,.35) 70%,transparent 100%);mask-image:radial-gradient(120% 90% at 50% 45%,#000 25%,rgba(0,0,0,.35) 70%,transparent 100%)}
+.hx polygon{fill:none;stroke:rgba(140,180,255,.13);stroke-width:1}
+.hx polygon.lit{fill:rgba(70,140,255,0);stroke:rgba(140,190,255,.13);animation:hexlit 7s ease-in-out infinite}
+@keyframes hexlit{0%,100%{fill:rgba(70,140,255,0);stroke:rgba(140,190,255,.13)}45%{fill:rgba(70,140,255,.32);stroke:rgba(170,215,255,.85)}60%{fill:rgba(70,140,255,.12)}}
+.hx-glow{position:absolute;z-index:-1;width:46%;aspect-ratio:1;border-radius:50%;top:10%;left:-10%;background:radial-gradient(circle,rgba(60,130,255,.45),rgba(60,130,255,0) 65%);filter:blur(10px);animation:sweep 16s ease-in-out infinite alternate}
+@keyframes sweep{0%{transform:translate(0,0)}50%{transform:translate(120%,25%)}100%{transform:translate(220%,-10%)}}
+.geo{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.geo svg{position:absolute;fill:none;stroke:rgba(150,200,255,.35);stroke-width:.6}
+.geo polygon+polygon{stroke:rgba(150,200,255,.18)}
+.geo .g1{width:220px;left:-60px;bottom:-40px;animation:geo1 40s linear infinite}
+.geo .g2{width:260px;right:-70px;top:-60px;animation:geo2 55s linear infinite}
+.geo .g3{width:120px;right:12%;bottom:8%;stroke:rgba(120,220,255,.4);animation:geo3 22s ease-in-out infinite}
+@keyframes geo1{to{transform:rotate(360deg)}}
+@keyframes geo2{to{transform:rotate(-360deg)}}
+@keyframes geo3{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-24px) rotate(30deg)}}
+@media (max-width:600px){.geo .g3{display:none}.geo .g1{width:150px}.geo .g2{width:170px}}
+@media (prefers-reduced-motion:reduce){.hx polygon.lit,.hx-glow,.geo svg{animation:none!important}}
+
+/* ===== v14: cleaner layout ===== */
+.start{display:grid;gap:8px;padding:16px}
+.start-h{font:700 16px var(--f-display);margin:0 2px 2px}
+.start-r{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;text-align:left;border:0;background:var(--card2);border-radius:16px;padding:12px;cursor:pointer;color:var(--ink)}
+.start-r .no{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:800 14px var(--f-display);color:#fff;background:linear-gradient(140deg,var(--hero2),var(--hero3))}
+.start-r .no.done{background:var(--good)}.start-r .no svg{width:16px;height:16px}
+.start-r b{display:block;font:700 15px var(--f-display)}.start-r small{color:var(--ink2);font-size:13px}
+.start-r>svg{width:18px;height:18px;color:var(--ink3)}
+.aboutc{display:grid;gap:12px;padding:18px}
+.aboutc-h{display:flex;gap:12px;align-items:center}
+.aboutc-h b{font:700 17px/1.25 var(--f-display)}
+.aboutc>p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.55}
+.aboutc-l{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.aboutc-l li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink2)}
+.aboutc-l li svg{width:18px;height:18px;flex:none;color:var(--blue);margin-top:1px}
+.aboutc-l b{color:var(--ink);margin-right:4px}
+.aboutc .link{justify-self:start;display:inline-flex;align-items:center;gap:4px}.aboutc .link svg{width:16px;height:16px}
+@media (min-width:760px){.aboutc-l{grid-template-columns:repeat(3,1fr)}}
+.trackc{display:flex;gap:12px;align-items:center;padding:14px}
+.trackc .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--card2);color:var(--blue);flex:none}.trackc .ic svg{width:18px;height:18px}
+.trackc>div{flex:1;min-width:0;display:grid}.trackc b{font:700 15px var(--f-display)}
+.stabs{position:sticky;top:-8px;z-index:3;display:flex;gap:4px;padding:4px;border-radius:14px;background:var(--card-solid);border:1px solid var(--glass-brd);box-shadow:var(--glass-sh);overflow-x:auto;scrollbar-width:none}
+.stabs::-webkit-scrollbar{display:none}
+.stabs button{flex:1;min-width:max-content;border:0;background:none;padding:9px 12px;border-radius:10px;font:700 13.5px var(--f-display);color:var(--ink2);cursor:pointer;transition:background .25s,color .25s}
+.stabs button.on{background:linear-gradient(140deg,var(--hero2),var(--blue-2));color:#fff}
+.stab-p{display:grid;gap:16px;animation:tabin .35s ease}
+@keyframes tabin{from{opacity:0;transform:translateY(6px)}}
+.stab-p>.sblock:first-child h3{margin-top:0}
+.hb2-trust{gap:6px 8px}
 @media (max-width:440px){.asof{display:none}}
 @media (max-width:370px){.qa{grid-template-columns:1fr}.kvg{grid-template-columns:1fr 1fr}.big{font-size:28px}.tally{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.mark .n{stroke-dashoffset:0}}
@@ -1081,6 +1133,7 @@ function lineChart(o){const W=320,H=150,pl=6,pr=6,pt=12,pb=22;const all=[...o.a,
 function barPairs(a,b,labels,aria){const W=320,H=150,pt=16,pb=24;const vals=[...a,...b].filter(v=>v!=null);const mx=Math.max(5,...vals),mn=Math.min(0,...vals);const Y=v=>pt+(mx-v)/(mx-mn)*(H-pt-pb),z=Y(0);const gw=(W-8)/labels.length,bw=Math.min(16,gw/3.2);
   return `<svg class="bp" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(aria)}"><line x1="4" x2="${W-4}" y1="${z}" y2="${z}" class="lc-base"/>${labels.map((l,i)=>{const cx=4+gw*i+gw/2;const one=(v,dx,c,k)=>{if(v==null)return '';const y=Math.min(Y(v),z),h=Math.max(1.5,Math.abs(Y(v)-z));return `<rect x="${(cx+dx-bw/2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" class="bp-${c}" style="--o:${z.toFixed(1)}px;--d:${i*80+k*40}ms"/><text x="${(cx+dx).toFixed(1)}" y="${(v>=0?y-3:y+h+9).toFixed(1)}" class="bp-v ${c}" text-anchor="middle">${Math.round(v)}</text>`;};
     return one(a[i],-bw*0.6,'a',0)+one(b[i],bw*0.6,'b',1)+`<text x="${cx}" y="${H-6}" class="lc-t" text-anchor="middle">${l}</text>`;}).join('')}</svg>`;}
+function tabs(arr){arr=arr.filter(a=>a[1]&&a[1].trim());return `<div class="stabs" role="tablist">${arr.map(([l],i)=>`<button role="tab" class="${i?'':'on'}" aria-selected="${!i}" data-act="stab" data-i="${i}">${l}</button>`).join('')}</div>${arr.map(([,h],i)=>`<div class="stab-p" data-i="${i}"${i?' hidden':''}>${h}</div>`).join('')}`;}
 function pillarsHTML(pp,note){if(!pp||pp.every(v=>v==null))return '';return `<div class="pillars">${PIL.map(([l,w],i)=>`<div class="pil"><span class="pl-l">${l}<small>${w}%</small></span><span class="pl-bar"><i style="--w:${pp[i]??0}%"></i></span><b>${pp[i]==null?'—':(pp[i]/10).toFixed(1)}</b></div>`).join('')}</div>${note?`<p class="tiny" style="margin:0">${note}</p>`:''}`;}
 function cmpRow(l,a,b,fmt,lowerBetter,bName){const better=a!=null&&b!=null&&(lowerBetter?a<b:a>b);const mx=Math.max(Math.abs(a??0),Math.abs(b??0))||1;
   return `<div class="vr"><div class="vr-h"><span>${l}</span>${a!=null&&b!=null?`<span class="pill ${better?'good':'warn'}">${better?'Better':'Worse'} than index</span>`:''}</div><div class="vr-b"><span>This one</span><span class="vb"><i class="a" style="--w:${Math.abs(a??0)/mx*100}%"></i></span><b>${fmt(a)}</b></div>${b!=null?`<div class="vr-b"><span>${esc(bName)}</span><span class="vb"><i class="b" style="--w:${Math.abs(b)/mx*100}%"></i></span><b>${fmt(b)}</b></div>`:''}</div>`;}
@@ -1282,44 +1335,36 @@ function prow(p){const ft=pmsFit(p);return `<button class="frow tap" data-pms="$
 function frow(f){const ft=fitFor(f);return `<button class="frow tap" data-fund="${f.c}"><span class="t"><b>${esc(f.sn)}</b><small>${esc(amcShort(f.amc))} · ${f.r3!=null?'3Y '+pc(f.r3)+' / yr':'1Y '+pc(f.r1)}</small></span>${meter(ft.fit)}</button>`;}
 function topFunds(pred,n,needR3){const r=[];D.funds.forEach(f=>{if(!f.direct||f.q==null||!pred(f))return;if(needR3&&f.r3==null)return;r.push(f);});return r.sort((a,b)=>(fitFor(b).fit??-1)-(fitFor(a).fit??-1)).slice(0,n);}
 function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.holdings.length>0;
+  const al=alertsFor(A).filter(a=>!(a.act==='wizard'&&!P)&&!(a.act==='import'&&!has)).slice(0,3);
   let best;
-  if(P)best=['core','sat','intl','debt','gold','cash'].filter(k=>P.al[k]>0).map(k=>{const fs=topFunds(f=>roleOf(f.cat)===k,P.al[k]>=15?2:1,k==='core'||k==='debt');return `<div class="slot"><div class="slot-h"><i style="background:${BK[k].c}"></i><b>${BK[k].l}</b><span>${P.al[k]}% of plan</span></div>${fs.map(frow).join('')}<button class="link more" data-act="slot" data-k="${k}">More ${BK[k].l.toLowerCase()} options</button></div>`;}).join('');
-  else best=[['Large Cap','Large cap'],['Flexi Cap','Flexi cap'],['Mid Cap','Mid cap'],['Small Cap','Small cap'],['Corporate Bond','Corporate bond'],['Liquid','Liquid']].map(([c,l])=>`<div class="slot"><div class="slot-h"><i style="background:var(--blue-2)"></i><b>${l}</b><span>Highest score</span></div>${topFunds(f=>f.cat===c,1,true).map(frow).join('')}</div>`).join('');
-  const idx=[[120716,'Nifty 50'],[147625,'Nifty 500'],[147622,'Midcap 150'],[147623,'Smallcap 250']].map(([c,l])=>({f:D.byCode.get(c),l})).filter(x=>x.f);
-  const al=alertsFor(A).slice(0,3);
-  const hero=has?`<article class="hero tap" data-go="portfolio" role="link" tabindex="0"><div class="hero-row"><span class="eyebrow">My portfolio</span>${P?`<span class="glass">${P.profile}</span>`:''}</div>
+  if(P)best=['core','sat','intl','debt','gold'].filter(k=>P.al[k]>0).slice(0,4).map(k=>{const f=topFunds(f=>roleOf(f.cat)===k,1,k==='core'||k==='debt')[0];return f?`<div class="slot"><div class="slot-h"><i style="background:${BK[k].c}"></i><b>${BK[k].l}</b><span>${P.al[k]}% of plan</span></div>${frow(f)}</div>`:'';}).join('');
+  else best=[['Flexi Cap','Flexi cap'],['Large Cap','Large cap'],['Mid Cap','Mid cap'],['Corporate Bond','Corporate bond']].map(([c,l])=>{const f=topFunds(x=>x.cat===c,1,true)[0];return f?`<div class="slot"><div class="slot-h"><i style="background:var(--blue-2)"></i><b>${l}</b></div>${frow(f)}</div>`:'';}).join('');
+  const status=has?`<article class="hero tap" data-go="portfolio" role="link" tabindex="0"><div class="hero-row"><span class="eyebrow">My portfolio</span>${P?`<span class="glass">${P.profile}</span>`:''}</div>
     <div class="big" data-count="${Math.round(A.tot)}">${inr(A.tot)}</div>
     <div class="note">${S.holdings.length} holding${S.holdings.length>1?'s':''} · equity ${A.eqA.toFixed(0)}%${P?` vs ${P.eqT}% in your IPS`:''}</div>
-    <div class="stack" style="margin-top:12px;background:rgba(255,255,255,.18)">${Object.keys(BK).map(k=>`<i data-w="${A.pct[k].toFixed(1)}" style="background:${k==='core'?'#ffffff':k==='sat'?'#c9d8ff':k==='intl'?'#9fc4ff':k==='debt'?'#6db3ff':k==='gold'?'#ffd36b':'#2a4a8f'}"></i>`).join('')}</div>
-    <div class="hero-grid"><div><small>Commission leak</small><b>${A.leak?inr(A.leak)+'/yr':'None'}</b></div><div><small>Goal status</small><b>${P?{ahead:'Ahead',ontrack:'On track',stretch:'Stretch',gap:'Off track',nogoal:'No target'}[P.status]:'No IPS yet'}</b></div><div><small>Weak holdings</small><b>${A.weak.length}</b></div></div>
-    <div class="shine"></div></article>`
-   :`<article class="hero"><span class="eyebrow">Get started</span><div style="font:800 22px/1.2 var(--f-display);margin:6px 0 12px">Two steps to your own wealth view</div>
-    <div class="steps2"><button class="st tap" data-act="wizard"><span class="no ${P?'done':''}">${P?I.tick:'1'}</span><span><b>${P?'IPS ready':'Build your IPS'}</b><small>${P?P.profile+' · '+P.eqT+'% equity':'Six quick questions, about two minutes'}</small></span></button>
-    <button class="st tap" data-act="import"><span class="no">2</span><span><b>Import your portfolio</b><small>CAS statement or add holdings by hand</small></span></button></div><div class="shine"></div></article>`;
+    <div class="hero-grid"><div><small>Commission leak</small><b>${A.leak?inr(A.leak)+'/yr':'None'}</b></div><div><small>Goal</small><b>${P?{ahead:'Ahead',ontrack:'On track',stretch:'Stretch',gap:'Off track',nogoal:'No target'}[P.status]:'No IPS yet'}</b></div><div><small>Weak holdings</small><b>${A.weak.length}</b></div></div><div class="shine"></div></article>`
+   :`<div class="card start"><b class="start-h">${P?'One step left':'Start in two steps'}</b>
+    <button class="start-r tap" data-act="wizard"><span class="no ${P?'done':''}">${P?I.tick:'1'}</span><span><b>${P?'Your IPS is ready':'Build your IPS'}</b><small>${P?P.profile+' · '+P.eqT+'% equity':'Six questions, about two minutes'}</small></span>${I.chev}</button>
+    <button class="start-r tap" data-act="import"><span class="no">2</span><span><b>Add your portfolio</b><small>Upload a CAS statement or add holdings by hand</small></span>${I.chev}</button></div>`;
   $('#v-home').innerHTML=`
   ${heroBanner(P,h)}
   <button class="sbox" data-act="search-focus" style="cursor:text;text-align:left;width:100%">${I.search}<span style="flex:1;color:var(--ink3);font-weight:500">Search a PMS, manager or fund</span></button>
-  ${hero}
-  <div class="qa">
-    <button class="qa-t tap" data-act="wizard"><span class="ic">${I.target}</span><b>${P?'Update my IPS':'Build my IPS'}</b><small>Six quick steps to a full investment mandate</small></button>
-    <button class="qa-t tap" data-act="import"><span class="ic">${I.upload}</span><b>Import portfolio</b><small>CAS statement, demat or manual entry</small></button>
-    <button class="qa-t tap" data-act="pitch-tab"><span class="ic">${I.scan}</span><b>Check a pitch</b><small>Fact-check any RM deck against real data</small></button>
-    <button class="qa-t tap" data-go="ask"><span class="ic">${I.ai}</span><b>Ask NIVO</b><small>Questions about funds, fees or your plan</small></button>
-  </div>
-  ${globeHTML()}
+  ${status}
+  ${aboutCard()}
   ${al.length?`<div class="sec-h"><h3>Needs your attention</h3></div><div class="card alerts">${al.map(alHTML).join('')}</div>`:''}
-  <div class="sec-h"><h3>${P?'PMS picks for your IPS':'Top-rated PMS strategies'}</h3><button class="link" data-act="xseg-pms">See all ${D.pms.length.toLocaleString('en-IN')}</button></div>
-  <div class="card fitlist">${P&&!P.pmsOK?`<div class="flag" style="margin:4px 6px 6px">${I.info}<span>${P.a.corpus<5e6?`PMS needs at least ₹50 lakh and you are investing ${inr(P.a.corpus)}. These are the strategies to watch for later.`:'Your risk profile says PMS is not suitable right now. These are shown for reference.'}</span></div>`:''}${pmsPicks(4).map(prow).join('')}</div>
-  ${P?aiPmsCard():`<p class="tiny" style="margin:-8px 4px 0">NIVO Scores rank every strategy against all ${D.pmsU.n.toLocaleString('en-IN')} equity PMS on five pillars. Build your IPS to rank by fit instead.</p>`}
-  ${P?'':scoreHTML()+featHTML()}
-  <div class="sec-h"><h3>${P?'Mutual fund best fits':'Top mutual funds by category'}</h3><button class="link" data-act="xseg-mf">See all</button></div>
+  <div class="sec-h"><h3>${P?'PMS picks for you':'Top-rated PMS'}</h3><button class="link" data-act="xseg-pms">See all</button></div>
+  <div class="card fitlist">${P&&!P.pmsOK?`<div class="flag" style="margin:4px 6px 6px">${I.info}<span>${P.a.corpus<5e6?'PMS needs at least ₹50 lakh. These are ones to watch for later.':'PMS doesn’t suit your risk profile yet. Shown for reference.'}</span></div>`:''}${pmsPicks(5).map(prow).join('')}</div>
+  ${P?aiPmsCard():''}
+  <div class="sec-h"><h3>${P?'Mutual funds for you':'Top mutual funds'}</h3><button class="link" data-act="xseg-mf">See all</button></div>
   <div class="card fitlist">${best}</div>
-  ${P?'':`<p class="tiny" style="margin:-8px 4px 0">Scores rank each Direct plan against its category. Build your IPS to rank by fit with your goals instead.</p>`}
-  <div class="sec-h"><h3>Market check</h3><span class="tiny">Index funds · to ${dt(D.asof)}</span></div>
-  <div class="mkt">${idx.map(x=>`<div><small>${x.l}</small><b>${pc(x.f.r1)}</b> <span>1Y</span><br><span>3Y ${pc(x.f.r3)} / yr</span></div>`).join('')}<div style="grid-column:1/-1"><small>Median of ${D.pmsU.n.toLocaleString('en-IN')} equity PMS strategies (APMI, to ${dt(D.pmsU.asof)})</small><b>${pc(D.pmsU.r1)}</b> <span>1Y</span> · <span>3Y ${pc(D.pmsU.r3)} / yr · 5Y ${pc(D.pmsU.r5)} / yr</span></div></div>
-  ${faqHTML()}
-  <p class="foot">NIVO works only for you. No fund house pays for a rating or a ranking.</p>`;
-  animateIn($('#v-home'));startGlobe();}
+  <p class="foot">${P?'Ranked by fit with your IPS.':'Ranked by NIVO Score. Build your IPS to rank by fit.'} No fund house pays for a rating or a ranking.</p>`;
+  animateIn($('#v-home'));}
+function aboutCard(){return `<section class="card aboutc"><div class="aboutc-h"><span class="mini-globe" aria-hidden="true"></span><div><p class="eyebrow">About NIVO</p><b>Independent research for your money</b></div></div>
+  <p>NIVO scores every PMS and mutual fund in India on one yardstick, then ranks them for the plan you set. Nobody pays NIVO to list or rank anything.</p>
+  <ul class="aboutc-l"><li>${I.shield}<span><b>No commission</b> No paid rankings, ever</span></li><li>${I.chart}<span><b>One NIVO Score</b> Out of 10, for every PMS and fund</span></li><li>${I.target}<span><b>Matched to you</b> Your IPS decides the order</span></li></ul>
+  <button class="link" data-go="about">How NIVO works ${I.chev}</button></section>`;}
+function marketHTML(){const idx=[[120716,'Nifty 50'],[147625,'Nifty 500'],[147622,'Midcap 150'],[147623,'Smallcap 250']].map(([c,l])=>({f:D.byCode.get(c),l})).filter(x=>x.f);
+  return `<section class="faqsec"><div class="eyebrow-pill"><i></i>Market check</div><div class="mkt">${idx.map(x=>`<div><small>${x.l}</small><b>${pc(x.f.r1)}</b> <span>1Y</span><br><span>3Y ${pc(x.f.r3)} / yr</span></div>`).join('')}<div style="grid-column:1/-1"><small>Median of ${D.pmsU.n.toLocaleString('en-IN')} equity PMS (APMI, to ${dt(D.pmsU.asof)})</small><b>${pc(D.pmsU.r1)}</b> <span>1Y</span> · <span>3Y ${pc(D.pmsU.r3)} / yr · 5Y ${pc(D.pmsU.r5)} / yr</span></div></div></section>`;}
 const PERSONAS=[
  {k:'first',t:'First-time PMS investor',tag:'₹50 L – ₹1 Cr',h:'Your mutual funds have done their job. Now you want to know if a PMS is worth the fees, and which one.',pts:['A straight answer on whether PMS suits you yet','A shortlist of steady strategies with long records','Fees, lock-ins and exit loads in rupees','The questions to ask before you sign'],pre:{exp:'some',corpus:7500000,goal:'grow'},art:'seed'},
  {k:'mf',t:'Graduating from mutual funds',tag:'₹25 L – ₹1 Cr',h:'Your SIPs have grown up. You want to know what to keep, what to cut, and when a PMS starts to make sense.',pts:['Every fund you own scored against its category','Commission hiding in Regular plans, in rupees','A clear keep, switch or cut list','PMS that fit you once you cross ₹50 lakh'],pre:{exp:'some',corpus:3000000,goal:'grow'},art:'steps'},
@@ -1327,6 +1372,7 @@ const PERSONAS=[
 const PART={seed:`<svg viewBox="0 0 120 100" class="part"><circle cx="60" cy="62" r="20" class="pa1"/><circle cx="60" cy="62" r="34" class="pa2"/><path d="M60 62 V30 M60 42 q-14 -2 -18 -14 q14 0 18 14 M60 36 q12 -2 16 -12 q-12 0 -16 12" class="pa3"/></svg>`,
  steps:`<svg viewBox="0 0 120 90" class="part"><rect x="18" y="58" width="16" height="22" rx="4" class="pa1 g1"/><rect x="42" y="46" width="16" height="34" rx="4" class="pa1 g2"/><rect x="66" y="32" width="16" height="48" rx="4" class="pa1 g3"/><rect x="90" y="16" width="16" height="64" rx="4" class="pa2 g4"/><path d="M14 52 L44 40 L70 26 L104 8" class="pa3"/></svg>`,
  tower:`<svg viewBox="0 0 120 90" class="part"><ellipse cx="60" cy="70" rx="40" ry="10" class="pa2 g1"/><ellipse cx="60" cy="54" rx="32" ry="9" class="pa1 g2"/><ellipse cx="60" cy="39" rx="24" ry="8" class="pa1 g3"/><ellipse cx="60" cy="25" rx="15" ry="6" class="pa2 g4"/><circle cx="60" cy="12" r="3.5" class="pa3d"/></svg>`};
+function trackCard(){const p=PERSONAS.find(x=>x.k===(S.persona||'first'));return `<div class="card trackc"><span class="ic">${I.target}</span><div><small class="eyebrow">Your track</small><b>${esc(p.t)}</b><small class="tiny">${esc(p.tag)}</small></div><button class="link" data-act="track-change">Change</button></div>`;}
 function personaHTML(){const k=S.persona||'first';const p=PERSONAS.find(x=>x.k===k);
   return `<section class="persona" data-persona><div class="eyebrow-pill"><i></i>Tell us where you are</div>
   <h2 class="land-h">Every investor starts <span>somewhere different.</span></h2>
@@ -1334,16 +1380,13 @@ function personaHTML(){const k=S.persona||'first';const p=PERSONAS.find(x=>x.k==
   <div class="ptabs" role="tablist">${PERSONAS.map(x=>`<button class="ptab ${x.k===k?'on':''}" role="tab" aria-selected="${x.k===k}" data-act="persona" data-v="${x.k}">${x.t}</button>`).join('')}</div>
   <article class="pcard" id="pcard"><div class="pcard-art">${PART[p.art]}<span class="ptag">${p.tag}</span></div><div class="pcard-b"><h3>${p.t}</h3><p>${p.h}</p><ul>${p.pts.map(t=>`<li>${I.tick}<span>${t}</span></li>`).join('')}</ul>
   <div class="btn-row"><button class="btn pri" data-act="persona-go" data-v="${p.k}">${S.ips&&S.persona===p.k?'Update my track':'Start my track'}</button>${p.k==='mf'?`<button class="btn sec" data-act="import">Import my CAS</button>`:p.k==='hni'?`<button class="btn sec" data-act="xseg-pms">Browse all PMS</button>`:`<button class="btn sec" data-act="xseg-pms">See top PMS</button>`}</div></div></article></section>`;}
+function hexField(){const R=30,w=Math.sqrt(3)*R,hh=1.5*R,cols=Math.ceil(1400/w)+1,rows=Math.ceil(700/hh)+1;let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;let polys='';
+  const pt=(cx,cy)=>[0,1,2,3,4,5].map(k=>{const a=Math.PI/180*(60*k-30);return (cx+R*Math.cos(a)).toFixed(1)+','+(cy+R*Math.sin(a)).toFixed(1);}).join(' ');
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const cx=c*w+(r%2?w/2:0),cy=r*hh;const lit=rnd()<.09;polys+=`<polygon points="${pt(cx,cy)}"${lit?` class="lit" style="animation-delay:${(rnd()*9).toFixed(2)}s;animation-duration:${(5+rnd()*5).toFixed(1)}s"`:''}/>`;}
+  return `<svg class="hx" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${polys}</svg>`;}
 function heroBanner(P,h){const greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
-  return `<section class="hb2 hb3"><div class="au" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="beam"></i></div><div class="hb3-pts" aria-hidden="true">${Array.from({length:14},(_,k)=>`<b style="--x:${(k*37)%100}%;--t:${(k*0.7)%8}s;--s:${k%3+2}px;--d:${7+k%5}s"></b>`).join('')}</div>
-  <svg class="hb2-silk" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
-   <linearGradient id="sk1" x1="0" x2="1"><stop offset="0" stop-color="#3d84ff" stop-opacity="0"/><stop offset=".5" stop-color="#3d84ff" stop-opacity=".5"/><stop offset="1" stop-color="#7fd0ff" stop-opacity=".15"/></linearGradient>
-   <linearGradient id="sk2" x1="0" x2="1"><stop offset="0" stop-color="#1a4fd6" stop-opacity=".05"/><stop offset=".6" stop-color="#1a4fd6" stop-opacity=".35"/><stop offset="1" stop-color="#1a4fd6" stop-opacity="0"/></linearGradient>
-   <linearGradient id="sk3" x1="0" x2="1"><stop offset="0" stop-color="#9fd8ff" stop-opacity=".1"/><stop offset=".5" stop-color="#9fd8ff" stop-opacity=".6"/><stop offset="1" stop-color="#9fd8ff" stop-opacity=".1"/></linearGradient></defs>
-   <g class="sk a"><path d="M-400 300 C -250 220 -100 380 50 300 S 350 220 500 300 S 800 380 950 300 S 1250 220 1400 300 L1400 420 L-400 420Z" fill="url(#sk3)"/></g>
-   <g class="sk b"><path d="M-400 330 C -220 260 -60 400 120 330 S 460 250 640 330 S 980 400 1160 330 S 1400 280 1500 320 L1500 420 L-400 420Z" fill="url(#sk1)"/></g>
-   <g class="sk c"><path d="M-400 360 C -200 320 0 410 200 360 S 600 300 800 360 S 1200 410 1400 360 L1400 420 L-400 420Z" fill="url(#sk2)"/></g>
-  </svg>
+  return `<section class="hb2 hb3 hb4"><div class="hx-glow" aria-hidden="true"></div>${hexField()}
+  <div class="geo" aria-hidden="true"><svg class="g1" viewBox="0 0 100 100"><polygon points="50,4 96,50 50,96 4,50"/><polygon points="50,20 80,50 50,80 20,50"/></svg><svg class="g2" viewBox="0 0 100 100"><polygon points="50,6 92,30 92,70 50,94 8,70 8,30"/><polygon points="50,26 71,38 71,62 50,74 29,62 29,38"/></svg><svg class="g3" viewBox="0 0 100 100"><polygon points="50,8 94,88 6,88"/></svg></div>
   <div class="hb2-in"><div class="hb2-copy">
    <p class="hb2-eye"><i></i>${greet} · ${new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short'})}</p>
    <h1 class="hb2-h"><span class="l1">Wealth that fits you.</span><span class="l2">Beyond returns.</span><span class="l3">Beyond bias.</span></h1>
@@ -1382,7 +1425,7 @@ function faqHTML(){return `<section class="faqsec"><div class="eyebrow-pill"><i>
 function wzSection(){if(!wz)wz={i:0,a:{...(S.answers||BLANK_A),...((PERSONAS.find(x=>x.k===(S.persona||'first'))||{}).pre||{})}};
   return `<section class="wz-sec"><div class="eyebrow-pill"><i></i>The questionnaire</div><h2 class="land-h">Six steps to <span>your IPS.</span></h2><div class="card wz-inline" id="wzCard"><div id="wzBox"></div></div>${S.ips?`<button class="link" data-act="wz-cancel" style="justify-self:center">Cancel, keep my current IPS</button>`:''}</section>`;}
 function mountWz(){if(!$('#wzBox'))return;drawWz(0);if(S.wzScroll){S.wzScroll=false;setTimeout(()=>{const c=$('#wzCard');if(c)c.scrollIntoView({block:'start',behavior:RM?'auto':'smooth'});},80);}}
-function renderAbout(){$('#v-about').innerHTML=`${globeHTML()}${personaHTML()}${scoreHTML()}${featHTML()}${faqHTML()}<p class="foot">NIVO is a research tool, not a SEBI-registered investment adviser. Data: APMI to ${dt(D.pmsU.asof)}, AMFI to ${dt(D.asof)}.</p>`;animateIn($('#v-about'));startGlobe();}
+function renderAbout(){$('#v-about').innerHTML=`${globeHTML()}${scoreHTML()}${featHTML()}${faqHTML()}${marketHTML()}<p class="foot">NIVO is a research tool, not a SEBI-registered investment adviser. Data: APMI to ${dt(D.pmsU.asof)}, AMFI to ${dt(D.asof)}.</p>`;animateIn($('#v-about'));startGlobe();}
 function startGlobe(){if(RM)$$('.globe svg').forEach(g=>{try{g.pauseAnimations();}catch(e){}});}
 function alHTML(a){const ic=a.s==='info'?I.info:a.s==='good'?I.tick:I.warn;return `<button class="al ${a.s} tap" ${a.act?`data-act="${a.act}"`:`data-go="${a.go||'portfolio'}"`}><span class="sv">${ic}</span><span><b>${esc(a.t)}</b><span>${esc(a.d)}</span></span></button>`;}
 
@@ -1450,16 +1493,13 @@ function openFund(code){const f=D.byCode.get(+code);if(!f)return;const ft=fitFor
   openSheet(`
   <div class="fd-head">${ring(ft.fit,88,S.ips?'fit':'score')}<div class="t"><p class="eyebrow">${esc(f.cat)} · ${f.direct?'Direct':'Regular'}</p><h2 class="sheet-h" style="padding:0">${esc(f.sn)}</h2><p class="small muted" style="margin:3px 0 0">${esc(amcShort(f.amc))} · NAV ₹${f.nav.toLocaleString('en-IN',{maximumFractionDigits:2})} on ${dt(D.asof)}</p></div></div>
   <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill ${lb[1]}">${lb[0]}${S.ips?' for your IPS':''}</span>${held?`<span class="pill info">In your portfolio · ${inr(hv(held))}</span>`:''}${f.r3==null?'<span class="pill plain">Under 3 years</span>':''}</div>
-  ${reasonsHTML(ft.reasons)}
+  ${tabs([['Overview',`  ${reasonsHTML(ft.reasons)}
   <div class="kvg"><div><small>NIVO Score</small><b>${sc10(f.q)}<small>/10</small></b></div><div><small>Volatility index</small><b>${f.vm&&f.vm.vi!=null?f.vm.vi.toFixed(1):'—'}<small>/10</small></b></div><div><small>Consistency</small><b>${f.cons!=null?f.cons+'%':'—'}</b></div></div>
-  ${fundPerf(f)}
   <div class="sblock"><h3>Returns <small>a year, point to point</small></h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th></th><th>This fund</th><th>Category median</th>${bf?'<th>Index fund</th>':''}</tr></thead><tbody>${rows.map(([l,k])=>`<tr><td>${l}</td><td class="${f[k]!=null&&cs[k]!=null&&f[k]>=cs[k]?'best':''}">${pc(f[k])}</td><td>${pc(cs[k])}</td>${bf?`<td>${pc(bf[k])}</td>`:''}</tr>`).join('')}</tbody></table></div>${bf?`<p class="tiny" style="margin:0">Index fund: ${esc(bf.sn)}</p>`:''}</div>
-  ${fundVol(f)}
-  ${f.q!=null?`<div class="sblock"><h3>NIVO Score breakdown <small>each pillar out of 10, vs ${cs.n} plans in ${esc(f.cat)}</small></h3>${pillarsHTML(f.pp,f.r5==null?'Pulled toward the middle because the track record is short.':'')}</div>`:''}
-  ${crash.length?`<div class="sblock"><h3>Crash test <small>fall between market peak and trough</small></h3>${crash.map(([k,l])=>`<div class="card" style="padding:12px;display:grid;gap:6px;background:var(--card2);border:0"><b style="font-size:13px">${l}</b><div class="bl"><span>This fund</span>${bar(-f[k]/50*100,'down')}<span class="v">${pc(f[k],0)}</span></div>${cs[k]!=null?`<div class="bl"><span>Category</span>${bar(-cs[k]/50*100,'idx')}<span class="v">${pc(cs[k],0)}</span></div>`:''}${bf&&bf[k]!=null?`<div class="bl"><span>Index fund</span>${bar(-bf[k]/50*100,'idx')}<span class="v">${pc(bf[k],0)}</span></div>`:''}</div>`).join('')}</div>`:''}
   ${!f.direct?`<div class="sblock"><h3>True cost of the Regular plan</h3><div class="calc"><label for="camt">Amount invested <output id="camtO">₹10.0 L</output></label><input id="camt" type="range" min="100000" max="50000000" step="100000" value="1000000"><div class="out" id="cout"></div></div>${tw?`<button class="btn sec" data-fund="${tw.c}">Open the Direct plan</button>`:''}</div>`:tw&&tw.gap!=null?`<div class="flag good">${I.tick}<span>Direct plan. The Regular version of this fund returned ${pc(tw.gap,2)} a year less over 3 years.</span></div>`:''}
-  ${alts.length?`<div class="sblock"><h3>Best ${esc(f.cat)} fits for you</h3><div class="rlist">${alts.map(([x])=>fundRow(x)).join('')}</div></div>`:''}
-  <div class="sblock"><h3>Ask before you invest</h3><ol class="qs">${fundQs(f).map(q=>`<li>${esc(q)}</li>`).join('')}</ol></div>
+  <div class="sblock"><h3>Ask before you invest</h3><ol class="qs">${fundQs(f).map(q=>`<li>${esc(q)}</li>`).join('')}</ol></div>`],['Performance',`  ${fundPerf(f)}`],['Risk',`  ${fundVol(f)}
+  ${crash.length?`<div class="sblock"><h3>Crash test <small>fall between market peak and trough</small></h3>${crash.map(([k,l])=>`<div class="card" style="padding:12px;display:grid;gap:6px;background:var(--card2);border:0"><b style="font-size:13px">${l}</b><div class="bl"><span>This fund</span>${bar(-f[k]/50*100,'down')}<span class="v">${pc(f[k],0)}</span></div>${cs[k]!=null?`<div class="bl"><span>Category</span>${bar(-cs[k]/50*100,'idx')}<span class="v">${pc(cs[k],0)}</span></div>`:''}${bf&&bf[k]!=null?`<div class="bl"><span>Index fund</span>${bar(-bf[k]/50*100,'idx')}<span class="v">${pc(bf[k],0)}</span></div>`:''}</div>`).join('')}</div>`:''}`],['Score',`  ${f.q!=null?`<div class="sblock"><h3>NIVO Score breakdown <small>each pillar out of 10, vs ${cs.n} plans in ${esc(f.cat)}</small></h3>${pillarsHTML(f.pp,f.r5==null?'Pulled toward the middle because the track record is short.':'')}</div>`:''}
+  ${alts.length?`<div class="sblock"><h3>Best ${esc(f.cat)} fits for you</h3><div class="rlist">${alts.map(([x])=>fundRow(x)).join('')}</div></div>`:''}`]])}
   <div class="btn-row"><button class="btn sec" data-act="cmp-add" data-code="${f.c}">Compare</button><button class="btn sec" data-act="ask-fund" data-code="${f.c}">${I.ai}Ask AI</button></div>
   ${held?`<button class="btn sec" data-act="hold-remove" data-id="${held.id}">Remove from my portfolio</button>`:`<button class="btn pri" data-act="add-fund" data-code="${f.c}">${I.plus}Add to my portfolio</button>`}
   <p class="tiny" style="margin:0">Returns from AMFI daily NAVs, annualised, to ${dt(D.asof)}. NIVO Score ranks the fund among Direct plans in its category on five pillars: returns 30%, risk-adjusted return 25%, downside protection 20%, consistency 15%, structure and track record 10%.</p>`,
@@ -1470,17 +1510,14 @@ function openPMS(id){const p=pmsById(id);if(!p)return;const ft=pmsFit(p),lb=fitL
   const sibs=D.pms.filter(x=>x.pm===p.pm).length;const BN=D.pmsBench[p.bk]||{name:'Index',r:{}};
   openSheet(`<div class="fd-head">${meter(ft.fit,{size:'lg'})}<div class="t"><p class="eyebrow">PMS · ${esc(p.st)}</p><h2 class="sheet-h" style="padding:0">${esc(p.n)}</h2><p class="small muted" style="margin:3px 0 0">${esc(p.pm)}</p></div></div>
   <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill ${lb[1]}">${lb[0]}${S.ips?' for your IPS':''}</span><span class="pill plain">${p.yrs>=5?'5+':p.yrs>=3?p.yrs+'+':p.yrs?p.yrs:'Under 1'} year${p.yrs===1?'':'s'} record</span>${held?`<span class="pill info">In your portfolio</span>`:''}</div>
-  ${reasonsHTML(ft.reasons)}
+  ${tabs([['Overview',`  ${reasonsHTML(ft.reasons)}
   <div class="kvg"><div><small>NIVO Score</small><b>${sc10(p.q)}<small>/10</small></b></div><div><small>Volatility index</small><b>${p.vi!=null?p.vi.toFixed(1):'—'}<small>/10</small></b></div><div><small>Money managed</small><b>${aumT(p.aum)}</b></div></div>
   <div class="sblock"><h3>Returns <small>a year, to ${dt(U.asof)}</small></h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th></th><th>This strategy</th><th>${esc(BN.name.replace(/ \(50:50\)/,''))}</th><th>PMS median</th></tr></thead><tbody>${per.map(([l,k],i)=>`<tr><td>${l}</td><td class="${p[k]!=null&&BN.r[i+1]!=null&&p[k]>=BN.r[i+1]?'best':''}">${pc(p[k])}</td><td>${pc(BN.r[i+1])}</td><td>${pc(U[k])}</td></tr>`).join('')}<tr><td>Since start</td><td>${pc(p.si)}</td><td>—</td><td>—</td></tr></tbody></table></div>
     <p class="tiny" style="margin:0">Recent: 1 month ${pc(p.m1)} · 3 months ${pc(p.m3)} · 6 months ${pc(p.m6)}. 1 year and longer are annualised, after fees and expenses, as reported to APMI.</p></div>
-  ${pmsPerf(p)}
-  ${pmsVol(p)}
-  ${p.pil?`<div class="sblock"><h3>NIVO Score breakdown <small>each pillar out of 10, vs ${U.n.toLocaleString('en-IN')} equity strategies</small></h3>${pillarsHTML(p.pil,p.r5==null?'Pulled toward the middle because the track record is under 5 years.':'')}</div>`:''}
   <div class="flag info">${I.info}<span>Returns are the strategy's reported figures, after fees. Your own account can differ with entry date, fees and stock timing. Ask for your client-level return and the disclosure document.</span></div>
-  ${alts.length?`<div class="sblock"><h3>Other ${esc(p.st.toLowerCase())} strategies${S.ips?' that fit you':''}</h3><div class="rlist">${alts.map(x=>pmsRow(x)).join('')}</div></div>`:''}
   <div class="sblock"><h3>Ask before you sign</h3><ol class="qs">${['What are the fixed fee, performance fee, hurdle rate and exit load, in rupees on my amount?','What was the largest fall from peak in the last five years, and how long did recovery take?','What is the median client\'s actual return compared with the reported strategy return?','How many stocks, and what share is in small and micro caps?','How much of this portfolio overlaps with my mutual funds?'].map(q=>`<li>${esc(q)}</li>`).join('')}</ol></div>
-  ${sibs>1?`<button class="btn sec" data-co="${esc('pm|'+p.pm)}">All ${sibs} strategies from ${esc(p.pm)}</button>`:''}
+  ${sibs>1?`<button class="btn sec" data-co="${esc('pm|'+p.pm)}">All ${sibs} strategies from ${esc(p.pm)}</button>`:''}`],['Performance',`  ${pmsPerf(p)}`],['Risk',`  ${pmsVol(p)}`],['Score',`  ${p.pil?`<div class="sblock"><h3>NIVO Score breakdown <small>each pillar out of 10, vs ${U.n.toLocaleString('en-IN')} equity strategies</small></h3>${pillarsHTML(p.pil,p.r5==null?'Pulled toward the middle because the track record is under 5 years.':'')}</div>`:''}
+  ${alts.length?`<div class="sblock"><h3>Other ${esc(p.st.toLowerCase())} strategies${S.ips?' that fit you':''}</h3><div class="rlist">${alts.map(x=>pmsRow(x)).join('')}</div></div>`:''}`]])}
   <div class="btn-row"><button class="btn sec" data-act="ask-pms" data-id="${p.id}">${I.ai}Ask AI</button>${held?`<button class="btn sec" data-act="hold-remove" data-id="${held.id}">Remove</button>`:`<button class="btn pri" data-act="add-pms" data-id="${p.id}">${I.plus}Add</button>`}</div>
   <p class="tiny" style="margin:0">Source: ${D.pmsSrc.map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join('; ')}. Discretionary equity strategies only.</p>`);}
 function openCompany(key){const [t,n]=key.split('|');
@@ -1614,7 +1651,7 @@ function renderIPS(){if(!S.ips){renderIPSIntro();return;}const _wz=S.wzOpen;cons
   <div><p class="eyebrow">Investment Policy Statement</p><h1>Your mandate</h1></div>
   <div class="hero"><div class="ips-hero">${meter(P.R,{size:'lg',lab:'Risk score',lv:'lv1',hero:1})}<div style="min-width:0"><span class="eyebrow">Risk profile</span><div style="font:800 22px/1.15 var(--f-display);margin:2px 0 10px">${P.profile}</div><div class="cw"><div class="l"><span>Capacity to take risk</span><b>${P.C}</b></div>${bar(P.C)}<div class="l"><span>Willingness to take risk</span><b>${P.W}</b></div>${bar(P.W)}</div></div></div>
   <button class="btn-glass" data-act="wizard">Edit my answers</button><div class="shine"></div></div>
-  ${personaHTML()}
+  ${S.showPersona||_wz?personaHTML():trackCard()}
   ${_wz?wzSection():''}
   <div class="card" style="display:grid;gap:12px"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><b style="font:700 16px var(--f-display)">${goalName(a.goal)}</b><span class="pill ${st[1]}">${st[0]}</span></div>
     <div class="kvg"><div><small>Invested now</small><b>${inr(a.corpus)}</b></div><div><small>Monthly</small><b>${inr(a.sip)}</b></div><div><small>Horizon</small><b>${P.y} yrs</b></div></div>
@@ -1857,10 +1894,12 @@ document.addEventListener('click',e=>{if(!D)return;const pop=$('#jgPop');if(!pop
   else if(a==='xseg-mf'){S.x={...S.x,q:'',seg:'mf',limit:30};closeSheet();go('explore');}
   else if(a==='pst'){S.x.pst=el.dataset.v;S.x.limit=30;renderXFilters();renderXList(true);}
   else if(a==='ptr'){S.x.ptr=+el.dataset.v;S.x.limit=30;renderXFilters();renderXList(true);}
+  else if(a==='stab'){const root=el.closest('#sheetBody')||document;$$('.stabs button',root).forEach(b=>{const on=b===el;b.classList.toggle('on',on);b.setAttribute('aria-selected',on);});$$('.stab-p',root).forEach(p=>p.hidden=p.dataset.i!==el.dataset.i);}
   else if(a==='ai-pms')runAiPms();
   else if(a==='faq'){const f=el.closest('.faq'),open=!f.classList.contains('open');f.classList.toggle('open',open);el.setAttribute('aria-expanded',open);}
   else if(a==='persona'){S.persona=el.dataset.v;Store.save();if(wz&&!S.answers){Object.assign(wz.a,PERSONAS.find(x=>x.k===S.persona).pre);if($('#wzBox'))drawWz((wz.i+1)/WZ.length*100);}const sec=el.closest('[data-persona]');const t=document.createElement('div');t.innerHTML=personaHTML();const nw=t.firstElementChild;sec.replaceWith(nw);const c=$('#pcard',nw);if(c){c.classList.add('swap');}const tb=$(`.ptab[data-v="${S.persona}"]`,nw);if(tb&&tb.scrollIntoView)tb.scrollIntoView({block:'nearest',inline:'center',behavior:RM?'auto':'smooth'});}
   else if(a==='persona-go'){S.persona=el.dataset.v;Store.save();const p=PERSONAS.find(x=>x.k===el.dataset.v);if(!S.ips&&$('#wzCard')){$('#wzCard').scrollIntoView({block:'start',behavior:RM?'auto':'smooth'});return;}openWizard(S.answers?null:p.pre);}
+  else if(a==='track-change'){S.showPersona=true;renderIPS();}
   else if(a==='wz-cancel'){S.wzOpen=false;renderIPS();}
   else if(a==='ai-pms-stop'){if(aiPmsCtl)aiPmsCtl.abort();}
   else if(a==='wizard')openWizard();
