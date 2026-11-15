@@ -693,7 +693,7 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 .b1{opacity:.5!important}.b2{opacity:.22!important}.b3{opacity:.8!important}.b4{opacity:.22!important}.b5{opacity:.12!important}
 .ambient{background:linear-gradient(180deg,#ffffff 0%,#f4f8ff 40%,#e3edff 100%)}
 .wz-sec{display:flex;flex-direction:column;gap:12px}
-.wz-inline{padding:18px;scroll-margin-top:96px}
+.wz-inline{padding:18px;scroll-margin-top:112px}
 .wz-inline .sheet-h{padding:0;margin:10px 0 4px}
 .wz-inline .wz-q{margin-top:14px}
 .pledge li svg{color:var(--blue)}
@@ -1023,6 +1023,93 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 @media (max-width:440px){.asof{display:none}}
 @media (max-width:370px){.qa{grid-template-columns:1fr}.kvg{grid-template-columns:1fr 1fr}.big{font-size:28px}.tally{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.mark .n{stroke-dashoffset:0}}
+/* v23: PMS match questionnaire (Ask NIVO → Find my PMS) */
+.mz-intro{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;padding:22px 18px}
+.mz-intro h2{margin:0;font:800 clamp(24px,6vw,30px)/1.1 var(--f-display);letter-spacing:-.02em;text-wrap:balance}
+.mz-intro>p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.55}
+.mz-glow{position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(109,179,255,.55),rgba(26,82,214,0) 70%);animation:mzfloat 9s ease-in-out infinite;pointer-events:none}
+@keyframes mzfloat{50%{transform:translate(-30px,24px) scale(1.12)}}
+.mz-intro>*:not(.mz-glow){position:relative}
+.mz-flow{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.mz-flow li{display:flex;gap:12px;align-items:center}
+.mz-flow li>b{flex:none;width:32px;height:32px;border-radius:11px;display:grid;place-items:center;font:800 14px var(--f-display);color:var(--on-hero);background:linear-gradient(140deg,var(--hero2),var(--hero3));box-shadow:0 8px 16px -10px var(--glow)}
+.mz-flow span{display:grid;font-weight:700;font-size:14px}.mz-flow small{font-weight:500;font-size:12.5px;color:var(--ink3)}
+.mz-dchips{display:flex;flex-wrap:wrap;gap:6px}
+.mz-dchips span{font:600 11.5px var(--f-body);padding:5px 10px;border-radius:99px;background:var(--card2);color:var(--ink2)}
+.mz-prog{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);z-index:20;display:grid;gap:7px;padding:10px 14px;border-radius:18px;background:linear-gradient(var(--card2),var(--card2)),var(--bg1);border:1px solid var(--line);box-shadow:var(--shadow)}
+.mz-pt{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--ink2)}.mz-pt b{color:var(--ink)}
+.mz-pn{font:600 11.5px var(--f-mono);color:var(--ink3);white-space:nowrap}
+.mz-bar{height:6px;border-radius:99px;background:var(--card2);overflow:hidden}
+.mz-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--hero2),var(--hero3));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.mz-back{justify-self:start;padding:0;font-size:12.5px}
+.mz-thread{display:flex;flex-direction:column;gap:12px;padding-bottom:24px}
+.mz-turn{display:flex;gap:10px;align-items:flex-start}
+.mz-av{flex:none;width:32px;height:32px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(140deg,var(--hero2),var(--hero3));box-shadow:0 8px 16px -10px var(--glow)}
+.mz-av svg{width:19px;height:19px}
+.mz-bub{flex:1;min-width:0;padding:12px 14px;border-radius:18px;border-top-left-radius:6px;background:var(--card);border:1px solid var(--line);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
+.mz-part{display:block;margin-bottom:5px;font:600 10.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.mz-q{margin:0;font-weight:700;font-size:15px;line-height:1.45}
+.mz-h{margin:5px 0 0;font-size:12.5px;color:var(--ink3)}
+.mz-opts{display:grid;gap:8px;margin-top:12px}
+.mz-opt{position:relative;overflow:hidden;display:flex;gap:12px;align-items:center;text-align:left;width:100%;padding:11px 12px;border-radius:15px;border:1.5px solid var(--line);background:var(--card-solid);color:var(--ink);font:inherit;cursor:pointer;transition:border-color .2s,transform .2s,background .2s,opacity .25s;animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0) * 45ms)}
+.mz-opt:hover{border-color:var(--blue-2);transform:translateY(-1px)}
+.mz-opt:focus-visible{outline:2px solid var(--blue-2);outline-offset:2px}
+.mz-opt b{display:block;font-size:14px;line-height:1.3}.mz-opt small{display:block;font-size:12px;color:var(--ink3);margin-top:2px}
+.mz-k{flex:none;width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font:700 12px var(--f-mono);background:var(--card2);color:var(--blue);transition:all .2s}
+.mz-opt.pick{border-color:var(--blue-2);background:var(--card2)}.mz-opt.pick .mz-k{background:var(--blue);color:var(--on-hero)}
+.mz-opt.fade{opacity:.35}
+.mz-ans{margin-left:42px;max-width:calc(88% - 42px)}
+.mz-tip{font-size:13.5px;line-height:1.5;color:var(--ink2);background:var(--card2)}
+.mz-in{animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
+.mz-typing .mz-bub{flex:0 0 auto;padding:12px 14px}
+.mz-steps{margin-top:10px}
+.mz-score{display:flex;flex-direction:column;gap:14px;padding:20px 18px}
+.mz-score.compact{gap:10px}
+.mz-top{display:flex;gap:16px;align-items:center}
+.mz-rw{position:relative;flex:none;width:118px;height:118px}
+.mz-ring{width:100%;height:100%;transform:rotate(-90deg)}
+.mz-ring circle{fill:none;stroke-width:10}.mz-ring .tr{stroke:var(--card2)}
+.mz-ring .fg{stroke-linecap:round;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.8,.2,1)}
+.mz-num{position:absolute;inset:0;display:flex;align-items:baseline;justify-content:center;padding-top:40px}
+.mz-num b{font:800 34px/1 var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}.mz-num small{font:600 12px var(--f-body);color:var(--ink3);margin-left:2px}
+.mz-pf{display:flex;flex-direction:column;gap:6px;align-items:flex-start;min-width:0}
+.mz-pf h2{margin:0;font:800 22px/1.15 var(--f-display);letter-spacing:-.02em}
+.mz-scale{display:flex;gap:4px;margin-top:2px}.mz-scale i{width:18px;height:6px;border-radius:99px;background:var(--card2)}.mz-scale i.on{background:linear-gradient(90deg,var(--hero2),var(--hero3))}
+.mz-desc{margin:0;font-size:14px;line-height:1.55;color:var(--ink2)}
+.mz-h3{margin:4px 0 0;font:700 15px var(--f-display)}
+.mz-dims{display:grid;gap:11px}
+.mz-dim{display:grid;grid-template-columns:minmax(0,1fr) 34%  34px;gap:10px;align-items:center}
+.mz-dl{display:grid;min-width:0}.mz-dl b{font-size:13.5px}.mz-dl small{font-size:11.5px;color:var(--ink3);line-height:1.3}
+.mz-db{height:8px;border-radius:99px;background:var(--card2);overflow:hidden}.mz-db i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--hero2),var(--hero3));transition:width 1.1s cubic-bezier(.2,.8,.2,1) .2s}
+.mz-dv{font:800 14px var(--f-display);text-align:right;font-variant-numeric:tabular-nums}
+.mz-rd{display:grid;gap:6px;padding:12px 14px;border-radius:16px;border:1px solid var(--line);background:var(--card2)}
+.mz-rd.good{background:var(--good-bg)}.mz-rd.warn{background:var(--warn-bg)}.mz-rd.bad{background:var(--bad-bg)}
+.mz-rdh{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.mz-rdh b{font-size:13px;color:var(--ink2)}
+.mz-rd p{margin:0;font-size:13.5px;line-height:1.5}
+.mz-fix{margin:0;padding-left:18px;font-size:13px;line-height:1.5;display:grid;gap:3px}
+.mz-mix{display:flex;height:12px;border-radius:99px;overflow:hidden;gap:3px}
+.mz-mix i,.mz-mixl i{background:var(--hero2)}.mz-mix .d,.mz-mixl .d{background:var(--hero3)}.mz-mix .g,.mz-mixl .g{background:#e0a92e}
+.mz-mixl{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink2)}.mz-mixl span{display:flex;align-items:center;gap:6px}.mz-mixl i{width:9px;height:9px;border-radius:3px}.mz-mixl b{color:var(--ink)}
+.mz-cta{display:grid;gap:8px}
+.mz-picks{display:flex;flex-direction:column;gap:12px;scroll-margin-top:112px}
+.mz-ph{display:grid;gap:6px}.mz-ph h2{margin:0;font:800 24px/1.1 var(--f-display);letter-spacing:-.02em}.mz-ph p{margin:0}
+.mz-note{display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border-radius:14px;font-size:13px;line-height:1.45}
+.mz-note svg{flex:none;width:18px;height:18px;margin-top:1px}
+.mz-note.bad{background:var(--bad-bg);color:var(--bad)}.mz-note.warn{background:var(--warn-bg);color:var(--warn)}
+.mz-pk{display:grid;gap:10px;padding:14px;border-radius:22px;background:var(--card);border:1px solid var(--line);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);box-shadow:var(--glass-hi),var(--glass-sh);animation:rise .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
+.mz-pkh{display:flex;gap:10px;align-items:center}
+.mz-rk{flex:none;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font:800 16px var(--f-display);color:var(--on-hero);background:linear-gradient(140deg,var(--hero2),var(--hero3))}
+.mz-pkt{flex:1;min-width:0;display:grid;text-align:left;border:0;background:none;padding:0;color:var(--ink);font:inherit;cursor:pointer}
+.mz-pkt b{font-size:15px;line-height:1.3}.mz-pkt small{font-size:12.5px;color:var(--ink3)}
+.mz-pkh .meter{width:auto}
+.mz-mt{display:grid;justify-items:end;gap:3px}.mz-mt>small{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.mz-pkm{display:flex;flex-wrap:wrap;gap:6px}
+.mz-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.mz-stats span{display:grid;gap:2px;padding:8px;border-radius:12px;background:var(--card2);text-align:center}
+.mz-stats small{font-size:10.5px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mz-stats b{font:800 14px var(--f-display);font-variant-numeric:tabular-nums}
+.mz-pk .link{justify-self:start;display:inline-flex;align-items:center;gap:4px}.mz-pk .link svg{width:14px;height:14px}
+@media (max-width:380px){.mz-top{flex-direction:column;align-items:flex-start}.mz-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.mz-dim{grid-template-columns:minmax(0,1fr) 30% 30px}}
+@media (prefers-reduced-motion:reduce){.mz-glow,.mz-opt,.mz-in,.mz-pk{animation:none!important}.mz-ring .fg,.mz-db i,.mz-bar i{transition:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -1221,7 +1308,7 @@ const Store={db:null,uid:null,t:null,
   ref(){return this.db.doc('data/users/'+this.uid+'/state');},
   async load(){let st=null;if(this.db){try{const s=await this.ref().get();if(s.exists)st=s.data();}catch(e){}}if(!st){try{st=JSON.parse(localStorage.getItem('neriwise.v2')||'null');}catch(e){}}return st;},
   async wipe(){clearTimeout(this.t);try{localStorage.removeItem('neriwise.v2');}catch(e){}if(this.db){try{await this.ref().delete();}catch(e){}}},
-  save(){clearTimeout(this.t);this.t=setTimeout(async()=>{const st=JSON.parse(JSON.stringify({answers:S.answers,holdings:S.holdings,aiPms:S.aiPms||null,persona:S.persona||null,updated:new Date().toISOString()}));try{localStorage.setItem('neriwise.v2',JSON.stringify(st));}catch(e){}if(this.db){try{await this.ref().set(st);}catch(e){}}},700);}};
+  save(){clearTimeout(this.t);this.t=setTimeout(async()=>{const st=JSON.parse(JSON.stringify({answers:S.answers,holdings:S.holdings,aiPms:S.aiPms||null,persona:S.persona||null,match:S.match||null,updated:new Date().toISOString()}));try{localStorage.setItem('neriwise.v2',JSON.stringify(st));}catch(e){}if(this.db){try{await this.ref().set(st);}catch(e){}}},700);}};
 function getAI(){if(S.ai!==undefined)return Promise.resolve(S.ai);return (S._aiP||(S._aiP=(async()=>{try{S.ai=window.claude?await claude.use('sample'):null;}catch(e){S.ai=null;}return S.ai;})()));}
 
 /* ================= IPS engine ================= */
@@ -1811,11 +1898,11 @@ function openMyData(){const where=Store.db?'Saved privately to your Claude accou
   </div>
   <button class="btn-del" style="width:100%;padding:14px" data-act="confirm" data-do="wipe-all">Delete all my data</button>
   <p class="tiny" style="margin:0">Deleting removes the saved copy from your account and this browser. CAS files, PDF passwords and demat IDs are never stored.</p>`);}
-function doWipe(k){if(k==='wipe-ips'||k==='wipe-all'){if(aiPmsCtl)aiPmsCtl.abort();S.answers=null;S.aiPms=null;setIPS();}if(k==='wipe-pf'||k==='wipe-all'){S.holdings=[];S.cmp=[];S.pfEdit=false;}if(k==='wipe-chat'||k==='wipe-all'){if(chatCtl)chatCtl.abort();S.chat=[];}
+function doWipe(k){if(k==='wipe-ips'||k==='wipe-all'){if(aiPmsCtl)aiPmsCtl.abort();S.answers=null;S.aiPms=null;setIPS();}if(k==='wipe-pf'||k==='wipe-all'){S.holdings=[];S.cmp=[];S.pfEdit=false;}if(k==='wipe-chat'||k==='wipe-all'){if(chatCtl)chatCtl.abort();S.chat=[];}if(k==='wipe-all'){S.match=null;mz=null;}
   if(k==='wipe-all')Store.wipe();else Store.save();
   toast({'wipe-ips':'IPS deleted','wipe-pf':'Portfolio cleared','wipe-chat':'Chat cleared','wipe-all':'All your data is deleted'}[k]);refresh();if(k==='wipe-all')closeSheet();else openMyData();}
 /* ================= ASK (chat + pitch) ================= */
-let askMode='chat',chatCtl=null,pitchCtl=null;
+let askMode='match',chatCtl=null,pitchCtl=null;
 let aiPmsCtl=null;
 const ipsSig=()=>JSON.stringify(S.answers||{});
 function pmsBudget(){const P=S.ips;if(!P)return null;const eq=(P.al.core+P.al.sat)/100*P.a.corpus,b=P.pmsOK?Math.max(eq*.5,5e6):0;return {budget:Math.round(b),n:Math.min(4,Math.floor(b/5e6)),eq:Math.round(eq)};}
@@ -1923,11 +2010,178 @@ function localPitch(text){const sents=text.replace(/\r/g,'').split(/(?<=[.!?])\s
     summary:`Found ${all.length} product${all.length===1?'':'s'} and ${claims.length} claim${claims.length===1?'':'s'} NIVO could test against APMI and AMFI data.`,
     fit_for_you:fit?`Against your IPS: ${fit}`:'',products:[...prods.values()].map(f=>({name:f.sn,code:f.c})),pms:[...pmsF.keys()],claims,
     questions:['What are all the fees on my amount, in rupees, for the first year and every year after?','Is this a Direct plan, and if not, how much commission do you earn?','What was the biggest fall in the last five years and how long did recovery take?','How does this compare with a low-cost index fund over five years?','Why does this suit my goal and timeline, in writing?']};}
+/* ================= PMS Match: questionnaire → NIVO Investor Score → top 5 PMS ================= */
+const MZ_PARTS=['About you','Your safety net','The money for PMS','Risk, for real','Your instincts','What you know','Your style'];
+const MZ_Q=[
+ {id:'age',p:0,q:'Which age band are you in?',o:[['Under 30','Decades for money to recover',{hor:1,cap:.8}],['30 to 40','A long runway',{hor:.85,cap:.8}],['40 to 50','Peak earning years',{hor:.65,cap:.7}],['50 to 60','Retirement is in sight',{hor:.4,cap:.55}],['60 or above','Protecting what you built',{hor:.2,cap:.4}]]},
+ {id:'job',p:0,q:'Where does most of your income come from?',o:[['Government, PSU or tenured job','Very steady',{cap:.9}],['Salaried at a large company','Steady',{cap:.75}],['Salaried at a startup or small firm','Can change quickly',{cap:.5}],['My own business or practice','Large but uneven',{cap:.6}],['Pension and investments','No new salary coming in',{cap:.35}]]},
+ {id:'dep',p:0,q:'How many people depend on your income?',h:'Children, parents, or a partner who does not earn.',o:[['Nobody','Full freedom',{cap:1}],['One person','Light responsibility',{cap:.75}],['Two people','Real responsibility',{cap:.5}],['Three or more','Heavy responsibility',{cap:.3}]]},
+ {id:'inc',p:1,q:'What is your household income a year?',o:[['Under ₹10 lakh','Little left over',{cap:.2}],['₹10 to 25 lakh','Some room to invest',{cap:.45}],['₹25 to 50 lakh','Healthy surplus',{cap:.65}],['₹50 lakh to ₹1 crore','Large surplus',{cap:.85}],['Over ₹1 crore','Very large surplus',{cap:1}]]},
+ {id:'ef',p:1,q:'If your income stopped today, how many months could you live on savings you can touch right away?',h:'Savings account, FDs and liquid funds. Not shares or property.',o:[['Less than a month','No cushion yet',{cap:0,ready:0},'noEF'],['1 to 3 months','A thin cushion',{cap:.35,ready:.4}],['3 to 6 months','The usual standard',{cap:.7,ready:.8}],['6 to 12 months','A strong cushion',{cap:.9,ready:1}],['More than a year','Very well cushioned',{cap:1,ready:1}]]},
+ {id:'emi',p:1,q:'How much of your monthly income goes to loan EMIs?',o:[['No loans','Nothing owed',{cap:1}],['Under 20%','Easy to carry',{cap:.8}],['20 to 40%','Noticeable',{cap:.5}],['40 to 60%','Heavy',{cap:.25},'debt'],['Over 60%','Most of my income',{cap:.05},'debt']]},
+ {id:'ins',p:1,q:'Which cover do you have?',h:'Term life cover of at least 10 times your yearly income counts as enough.',o:[['None','A real gap',{cap:.1,ready:.2},'noIns'],['Only my employer’s health cover','Ends when the job does',{cap:.4,ready:.5}],['My own health cover, little life cover','Half done',{cap:.6,ready:.7}],['Enough health and term life cover','Fully protected',{cap:1,ready:1}]]},
+ {id:'amt',p:2,q:'How much could you put into PMS?',h:'SEBI sets ₹50 lakh as the minimum for one PMS strategy.',o:[['Under ₹50 lakh','Below the PMS minimum',{ready:0},'below50',3e6],['₹50 lakh to ₹1 crore','Room for one strategy',{ready:.75},'',7.5e6],['₹1 to 2 crore','Room for two',{ready:.9},'',1.5e7],['₹2 to 5 crore','Room for three or more',{ready:1},'',3.5e7],['More than ₹5 crore','A full PMS portfolio',{ready:1},'',7e7]]},
+ {id:'share',p:2,q:'What share of everything you have invested is that money?',o:[['Under 15%','A small slice',{cap:1,ready:1}],['15 to 30%','A meaningful slice',{cap:.8,ready:.9}],['30 to 50%','A big slice',{cap:.5,ready:.6}],['More than half','Most of my wealth',{cap:.2,ready:.3},'conc']]},
+ {id:'spend',p:2,q:'Any big spend planned in the next 3 years from this money?',h:'A house, a wedding, school fees, putting money into a business.',o:[['No big spends','The money can stay put',{cap:1,hor:1}],['Yes, under 20% of it','A small dip into it',{cap:.8,hor:.8}],['Yes, 20 to 50% of it','A real chunk is needed',{cap:.45,hor:.45}],['Yes, more than half','Most of it is spoken for',{cap:.1,hor:.1},'liq']]},
+ {id:'hor',p:2,q:'How long can the rest stay invested without you touching it?',o:[['Under 3 years','Too short for shares',{hor:0},'short'],['3 to 5 years','One market cycle',{hor:.35}],['5 to 7 years','Room to recover',{hor:.6}],['7 to 10 years','Long enough to compound',{hor:.85}],['10 years or more','Full compounding',{hor:1}]]},
+ {id:'goal',p:2,q:'What is this money for, mainly?',o:[['Growing my wealth','Long-term growth',{att:.8,hor:.8}],['My retirement','A corpus for later',{att:.6,hor:.7}],['My children’s future','Education or a start in life',{att:.55,hor:.6}],['A regular income','Cash flow from the portfolio',{att:.3,hor:.4},'income'],['Keeping it safe','Beating FDs, without losing',{att:.1,hor:.3}]]},
+ {id:'fall',p:3,q:'You put ₹1 crore in a PMS. After a bad year, what is the lowest value you could look at and still stay invested?',o:[['₹95 lakh','A 5% fall',{att:.1},'',5],['₹88 lakh','A 12% fall',{att:.35},'',12],['₹80 lakh','A 20% fall',{att:.6},'',20],['₹70 lakh','A 30% fall',{att:.85},'',30],['₹60 lakh or lower','40% or more',{att:1},'',40]]},
+ {id:'scn',p:3,q:'Eight months in, your ₹1 crore is worth ₹74 lakh. The Nifty is down 16% and the news says worse is coming. What do you do?',o:[['Sell it all and move to FDs','Protect what is left',{att:0,beh:0}],['Take half out','Cut the exposure',{att:.25,beh:.25}],['Hold and wait','Ride it out',{att:.6,beh:.7}],['Put more money in','Buy while it is cheap',{att:.9,beh:.85}],['Read the manager’s note, then decide','Judge the process, not the price',{att:.7,beh:1}]]},
+ {id:'lag',p:4,q:'Markets rally for 18 months, but your PMS trails the Nifty the whole time. You…',o:[['Switch to something else now','18 months is long enough',{beh:0}],['Give it 6 more months','Then decide',{beh:.35}],['Stay, if the manager’s process has not changed','Style can be out of favour',{beh:.8}],['Judge it only over a full 3 to 5 years','Short spells mean little',{beh:1}]]},
+ {id:'fomo',p:4,q:'A friend’s small-cap PMS returned 62% last year. Yours returned 19%. Your first thought?',o:[['Move my money to theirs','Why settle for less?',{beh:0}],['Feel uneasy and start looking around','Maybe I picked wrong',{beh:.4}],['Note it and stick to my plan','19% is a good year',{beh:.85}],['Ask what risk they took for 62%','Returns have a price',{beh:1}]]},
+ {id:'fam',p:4,q:'Your family says: “Shares are gambling. Put it all in FDs.” You…',o:[['Go with them','Peace at home matters',{beh:0}],['Meet halfway: half FDs, half funds','Partly persuaded',{beh:.4}],['Explain my plan and stay with it','My call, made with care',{beh:.85}],['Keep my investments to myself','Fully independent',{beh:.75}]]},
+ {id:'conc',p:4,q:'A PMS usually owns just 15 to 25 stocks, and one stock can be 10% of your money. How does that sit with you?',o:[['It makes me nervous','I like things spread out',{ready:.2,att:.2},'conc0'],['Fine, if they are large, known companies','Concentration with comfort',{ready:.6,att:.45}],['Fine. That focus is why I want a PMS','Conviction is the point',{ready:1,att:.75}],['I would like even fewer, bolder bets','High conviction',{ready:.9,att:1}]]},
+ {id:'exp',p:5,q:'What have you actually invested in so far?',h:'Pick the highest that applies.',o:[['Only FDs, PPF and insurance plans','New to markets',{know:0}],['Mutual funds, for under 3 years','Getting started',{know:.3}],['Mutual funds for 3+ years, through a fall','Seen a correction',{know:.6}],['Direct shares, PMS or AIF','Experienced',{know:.85}],['Also F&O, unlisted or global shares','Very experienced',{know:1}]]},
+ {id:'lit',p:5,q:'How well do you know the difference between large, mid and small caps?',o:[['Not at all','Need the basics first',{know:0}],['I have heard the terms','Fuzzy on the difference',{know:.3}],['I know the basic risk and return trade-off','Comfortable',{know:.6}],['I can explain why small caps fall harder','Confident',{know:.85}],['I track valuations like P/E and earnings','Advanced',{know:1}]]},
+ {id:'fee',p:5,q:'One PMS charges 2.5% a year. Another charges 1% plus 20% of gains above 10%. Could you tell which costs you more?',o:[['Not really','Fees are a blind spot',{know:0,ready:.3}],['Roughly','I would need help',{know:.4,ready:.6}],['Yes, and I can compare them with fund expense ratios','Fee-aware',{know:.8,ready:.9}],['Yes, plus hurdles, high-water marks and exit loads','Fee-savvy',{know:1,ready:1}]]},
+ {id:'sty',p:6,q:'Last one. What should your PMS mostly own?',o:[['Big, steady market leaders','Large cap',{},'large'],['The manager’s best ideas, any size','Multi and flexi cap',{},'flexi'],['Faster-growing mid and small companies','Mid and small cap',{},'midsmall'],['Stocks picked by a rules-based model','Quant and factor',{},'quant'],['A theme I believe in','Banks, consumption, manufacturing…',{},'theme'],['Shares, bonds and gold together','Multi-asset',{},'multi'],['No preference. Let NIVO decide','Best match for my score',{},'']]}
+];
+const MZ_TIP={
+ 'ef:0':'Noted. An emergency fund comes before any PMS, so I will flag it in your result.',
+ 'emi:3':'That is a heavy EMI load. Paying down costly loans often beats any PMS return.','emi:4':'That is a heavy EMI load. Paying down costly loans often beats any PMS return.',
+ 'ins:0':'Worth fixing before you invest: one hospital bill can force you to sell at the worst time.',
+ 'amt:0':'SEBI’s minimum for a PMS is ₹50 lakh. Let us finish anyway: your score still shows which PMS to aim for.',
+ 'share:3':'Putting most of your wealth in one or two PMS concentrates risk. I will size things carefully.',
+ 'hor:0':'PMS managers usually need 3 to 5 years to show their skill, so short-term money should sit elsewhere.',
+ 'fomo:0':'Honest answer. Chasing last year’s winner is the most expensive habit in PMS investing.',
+ 'conc:0':'Fair. Large-cap and multi-asset strategies spread risk more, so I will lean that way.',
+ 'lag:0':'Most PMS go through 1 to 2 years of trailing their index. Switching then usually locks in the loss.'
+};
+const MZ_STY={large:['Large cap'],flexi:['Multi & flexi cap'],midsmall:['Mid & small cap'],quant:['Quant & factor'],theme:['Thematic & sector'],multi:['Multi-asset & fund of funds']};
+const MZ_DIM=[['cap','Financial strength','Income, cushion, loans, cover and dependants'],['hor','Time horizon','How long the money can stay invested'],['att','Risk appetite','The fall you said you could sit through'],['beh','Behaviour in a fall','What you would actually do when it hurts'],['know','Knowledge','Experience, market basics and fees'],['ready','PMS readiness','Minimum size, focus and fee awareness']];
+const MZ_PROF=[[0,'Steady Guardian','Low risk','Keeping money safe matters more to you than chasing growth. Big swings would cost you sleep and could push you to sell at the wrong time.'],
+ [30,'Careful Grower','Moderately low risk','You want growth, but calmly. You can take modest dips if the path back is clear. Steady, large-company strategies suit you best.'],
+ [45,'Balanced Builder','Moderate risk','You can take real market swings for better long-term growth, as long as the portfolio stays diversified and the manager stays disciplined.'],
+ [60,'Growth Seeker','Moderately high risk','You are comfortable with sharp falls in exchange for higher long-run returns, and you have the time and cushion to wait out bad years.'],
+ [75,'Bold Compounder','High risk','You can live with 30%+ falls and years of lagging, because you judge managers over full cycles. Concentrated, high-growth strategies are open to you.']];
+let mz=null;
+
+function mzRes(a){const sum={},cnt={},fl=new Set();let amt=null,fall=20,sty='';
+  MZ_Q.forEach(Q=>{const k=a[Q.id];if(k==null)return;const o=Q.o[k];for(const d in o[2]){sum[d]=(sum[d]||0)+o[2][d];cnt[d]=(cnt[d]||0)+1;}if(o[3])(Q.id==='sty'?(sty=o[3]):fl.add(o[3]));if(Q.id==='amt')amt=o[4];if(Q.id==='fall')fall=o[4];});
+  const dim={};MZ_DIM.forEach(([d])=>dim[d]=cnt[d]?Math.round(sum[d]/cnt[d]*100):50);
+  let R=Math.round(.22*dim.cap+.20*dim.hor+.26*dim.att+.17*dim.beh+.15*dim.know);const raw=R,notes=[];
+  const cap=(v,why)=>{if(R>v){R=v;notes.push(['n',why]);}};
+  if(fl.has('short'))cap(30,'Capped: money needed within 3 years should not ride share-market swings.');
+  if(fl.has('liq'))cap(40,'Capped: most of this money is needed for a big spend within 3 years.');
+  if(fall<=5)cap(30,'Capped at the 5% fall you said you could take.');else if(fall<=12)cap(45,'Capped at the 12% fall you said you could take.');
+  if(fl.has('noEF'))cap(50,'Capped until you build an emergency fund of at least 3 months.');
+  if(fl.has('debt'))cap(50,'Capped while loan EMIs take a large share of your income.');
+  if(dim.beh<30)cap(50,'Capped: your answers show selling instincts in a fall, and a calmer PMS keeps you invested.');
+  if(dim.know<25)cap(55,'Capped while you are new to markets. Start steadier and step up as you learn.');
+  if(dim.att>=70&&dim.beh<45)notes.push(['n','You said you could take big falls, but in the scenarios you would sell. NIVO goes with what you would do.']);
+  if(dim.att<40&&dim.beh>=75)notes.push(['p','You are more composed in a real fall than you give yourself credit for.']);
+  if(dim.hor>=80)notes.push(['p','Your long horizon is your biggest strength: it lets a PMS ride out bad years.']);
+  if(dim.cap>=80)notes.push(['p','Strong finances: income, cushion and cover can absorb a bad year.']);
+  const prof=MZ_PROF.filter(p=>R>=p[0]).pop();
+  const fix=[];if(fl.has('noEF'))fix.push('Build 6 months of expenses in a liquid fund or FD first.');if(fl.has('noIns'))fix.push('Get your own health cover and term life cover before investing more.');if(fl.has('debt'))fix.push('Bring loan EMIs under 40% of income, starting with the costliest loans.');if(fl.has('conc'))fix.push('Keep PMS under half your investments: spread the rest across funds and debt.');
+  let rd;if(fl.has('below50'))rd=['Not eligible yet','bad','SEBI’s minimum for a PMS is ₹50 lakh. Until you reach it, strong mutual funds in the same style do the same job at lower cost. Your matches below show what to aim for.'];
+  else if(R<30||fl.has('short'))rd=['PMS does not suit you now','bad','A PMS is a concentrated bet on shares that needs 3 to 5 years. Your profile points to debt and hybrid funds for now. The matches below are the calmest options, for later.'];
+  else if(fix.length)rd=['Fix the basics first','warn','You can invest in a PMS, but close these gaps first so a bad year never forces you to sell.'];
+  else if(dim.beh<40)rd=['Ready, with care','warn','You qualify, but your instincts lean to selling when markets fall. Pick a calmer strategy, and decide in advance that you will judge it over 3 years, not 3 months.'];
+  else if(dim.ready<60)rd=['Ready, with care','warn','You qualify. Start with one strategy and learn how its fees and reporting work before adding more.'];
+  else rd=['PMS-ready','good','You qualify on size, cushion, time and temperament. A PMS can be a sensible part of your equity.'];
+  const eq=clamp(Math.round((15+.75*R)/5)*5,15,85),gold=R>=75?5:10,debt=100-eq-gold;
+  const pmsAmt=amt&&!fl.has('below50')?Math.round(amt*eq/100):0,nPms=pmsAmt?clamp(Math.floor(pmsAmt/5e6),1,3):0;
+  return {R,raw,dim,prof,notes,fix,rd,eq,gold,debt,amt,pmsAmt,nPms,fall,sty,fl:[...fl]};}
+
+function mzPicks(r){const T=10+.85*r.R,pref=r.sty?MZ_STY[r.sty]:null,low=r.dim.know<35,b=r.dim.beh;
+  let pool=D.pms.filter(p=>p.q!=null&&p.yrs>=3&&!p.fl.includes('odd')&&(p.aum??0)>=(low?100:25)&&p.rk<=T+22);
+  if(pool.length<12)pool=D.pms.filter(p=>p.q!=null&&p.yrs>=3&&!p.fl.includes('odd')&&(p.aum??0)>=25&&p.rk<=T+22);
+  if(pool.length<8)pool=D.pms.filter(p=>p.q!=null&&p.yrs>=3&&!p.fl.includes('odd')&&(p.aum??0)>=25&&p.rk<=T+30);
+  const cau=r.R<45,W=cau?[.30,.32,.18,.10,.10]:[.38,.22,.15,.10,.15];
+  const scored=pool.map(p=>{const ys=(p.yr||[]).filter(v=>v!=null),worst=ys.length?Math.min(...ys):null;
+    const riskFit=clamp(100-2.4*Math.max(0,p.rk-T)-.9*Math.max(0,T-p.rk-10),0,100);
+    const fallFit=worst==null?60:clamp(100-4*Math.max(0,-worst*1.5-r.fall),0,100);
+    const calm=p.vi==null?50:clamp(p.vi*10,0,100),cons=p.cons??50,cc=b<50?.6*calm+.4*cons:.3*calm+.7*cons;
+    let pf=pref?(pref.includes(p.st)?100:45):70;if(r.fl.includes('income')&&/Multi-asset|Large cap/.test(p.st))pf=Math.max(pf,90);if(r.fl.includes('conc0')&&/Multi-asset|Large cap/.test(p.st))pf=Math.min(100,pf+15);
+    let m=W[0]*p.q+W[1]*riskFit+W[2]*fallFit+W[3]*cc+W[4]*pf;if(p.yrs<5)m*=.97;
+    return {p,m:Math.round(m),worst,riskFit,fallFit,pf};}).sort((x,y)=>y.m-x.m);
+  const out=[],seen=new Set();for(const s of scored){if(out.length>=5)break;if(seen.has(s.p.pm))continue;seen.add(s.p.pm);out.push(s);}
+  const blocked=pref&&!pool.some(p=>pref.includes(p.st))&&D.pms.some(p=>pref.includes(p.st));
+  return {list:out,pool:pool.length,T,blocked,W};}
+
+function mzWhy(s,r){const p=s.p,B=D.pmsBench[p.bk],R=[];
+  R.push(s.riskFit>=80?['p',`${p.st}: a natural fit for a ${r.prof[1]}`]:['n',`${p.st} runs a little hotter than your profile`]);
+  if(r.sty&&MZ_STY[r.sty]&&MZ_STY[r.sty].includes(p.st))R.push(['p','Matches the style you picked']);
+  if(p.r3!=null&&B&&B.r[3]!=null)R.push(p.r3>B.r[3]?['p',`3 years: ${pc(p.r3)} a year vs ${pc(B.r[3])} for the ${B.name}`]:['n',`3 years: ${pc(p.r3)} a year, behind the ${B.name} (${pc(B.r[3])})`]);
+  if(s.worst!=null)R.push(s.worst>=0?['p',`No losing year in its last ${(p.yr||[]).filter(v=>v!=null).length} yearly periods`]:-s.worst*1.5<=r.fall?['p',`Worst yearly return ${pc(s.worst)}, inside your ${r.fall}% comfort limit`]:['n',`Worst yearly return ${pc(s.worst)}: close to your ${r.fall}% limit`]);
+  if(p.cons!=null&&p.cons>=75)R.push(['p',`Beat the PMS median in ${p.cons}% of reported periods`]);
+  if(p.vi!=null&&p.vi>=5.5)R.push(['p','Calmer than its index through the last 5 years']);else if(p.vi!=null&&p.vi<4)R.push(['n','Bumpier than its index. Expect sharper swings']);
+  R.push(['p',`${p.yrs}+ years of record, ${aumT(p.aum)} managed`]);
+  const pos=R.filter(x=>x[0]==='p'),neg=R.filter(x=>x[0]==='n');return [...pos.slice(0,3),...neg.slice(0,1)];}
+
+const MZ_AV=`<span class="mz-av" aria-hidden="true"><svg viewBox="0 0 34 34"><path d="M10 25V10l13 15V10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
+function mzProg(){const Q=MZ_Q[Math.min(mz.i,MZ_Q.length-1)],n=MZ_Q.length,done=Math.min(mz.i,n);
+  return `<div class="mz-prog" id="mzProg"><div class="mz-pt"><span><b>Part ${Q.p+1} of ${MZ_PARTS.length}</b> · ${MZ_PARTS[Q.p]}</span><span class="mz-pn">${done} of ${n}</span></div><div class="mz-bar"><i style="width:${(done/n*100).toFixed(1)}%"></i></div>${mz.i>0?`<button class="link mz-back" data-act="mz-back">Change last answer</button>`:''}</div>`;}
+function mzQHTML(Q,live){const k=mz.a[Q.id],prevP=MZ_Q.indexOf(Q)>0?MZ_Q[MZ_Q.indexOf(Q)-1].p:-1;
+  return `<div class="mz-turn" data-q="${Q.id}">${MZ_AV}<div class="mz-bub">${Q.p!==prevP?`<span class="mz-part">Part ${Q.p+1} · ${MZ_PARTS[Q.p]}</span>`:''}<p class="mz-q">${esc(Q.q)}</p>${Q.h?`<p class="mz-h">${esc(Q.h)}</p>`:''}
+  ${live?`<div class="mz-opts" role="group" aria-label="${esc(Q.q)}">${Q.o.map((o,j)=>`<button class="mz-opt tap" data-mzq="${Q.id}" data-mzo="${j}" style="--d:${j}"><span class="mz-k">${'ABCDEFG'[j]}</span><span><b>${esc(o[0])}</b><small>${esc(o[1])}</small></span></button>`).join('')}</div>`:''}</div></div>${!live&&k!=null?`<div class="msg u mz-ans">${esc(Q.o[k][0])}</div>`:''}${!live&&k!=null&&MZ_TIP[Q.id+':'+k]?mzTipHTML(MZ_TIP[Q.id+':'+k]):''}`;}
+const mzTipHTML=t=>`<div class="mz-turn mz-tipt">${MZ_AV}<div class="mz-bub mz-tip">${esc(t)}</div></div>`;
+const mzTyping=()=>`<div class="mz-turn mz-typing">${MZ_AV}<div class="mz-bub"><span class="dots"><i></i><i></i><i></i></span></div></div>`;
+function mzIntro(){const has=S.match&&S.match.a&&Object.keys(S.match.a).length>=MZ_Q.length;
+  return `<div class="mz-intro card"><div class="mz-glow" aria-hidden="true"></div>
+   <span class="eyebrow-pill"><i></i>NIVO’s core</span><h2>Find my right PMS</h2>
+   <p>Risk on a form and risk in a 25% fall are two different things. These ${MZ_Q.length} questions test both, then score you out of 10. Your top 5 PMS come from that score alone: no commissions, no paid placements.</p>
+   <ol class="mz-flow"><li><b>1</b><span>Answer ${MZ_Q.length} questions<small>About 4 minutes, 7 short parts</small></span></li><li><b>2</b><span>Get your NIVO Investor Score<small>Six dimensions, out of 10</small></span></li><li><b>3</b><span>See your top 5 PMS<small>Matched from ${D.pms.filter(p=>p.q!=null&&p.yrs>=3&&!p.fl.includes('odd')&&(p.aum??0)>=25).length} rated strategies</small></span></li></ol>
+   <div class="mz-dchips">${MZ_DIM.map(d=>`<span>${d[1]}</span>`).join('')}</div>
+   <button class="btn pri" data-act="mz-start">${I.target}${has?'Retake the questions':'Start: find my right PMS'}</button>
+   ${has?`<button class="btn sec" data-act="mz-score">See my last result</button>`:''}</div>`;}
+function mzStart(){mz={i:0,a:{}};drawMatch();}
+function drawMatch(){const box=$('#askBox');if(!box)return;
+  if(!mz){box.innerHTML=mzIntro();animateIn(box);return;}
+  if(mz.view==='score'){box.innerHTML=mzScoreHTML();mzAnimScore();return;}
+  if(mz.view==='picks'){box.innerHTML=mzScoreHTML(true)+mzPicksHTML();mzAnimScore(true);return;}
+  box.innerHTML=`${mzProg()}<div class="mz-thread" id="mzT">${MZ_Q.slice(0,mz.i).map(Q=>mzQHTML(Q,false)).join('')}</div>`;mzNext(true);}
+function mzNext(first){const T=$('#mzT');if(!T)return;if(mz.i>=MZ_Q.length){mzCalc();return;}
+  const Q=MZ_Q[mz.i],ty=document.createElement('div');ty.innerHTML=mzTyping();const tyEl=ty.firstElementChild;T.appendChild(tyEl);mzScroll(tyEl);
+  setTimeout(()=>{tyEl.remove();const w=document.createElement('div');w.innerHTML=mzQHTML(Q,true);const el=w.firstElementChild;el.classList.add('mz-in');T.appendChild(el);mzScroll(el,true);},RM?0:(first?250:520));}
+function mzScroll(el,top){if(!el)return;const r=el.getBoundingClientRect(),vh=innerHeight;if(top){if(r.top>vh*.55||r.top<70)window.scrollTo({top:scrollY+r.top-120,behavior:RM?'auto':'smooth'});}else if(r.bottom>vh-90)window.scrollTo({top:scrollY+r.bottom-vh+120,behavior:RM?'auto':'smooth'});}
+function mzPick(qid,j){const Q=MZ_Q[mz.i];if(!Q||Q.id!==qid)return;mz.a[qid]=j;const turn=$(`.mz-turn[data-q="${qid}"]`);
+  const opts=$('.mz-opts',turn);$$('.mz-opt',opts).forEach((b,k)=>{b.disabled=true;b.classList.add(k===j?'pick':'fade');});
+  setTimeout(()=>{opts.remove();const w=document.createElement('div');w.innerHTML=`<div class="msg u mz-ans mz-in">${esc(Q.o[j][0])}</div>`+(MZ_TIP[qid+':'+j]?mzTipHTML(MZ_TIP[qid+':'+j]):'');
+    const kids=[...w.children];turn.after(...kids);kids.forEach((k,i)=>{k.classList.add('mz-in');k.style.setProperty('--i',i);});
+    mz.i++;const pg=$('#mzProg');if(pg){const t=document.createElement('div');t.innerHTML=mzProg();pg.replaceWith(t.firstElementChild);}
+    setTimeout(()=>mzNext(),MZ_TIP[qid+':'+j]?(RM?0:500):0);},RM?0:260);}
+function mzBack(){if(!mz||mz.i<1)return;mz.i--;delete mz.a[MZ_Q[mz.i].id];mz.view=null;drawMatch();}
+function mzCalc(){S.match={a:{...mz.a},at:new Date().toISOString()};Store.save();const T=$('#mzT');
+  const steps=['Financial strength','Time horizon','Risk appetite','Behaviour in a fall','Knowledge','PMS readiness'];
+  const w=document.createElement('div');w.innerHTML=`<div class="mz-turn mz-in">${MZ_AV}<div class="mz-bub"><p class="mz-q">All done. Scoring your answers…</p><ul class="prog-steps mz-steps">${steps.map(s=>`<li><span class="tk">${I.tick}</span>${s}</li>`).join('')}</ul></div></div>`;const el=w.firstElementChild;T.appendChild(el);mzScroll(el);
+  const lis=$$('li',el);let i=0;const tick=()=>{lis.forEach((l,j)=>l.className=j<i?'done':j===i?'now':'');if(i++<lis.length)setTimeout(tick,RM?0:260);else setTimeout(()=>{mz.view='score';drawMatch();window.scrollTo({top:$('#askBox').getBoundingClientRect().top+scrollY-90,behavior:RM?'auto':'smooth'});},RM?0:350);};tick();}
+function mzRing(v){const C=2*Math.PI*52;return `<svg class="mz-ring" viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="mzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--hero3)"/><stop offset="1" stop-color="var(--hero2)"/></linearGradient></defs><circle cx="60" cy="60" r="52" class="tr"/><circle cx="60" cy="60" r="52" class="fg" stroke="url(#mzg)" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${C.toFixed(1)}" data-off="${(C*(1-v/100)).toFixed(1)}"/></svg>`;}
+function mzScoreHTML(compact){const r=mzRes(S.match.a),P=r.prof,band=MZ_PROF.indexOf(P);
+  const dims=MZ_DIM.map(([k,l,s])=>`<div class="mz-dim"><span class="mz-dl"><b>${l}</b><small>${s}</small></span><span class="mz-db"><i data-w="${r.dim[k]}"></i></span><b class="mz-dv">${(r.dim[k]/10).toFixed(1)}</b></div>`).join('');
+  return `<section class="mz-score card${compact?' compact':''}" aria-label="Your NIVO Investor Score">
+   <div class="mz-top"><div class="mz-rw">${mzRing(r.R)}<div class="mz-num"><b data-to="${r.R}">0.0</b><small>/10</small></div></div>
+   <div class="mz-pf"><span class="eyebrow">Your NIVO Investor Score</span><h2>${esc(P[1])}</h2><span class="pill info">${esc(P[2])}</span>
+   <div class="mz-scale" aria-hidden="true">${MZ_PROF.map((x,i)=>`<i class="${i===band?'on':''}"></i>`).join('')}</div></div></div>
+   ${compact?`<button class="link" data-act="mz-score">See full breakdown</button>`:`<p class="mz-desc">${esc(P[3])}</p>
+   <h3 class="mz-h3">How you scored</h3><div class="mz-dims">${dims}</div>
+   ${r.notes.length?`<h3 class="mz-h3">What shaped it</h3>${reasonsHTML(r.notes)}`:''}
+   <div class="mz-rd ${r.rd[1]}"><div class="mz-rdh"><span class="pill ${r.rd[1]}">${esc(r.rd[0])}</span><b>PMS readiness</b></div><p>${esc(r.rd[2])}</p>${r.fix.length?`<ul class="mz-fix">${r.fix.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}</div>
+   <h3 class="mz-h3">Suggested mix for this money</h3><div class="mz-mix" role="img" aria-label="Equity ${r.eq}%, debt ${r.debt}%, gold ${r.gold}%"><i class="e" style="flex:${r.eq}"></i><i class="d" style="flex:${r.debt}"></i><i class="g" style="flex:${r.gold}"></i></div>
+   <div class="mz-mixl"><span><i class="e"></i>Equity <b>${r.eq}%</b></span><span><i class="d"></i>Debt <b>${r.debt}%</b></span><span><i class="g"></i>Gold <b>${r.gold}%</b></span></div>
+   ${r.pmsAmt?`<p class="small muted" style="margin:0">Of about ${inr(r.amt)}, up to ${inr(r.pmsAmt)} of the equity part could go into PMS, across ${r.nPms} strateg${r.nPms>1?'ies':'y'} (₹50 lakh minimum each). Mutual funds can fill the rest.</p>`:''}
+   <div class="mz-cta"><button class="btn pri" data-act="mz-picks">${I.ai}Suggest my top 5 PMS</button><button class="btn sec" data-act="mz-start">Retake</button></div>`}
+  </section>`;}
+function mzPicksHTML(){const r=mzRes(S.match.a),M=mzPicks(r);
+  const warn=r.rd[1]==='bad'?`<div class="mz-note bad">${I.warn}<span>${esc(r.rd[0])}. These are the best-matched strategies for your score, to aim for later, not to buy now.</span></div>`:'';
+  return `<section class="mz-picks" aria-label="Your top 5 PMS"><div class="mz-ph"><span class="eyebrow">Matched to your score ${sc10(r.R)}</span><h2>Your top 5 PMS</h2><p class="small muted">From ${M.pool} strategies with 3+ years of record and a risk level your score allows. Ranked on NIVO Score (${M.W[0]*100}%), fit to your risk level (${M.W[1]*100}%), its worst year against your comfort limit (${M.W[2]*100}%), calm and consistency (${M.W[3]*100}%) and your style (${M.W[4]*100}%). One per manager.</p>${M.blocked?`<div class="mz-note warn">${I.info}<span>Your score keeps ${esc(MZ_STY[r.sty][0].toLowerCase())} PMS out of the list for now, so these are the closest safer matches.</span></div>`:''}${warn}</div>
+   ${M.list.map((s,i)=>{const p=s.p,B=D.pmsBench[p.bk];return `<article class="mz-pk" style="--i:${i}"><div class="mz-pkh"><span class="mz-rk">${i+1}</span><button class="mz-pkt" data-pms="${p.id}"><b>${esc(p.n)}</b><small>${esc(p.pm)}</small></button><span class="mz-mt">${meter(s.m,{size:'sm'})}<small>Your match</small></span></div>
+    <div class="mz-pkm"><span class="pill plain">${esc(p.st)}</span><span class="pill plain">NIVO Score ${sc10(p.q)}</span><span class="pill plain">${aumT(p.aum)} managed</span></div>
+    <div class="mz-stats"><span><small>3Y / yr</small><b>${pc(p.r3)}</b></span><span><small>5Y / yr</small><b>${pc(p.r5)}</b></span><span><small>Index 3Y</small><b>${B?pc(B.r[3]):'—'}</b></span><span><small>Worst year</small><b>${pc(s.worst)}</b></span></div>
+    ${reasonsHTML(mzWhy(s,r))}<button class="link" data-pms="${p.id}">Full details, charts and volatility ${I.chev}</button></article>`;}).join('')}
+   <div class="mz-cta"><button class="btn pri" data-act="mz-ask">${I.ai}Ask NIVO about these five</button><button class="btn sec" data-act="mz-start">Retake the questions</button></div>
+   <p class="tiny" style="text-align:center;margin:0">Returns are after fees as reported to APMI, to ${dt(D.pmsU.asof)}. Past returns do not predict future ones. NIVO is a research tool, not a SEBI-registered investment adviser. Read each strategy’s disclosure document before investing.</p></section>`;}
+function mzAnimScore(picks){const box=$('#askBox');animateIn(box);const b=$('.mz-num b',box);if(b){const to=+b.dataset.to;if(RM)b.textContent=(to/10).toFixed(1);else{const t0=performance.now();(function st(t){const k=Math.min(1,(t-t0)/1100),e=1-Math.pow(1-k,3);b.textContent=(to*e/10).toFixed(1);if(k<1)requestAnimationFrame(st);})(t0);}}
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('.mz-ring .fg',box).forEach(c=>c.style.strokeDashoffset=c.dataset.off);$$('.mz-db i',box).forEach(i=>i.style.width=i.dataset.w+'%');}));
+  if(picks){const pk=$('.mz-picks',box);if(pk)setTimeout(()=>pk.scrollIntoView({block:'start',behavior:RM?'auto':'smooth'}),RM?0:120);}}
+function mzAsk(){const r=mzRes(S.match.a),M=mzPicks(r);askMode='chat';drawAsk();sendChat(`My NIVO Investor Score is ${sc10(r.R)}/10 (${r.prof[1]}, ${r.prof[2].toLowerCase()}), with about ${r.amt?inr(r.amt):'some money'} to invest for PMS. My top 5 PMS matches are: ${M.list.map(s=>`${s.p.n} by ${s.p.pm} (id ${s.p.id})`).join('; ')}. Explain the trade-offs between them and which two I should start with.`);}
+
 function renderAsk(){$('#v-ask').innerHTML=`
-  <div class="ask-hero"><div class="orbit" aria-hidden="true"><i></i><div class="core">${I.ai}</div></div><h1>Ask NIVO</h1><p>Answers from APMI data on every PMS and AMFI data on every fund, checked against your IPS.</p></div>
-  <div class="seg" id="askSeg"><button data-am="chat" class="${askMode==='chat'?'on':''}">Ask anything</button><button data-am="pitch" class="${askMode==='pitch'?'on':''}">Check a pitch</button></div>
+  <div class="ask-hero"><div class="orbit" aria-hidden="true"><i></i><div class="core">${I.ai}</div></div><h1>Ask NIVO</h1><p>Find the PMS that fits you, or ask anything about every PMS and fund in India.</p></div>
+  <div class="seg" id="askSeg"><button data-am="match" class="${askMode==='match'?'on':''}">Find my PMS</button><button data-am="chat" class="${askMode==='chat'?'on':''}">Ask anything</button><button data-am="pitch" class="${askMode==='pitch'?'on':''}">Check a pitch</button></div>
   <div id="askBox" style="display:flex;flex-direction:column;gap:14px"></div>`;drawAsk();animateIn($('#v-ask'));}
-function drawAsk(){const box=$('#askBox');$$('#askSeg button').forEach(b=>b.classList.toggle('on',b.dataset.am===askMode));
+function drawAsk(){const box=$('#askBox');$$('#askSeg button').forEach(b=>b.classList.toggle('on',b.dataset.am===askMode));if(askMode==='match'){drawMatch();return;}
   if(askMode==='chat'){box.innerHTML=`<div class="chat" id="chat">${S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.content):md(m.content)}</div>`).join(''):`<div class="sugs">${SUGS.map(s=>`<button class="sug tap" data-sug="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}</div>
     <form class="composer" id="cform"><textarea id="cin" rows="1" placeholder="Ask about any PMS, fund or your plan" aria-label="Message"></textarea><button type="submit" id="csend" aria-label="Send">${I.send}</button></form>
     ${S.chat.length?'<button class="link" data-act="chat-clear" style="justify-self:start">Start a new chat</button>':''}<p class="tiny" style="margin:0;text-align:center">${HAS_AI?'Uses your Claude account. ':'Quick answers from NIVO’s own database. '}Answers are research, not investment advice.</p>`;
@@ -2001,7 +2255,8 @@ document.addEventListener('pointerdown',e=>{const t=e.target.closest('.tap');if(
 document.addEventListener('input',e=>{if(e.target.id==='xq'){S.x.q=e.target.value;S.x.limit=30;const c=$('.clr');if(c)c.hidden=!S.x.q;clearTimeout(xT);xT=setTimeout(()=>renderXList(false),110);}});
 document.addEventListener('change',e=>{if(e.target.id==='xsort'){S.x.sort=e.target.value;S.x.limit=30;renderXList(true);}if(e.target.id==='psort'){S.x.psort=e.target.value;S.x.limit=30;renderXList(true);}});
 document.addEventListener('click',e=>{if(!D)return;const pop=$('#jgPop');if(!pop.hidden)pop.hidden=true;
-  const el=e.target.closest('[data-person],[data-fund],[data-pms],[data-co],[data-go],[data-act],[data-xs],[data-asset],[data-xcat],[data-am],[data-sug],[data-wk]');if(!el)return;
+  const el=e.target.closest('[data-person],[data-fund],[data-pms],[data-co],[data-go],[data-act],[data-xs],[data-asset],[data-xcat],[data-am],[data-sug],[data-wk],[data-mzq]');if(!el)return;
+  if(el.dataset.mzq){mzPick(el.dataset.mzq,+el.dataset.mzo);return;}
   if(el.dataset.wk){wz.a[el.dataset.wk]=el.dataset.wv;$$(`[data-wk="${el.dataset.wk}"]`).forEach(b=>b.classList.toggle('on',b===el));return;}
   if(el.dataset.fund){openFund(el.dataset.fund);return;}
   if(el.dataset.pms){openPMS(el.dataset.pms);return;}
@@ -2014,6 +2269,10 @@ document.addEventListener('click',e=>{if(!D)return;const pop=$('#jgPop');if(!pop
   if(el.dataset.am){askMode=el.dataset.am;drawAsk();animateIn($('#askBox'));return;}
   if(el.dataset.sug){sendChat(el.dataset.sug);return;}
   const a=el.dataset.act;
+  if(a==='mz-start'){mzStart();window.scrollTo({top:$('#askBox').getBoundingClientRect().top+scrollY-90,behavior:RM?'auto':'smooth'});return;}
+  if(a==='mz-back'){mzBack();return;}
+  if(a==='mz-score'||a==='mz-picks'){if(!S.match)return;askMode='match';mz={i:MZ_Q.length,a:{...S.match.a},view:a==='mz-score'?'score':'picks'};if(cur!=='ask'){go('ask');}else{drawAsk();if(a==='mz-score')window.scrollTo({top:$('#askBox').getBoundingClientRect().top+scrollY-90,behavior:RM?'auto':'smooth'});}return;}
+  if(a==='mz-ask'){mzAsk();return;}
   if(a==='close')closeSheet();
   else if(a==='search-focus'){go('explore');setTimeout(()=>{const q=$('#xq');if(q)q.focus();},80);}
   else if(a==='xclear'){S.x.q='';S.x.limit=30;const q=$('#xq');q.value='';el.hidden=true;renderXList(true);q.focus();}
@@ -2072,7 +2331,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSheet();$('#jg
     if(st.answers&&!st.exIPS)S.answers={...BLANK_A,...st.answers};
     if(Array.isArray(st.holdings)){const keep=st.exPF?[]:st.holdings.filter(h=>!isOldExample(h));if(keep.length!==st.holdings.length)dirty=true;S.holdings=keep;
       S.holdings.forEach(h=>{if(h.type==='pms'&&!pmsById(h.pms)){const nm=norm(h.name),p=D.pms.find(x=>norm(x.n)===nm);dirty=true;if(p)h.pms=p.id;else{h.type='stock';h.name=h.name+' (PMS)';delete h.pms;}}});}
-    if(st.aiPms&&st.aiPms.text)S.aiPms=st.aiPms;if(st.persona)S.persona=st.persona;
+    if(st.aiPms&&st.aiPms.text)S.aiPms=st.aiPms;if(st.persona)S.persona=st.persona;if(st.match&&st.match.a)S.match=st.match;
     setIPS();if(dirty)Store.save();if(!$('#sheet').classList.contains('open'))refresh();}
 })();
 })();
