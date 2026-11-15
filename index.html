@@ -1036,32 +1036,41 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 .mz-flow span{display:grid;font-weight:700;font-size:14px}.mz-flow small{font-weight:500;font-size:12.5px;color:var(--ink3)}
 .mz-dchips{display:flex;flex-wrap:wrap;gap:6px}
 .mz-dchips span{font:600 11.5px var(--f-body);padding:5px 10px;border-radius:99px;background:var(--card2);color:var(--ink2)}
-.mz-prog{position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);z-index:20;display:grid;gap:7px;padding:10px 14px;border-radius:18px;background:linear-gradient(var(--card2),var(--card2)),var(--bg1);border:1px solid var(--line);box-shadow:var(--shadow)}
+.mz-stage{display:flex;flex-direction:column;gap:10px;scroll-margin-top:96px}
+.mz-prog{display:grid;gap:7px;padding:12px 14px;border-radius:18px;background:var(--card-solid);border:1px solid var(--line)}
 .mz-pt{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--ink2)}.mz-pt b{color:var(--ink)}
 .mz-pn{font:600 11.5px var(--f-mono);color:var(--ink3);white-space:nowrap}
 .mz-bar{height:6px;border-radius:99px;background:var(--card2);overflow:hidden}
-.mz-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--hero2),var(--hero3));transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.mz-back{justify-self:start;padding:0;font-size:12.5px}
-.mz-thread{display:flex;flex-direction:column;gap:12px;padding-bottom:24px}
-.mz-turn{display:flex;gap:10px;align-items:flex-start}
-.mz-av{flex:none;width:32px;height:32px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(140deg,var(--hero2),var(--hero3));box-shadow:0 8px 16px -10px var(--glow)}
+.mz-bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--hero2),var(--hero3));transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.mz-parts{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}.mz-parts i{height:3px;border-radius:99px;background:var(--card2);transition:background .3s}.mz-parts i.done{background:var(--hero3)}.mz-parts i.on{background:var(--hero2)}
+.mz-recent{display:grid;gap:6px}.mz-recent:empty{display:none}
+.mz-row{position:relative;overflow:hidden;display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:14px;border:1px solid var(--line);background:var(--card-solid);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.mz-row span{flex:none;font-size:12px;color:var(--ink3);max-width:42%}
+.mz-row b{flex:1;min-width:0;font-size:13.5px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mz-row svg{flex:none;width:15px;height:15px;color:var(--blue)}
+.mz-card{display:flex;flex-direction:column;gap:12px;padding:16px 14px;border-radius:22px;background:var(--card-solid);border:1px solid var(--line);box-shadow:0 18px 40px -26px rgba(14,48,130,.45);transition:opacity .2s ease,transform .25s cubic-bezier(.2,.8,.2,1);will-change:transform,opacity}
+.mz-card.mz-out{opacity:0;transform:translateX(-18px)}.mz-card.mz-out.back{transform:translateX(18px)}
+.mz-card.mz-enter{opacity:0;transform:translateX(22px);transition:none}.mz-card.mz-enter.back{transform:translateX(-22px)}
+.mz-qh{display:flex;gap:10px;align-items:flex-start}.mz-qh>div{min-width:0}
+.mz-av{flex:none;width:32px;height:32px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(140deg,var(--hero2),var(--hero3))}
 .mz-av svg{width:19px;height:19px}
-.mz-bub{flex:1;min-width:0;padding:12px 14px;border-radius:18px;border-top-left-radius:6px;background:var(--card);border:1px solid var(--line);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
-.mz-part{display:block;margin-bottom:5px;font:600 10.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.mz-q{margin:0;font-weight:700;font-size:15px;line-height:1.45}
+.mz-part{display:block;margin-bottom:4px;font:600 10.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.mz-q{margin:0;font-weight:700;font-size:15.5px;line-height:1.42;text-wrap:pretty}
 .mz-h{margin:5px 0 0;font-size:12.5px;color:var(--ink3)}
-.mz-opts{display:grid;gap:8px;margin-top:12px}
-.mz-opt{position:relative;overflow:hidden;display:flex;gap:12px;align-items:center;text-align:left;width:100%;padding:11px 12px;border-radius:15px;border:1.5px solid var(--line);background:var(--card-solid);color:var(--ink);font:inherit;cursor:pointer;transition:border-color .2s,transform .2s,background .2s,opacity .25s;animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0) * 45ms)}
-.mz-opt:hover{border-color:var(--blue-2);transform:translateY(-1px)}
+.mz-tip{margin:0;padding:9px 12px;border-radius:12px;background:var(--card2);font-size:13px;line-height:1.45;color:var(--ink2)}
+.mz-opts{display:grid;gap:8px}
+.mz-opt{position:relative;display:flex;gap:12px;align-items:center;text-align:left;width:100%;padding:11px 12px;border-radius:15px;border:1.5px solid var(--line);background:var(--card-solid);color:var(--ink);font:inherit;cursor:pointer;transition:border-color .18s,background .18s;animation:mzopt .32s ease-out both;animation-delay:calc(var(--d,0) * 30ms);-webkit-tap-highlight-color:transparent}
+@keyframes mzopt{from{opacity:0;transform:translateY(6px)}}
+@media (hover:hover){.mz-opt:hover{border-color:var(--blue-2)}}
 .mz-opt:focus-visible{outline:2px solid var(--blue-2);outline-offset:2px}
 .mz-opt b{display:block;font-size:14px;line-height:1.3}.mz-opt small{display:block;font-size:12px;color:var(--ink3);margin-top:2px}
-.mz-k{flex:none;width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font:700 12px var(--f-mono);background:var(--card2);color:var(--blue);transition:all .2s}
+.mz-k{flex:none;width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font:700 12px var(--f-mono);background:var(--card2);color:var(--blue);transition:background .18s,color .18s}
 .mz-opt.pick{border-color:var(--blue-2);background:var(--card2)}.mz-opt.pick .mz-k{background:var(--blue);color:var(--on-hero)}
-.mz-opt.fade{opacity:.35}
-.mz-ans{margin-left:42px;max-width:calc(88% - 42px)}
-.mz-tip{font-size:13.5px;line-height:1.5;color:var(--ink2);background:var(--card2)}
-.mz-in{animation:rise .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
-.mz-typing .mz-bub{flex:0 0 auto;padding:12px 14px}
+.mz-back{justify-self:start;align-self:flex-start;padding:2px 0;font-size:13px}
+.mz-all{border-radius:16px;border:1px solid var(--line);background:var(--card-solid)}
+.mz-all summary{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:11px 14px;cursor:pointer;font-weight:700;font-size:13.5px;list-style:none}
+.mz-all summary::-webkit-details-marker{display:none}.mz-all summary small{font-weight:500;font-size:12px;color:var(--ink3)}
+.mz-allb{display:grid;gap:6px;padding:0 10px 10px}
 .mz-steps{margin-top:10px}
 .mz-score{display:flex;flex-direction:column;gap:14px;padding:20px 18px}
 .mz-score.compact{gap:10px}
@@ -1109,7 +1118,7 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 .mz-stats small{font-size:10.5px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mz-stats b{font:800 14px var(--f-display);font-variant-numeric:tabular-nums}
 .mz-pk .link{justify-self:start;display:inline-flex;align-items:center;gap:4px}.mz-pk .link svg{width:14px;height:14px}
 @media (max-width:380px){.mz-top{flex-direction:column;align-items:flex-start}.mz-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.mz-dim{grid-template-columns:minmax(0,1fr) 30% 30px}}
-@media (prefers-reduced-motion:reduce){.mz-glow,.mz-opt,.mz-in,.mz-pk{animation:none!important}.mz-ring .fg,.mz-db i,.mz-bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.mz-glow,.mz-opt,.mz-in,.mz-pk{animation:none!important}.mz-ring .fg,.mz-db i,.mz-bar i,.mz-card{transition:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -2111,13 +2120,6 @@ function mzWhy(s,r){const p=s.p,B=D.pmsBench[p.bk],R=[];
   const pos=R.filter(x=>x[0]==='p'),neg=R.filter(x=>x[0]==='n');return [...pos.slice(0,3),...neg.slice(0,1)];}
 
 const MZ_AV=`<span class="mz-av" aria-hidden="true"><svg viewBox="0 0 34 34"><path d="M10 25V10l13 15V10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
-function mzProg(){const Q=MZ_Q[Math.min(mz.i,MZ_Q.length-1)],n=MZ_Q.length,done=Math.min(mz.i,n);
-  return `<div class="mz-prog" id="mzProg"><div class="mz-pt"><span><b>Part ${Q.p+1} of ${MZ_PARTS.length}</b> · ${MZ_PARTS[Q.p]}</span><span class="mz-pn">${done} of ${n}</span></div><div class="mz-bar"><i style="width:${(done/n*100).toFixed(1)}%"></i></div>${mz.i>0?`<button class="link mz-back" data-act="mz-back">Change last answer</button>`:''}</div>`;}
-function mzQHTML(Q,live){const k=mz.a[Q.id],prevP=MZ_Q.indexOf(Q)>0?MZ_Q[MZ_Q.indexOf(Q)-1].p:-1;
-  return `<div class="mz-turn" data-q="${Q.id}">${MZ_AV}<div class="mz-bub">${Q.p!==prevP?`<span class="mz-part">Part ${Q.p+1} · ${MZ_PARTS[Q.p]}</span>`:''}<p class="mz-q">${esc(Q.q)}</p>${Q.h?`<p class="mz-h">${esc(Q.h)}</p>`:''}
-  ${live?`<div class="mz-opts" role="group" aria-label="${esc(Q.q)}">${Q.o.map((o,j)=>`<button class="mz-opt tap" data-mzq="${Q.id}" data-mzo="${j}" style="--d:${j}"><span class="mz-k">${'ABCDEFG'[j]}</span><span><b>${esc(o[0])}</b><small>${esc(o[1])}</small></span></button>`).join('')}</div>`:''}</div></div>${!live&&k!=null?`<div class="msg u mz-ans">${esc(Q.o[k][0])}</div>`:''}${!live&&k!=null&&MZ_TIP[Q.id+':'+k]?mzTipHTML(MZ_TIP[Q.id+':'+k]):''}`;}
-const mzTipHTML=t=>`<div class="mz-turn mz-tipt">${MZ_AV}<div class="mz-bub mz-tip">${esc(t)}</div></div>`;
-const mzTyping=()=>`<div class="mz-turn mz-typing">${MZ_AV}<div class="mz-bub"><span class="dots"><i></i><i></i><i></i></span></div></div>`;
 function mzIntro(){const has=S.match&&S.match.a&&Object.keys(S.match.a).length>=MZ_Q.length;
   return `<div class="mz-intro card"><div class="mz-glow" aria-hidden="true"></div>
    <span class="eyebrow-pill"><i></i>NIVO’s core</span><h2>Find my right PMS</h2>
@@ -2126,27 +2128,45 @@ function mzIntro(){const has=S.match&&S.match.a&&Object.keys(S.match.a).length>=
    <div class="mz-dchips">${MZ_DIM.map(d=>`<span>${d[1]}</span>`).join('')}</div>
    <button class="btn pri" data-act="mz-start">${I.target}${has?'Retake the questions':'Start: find my right PMS'}</button>
    ${has?`<button class="btn sec" data-act="mz-score">See my last result</button>`:''}</div>`;}
+const MZ_S={age:'Age',job:'Income source',dep:'Dependants',inc:'Household income',ef:'Emergency fund',emi:'Loan EMIs',ins:'Insurance',amt:'Money for PMS',share:'Share of your wealth',spend:'Big spends ahead',hor:'Time horizon',goal:'Goal',fall:'Fall you can take',scn:'Crash scenario',lag:'Trailing the index',fomo:'Friend’s 62% PMS',fam:'Family pressure',conc:'Concentration',exp:'Experience',lit:'Market basics',fee:'Fees',sty:'Style'};
+const mzDone=()=>MZ_Q.filter(Q=>mz.a[Q.id]!=null).length;
+const mzFirstOpen=()=>MZ_Q.findIndex(Q=>mz.a[Q.id]==null);
+function mzProg(){const Q=MZ_Q[Math.min(mz.i,MZ_Q.length-1)],n=MZ_Q.length,d=mzDone();
+  return `<div class="mz-pt"><span><b>Part ${Q.p+1} of ${MZ_PARTS.length}</b> · ${MZ_PARTS[Q.p]}</span><span class="mz-pn">${d} of ${n}</span></div><div class="mz-bar"><i style="width:${(d/n*100).toFixed(1)}%"></i></div><div class="mz-parts" aria-hidden="true">${MZ_PARTS.map((x,i)=>`<i class="${i<Q.p?'done':i===Q.p?'on':''}"></i>`).join('')}</div>`;}
+const mzEdit=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg>`;
+function mzRow(Q){const k=mz.a[Q.id];return `<button class="mz-row tap" data-act="mz-edit" data-i="${MZ_Q.indexOf(Q)}" aria-label="Change: ${esc(MZ_S[Q.id])}"><span>${esc(MZ_S[Q.id])}</span><b>${esc(Q.o[k][0])}</b>${mzEdit}</button>`;}
+function mzRecent(){const prev=MZ_Q.slice(0,mz.i).filter(Q=>mz.a[Q.id]!=null).slice(-2);return prev.map(mzRow).join('');}
+function mzAll(){const d=MZ_Q.filter(Q=>mz.a[Q.id]!=null);return d.length>2?`<details class="mz-all"><summary>All ${d.length} answers <small>Tap one to change it</small></summary><div class="mz-allb">${d.map(mzRow).join('')}</div></details>`:'';}
+function mzCardHTML(){const Q=MZ_Q[mz.i],k=mz.a[Q.id],pq=MZ_Q[mz.i-1],tip=pq&&mz.a[pq.id]!=null?MZ_TIP[pq.id+':'+mz.a[pq.id]]:null,newPart=!pq||pq.p!==Q.p;
+  return `<div class="mz-qh">${MZ_AV}<div>${newPart?`<span class="mz-part">Part ${Q.p+1} · ${MZ_PARTS[Q.p]}</span>`:''}<p class="mz-q" id="mzQ">${esc(Q.q)}</p>${Q.h?`<p class="mz-h">${esc(Q.h)}</p>`:''}</div></div>
+   ${tip?`<p class="mz-tip">${esc(tip)}</p>`:''}
+   <div class="mz-opts" role="group" aria-labelledby="mzQ">${Q.o.map((o,j)=>`<button class="mz-opt${k===j?' pick':''}" data-mzq="${Q.id}" data-mzo="${j}" style="--d:${j}"><span class="mz-k">${'ABCDEFG'[j]}</span><span><b>${esc(o[0])}</b><small>${esc(o[1])}</small></span></button>`).join('')}</div>
+   ${mz.i>0?`<button class="link mz-back" data-act="mz-back">← Previous question</button>`:''}`;}
 function mzStart(){mz={i:0,a:{}};drawMatch();}
 function drawMatch(){const box=$('#askBox');if(!box)return;
   if(!mz){box.innerHTML=mzIntro();animateIn(box);return;}
   if(mz.view==='score'){box.innerHTML=mzScoreHTML();mzAnimScore();return;}
   if(mz.view==='picks'){box.innerHTML=mzScoreHTML(true)+mzPicksHTML();mzAnimScore(true);return;}
-  box.innerHTML=`${mzProg()}<div class="mz-thread" id="mzT">${MZ_Q.slice(0,mz.i).map(Q=>mzQHTML(Q,false)).join('')}</div>`;mzNext(true);}
-function mzNext(first){const T=$('#mzT');if(!T)return;if(mz.i>=MZ_Q.length){mzCalc();return;}
-  const Q=MZ_Q[mz.i],ty=document.createElement('div');ty.innerHTML=mzTyping();const tyEl=ty.firstElementChild;T.appendChild(tyEl);mzScroll(tyEl);
-  setTimeout(()=>{tyEl.remove();const w=document.createElement('div');w.innerHTML=mzQHTML(Q,true);const el=w.firstElementChild;el.classList.add('mz-in');T.appendChild(el);mzScroll(el,true);},RM?0:(first?250:520));}
-function mzScroll(el,top){if(!el)return;const r=el.getBoundingClientRect(),vh=innerHeight;if(top){if(r.top>vh*.55||r.top<70)window.scrollTo({top:scrollY+r.top-120,behavior:RM?'auto':'smooth'});}else if(r.bottom>vh-90)window.scrollTo({top:scrollY+r.bottom-vh+120,behavior:RM?'auto':'smooth'});}
-function mzPick(qid,j){const Q=MZ_Q[mz.i];if(!Q||Q.id!==qid)return;mz.a[qid]=j;const turn=$(`.mz-turn[data-q="${qid}"]`);
-  const opts=$('.mz-opts',turn);$$('.mz-opt',opts).forEach((b,k)=>{b.disabled=true;b.classList.add(k===j?'pick':'fade');});
-  setTimeout(()=>{opts.remove();const w=document.createElement('div');w.innerHTML=`<div class="msg u mz-ans mz-in">${esc(Q.o[j][0])}</div>`+(MZ_TIP[qid+':'+j]?mzTipHTML(MZ_TIP[qid+':'+j]):'');
-    const kids=[...w.children];turn.after(...kids);kids.forEach((k,i)=>{k.classList.add('mz-in');k.style.setProperty('--i',i);});
-    mz.i++;const pg=$('#mzProg');if(pg){const t=document.createElement('div');t.innerHTML=mzProg();pg.replaceWith(t.firstElementChild);}
-    setTimeout(()=>mzNext(),MZ_TIP[qid+':'+j]?(RM?0:500):0);},RM?0:260);}
-function mzBack(){if(!mz||mz.i<1)return;mz.i--;delete mz.a[MZ_Q[mz.i].id];mz.view=null;drawMatch();}
-function mzCalc(){S.match={a:{...mz.a},at:new Date().toISOString()};Store.save();const T=$('#mzT');
+  if(mz.i>=MZ_Q.length)mz.i=Math.max(0,mzFirstOpen());
+  box.innerHTML=`<div class="mz-stage" id="mzS"><div class="mz-prog" id="mzProg">${mzProg()}</div><div class="mz-recent" id="mzR">${mzRecent()}</div><div class="mz-card" id="mzC">${mzCardHTML()}</div><div id="mzA">${mzAll()}</div></div>`;
+  const c=$('#mzC');c.classList.add('mz-enter');requestAnimationFrame(()=>requestAnimationFrame(()=>c.classList.remove('mz-enter')));}
+function mzKeepInView(){const s=$('#mzS');if(!s)return;const r=s.getBoundingClientRect(),hb=($('.top')||{getBoundingClientRect:()=>({bottom:80})}).getBoundingClientRect().bottom+8;if(r.top<hb-4||r.top>innerHeight*.35)window.scrollTo({top:scrollY+r.top-hb,behavior:'auto'});}
+let mzBusy=false;
+function mzGo(to,dir){const c=$('#mzC');if(!c){mz.i=to;drawMatch();return;}mzBusy=true;
+  const swap=()=>{mz.i=to;$('#mzProg').innerHTML=mzProg();$('#mzR').innerHTML=mzRecent();$('#mzA').innerHTML=mzAll();c.innerHTML=mzCardHTML();c.classList.remove('mz-out','back');c.classList.add('mz-enter');if(dir<0)c.classList.add('back');mzKeepInView();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{c.classList.remove('mz-enter','back');setTimeout(()=>{mzBusy=false;},RM?0:120);}));};
+  if(RM){swap();return;}c.classList.add('mz-out');if(dir<0)c.classList.add('back');setTimeout(swap,200);}
+function mzPick(qid,j){if(mzBusy)return;const Q=MZ_Q[mz.i];if(!Q||Q.id!==qid)return;mz.a[qid]=j;
+  $$('#mzC .mz-opt').forEach((b,k)=>b.classList.toggle('pick',k===j));
+  const nx=MZ_Q.findIndex((q,i)=>i>mz.i&&mz.a[q.id]==null),open=mzFirstOpen();
+  setTimeout(()=>{if(nx>=0)mzGo(nx,1);else if(open>=0)mzGo(open,1);else mzCalc();},RM?0:230);}
+function mzBack(){if(!mz||mz.i<1||mzBusy)return;mzGo(mz.i-1,-1);}
+function mzEditAt(i){if(!mz||mzBusy)return;const d=$('.mz-all');if(d)d.open=false;mzGo(i,i<mz.i?-1:1);}
+function mzCalc(){S.match={a:{...mz.a},at:new Date().toISOString()};Store.save();mz.i=MZ_Q.length;
   const steps=['Financial strength','Time horizon','Risk appetite','Behaviour in a fall','Knowledge','PMS readiness'];
-  const w=document.createElement('div');w.innerHTML=`<div class="mz-turn mz-in">${MZ_AV}<div class="mz-bub"><p class="mz-q">All done. Scoring your answers…</p><ul class="prog-steps mz-steps">${steps.map(s=>`<li><span class="tk">${I.tick}</span>${s}</li>`).join('')}</ul></div></div>`;const el=w.firstElementChild;T.appendChild(el);mzScroll(el);
-  const lis=$$('li',el);let i=0;const tick=()=>{lis.forEach((l,j)=>l.className=j<i?'done':j===i?'now':'');if(i++<lis.length)setTimeout(tick,RM?0:260);else setTimeout(()=>{mz.view='score';drawMatch();window.scrollTo({top:$('#askBox').getBoundingClientRect().top+scrollY-90,behavior:RM?'auto':'smooth'});},RM?0:350);};tick();}
+  $('#mzProg').innerHTML=`<div class="mz-pt"><span><b>All ${MZ_Q.length} answered</b></span><span class="mz-pn">${MZ_Q.length} of ${MZ_Q.length}</span></div><div class="mz-bar"><i style="width:100%"></i></div>`;$('#mzR').innerHTML='';$('#mzA').innerHTML='';
+  const c=$('#mzC');c.innerHTML=`<div class="mz-qh">${MZ_AV}<div><p class="mz-q">Scoring your answers…</p></div></div><ul class="prog-steps mz-steps">${steps.map(s=>`<li><span class="tk">${I.tick}</span>${s}</li>`).join('')}</ul>`;mzKeepInView();
+  const lis=$$('li',c);let i=0;const tick=()=>{lis.forEach((l,j)=>l.className=j<i?'done':j===i?'now':'');if(i++<lis.length)setTimeout(tick,RM?0:240);else setTimeout(()=>{mz.view='score';drawMatch();const b=$('#askBox');window.scrollTo({top:b.getBoundingClientRect().top+scrollY-96,behavior:'auto'});},RM?0:300);};tick();}
 function mzRing(v){const C=2*Math.PI*52;return `<svg class="mz-ring" viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="mzg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--hero3)"/><stop offset="1" stop-color="var(--hero2)"/></linearGradient></defs><circle cx="60" cy="60" r="52" class="tr"/><circle cx="60" cy="60" r="52" class="fg" stroke="url(#mzg)" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${C.toFixed(1)}" data-off="${(C*(1-v/100)).toFixed(1)}"/></svg>`;}
 function mzScoreHTML(compact){const r=mzRes(S.match.a),P=r.prof,band=MZ_PROF.indexOf(P);
   const dims=MZ_DIM.map(([k,l,s])=>`<div class="mz-dim"><span class="mz-dl"><b>${l}</b><small>${s}</small></span><span class="mz-db"><i data-w="${r.dim[k]}"></i></span><b class="mz-dv">${(r.dim[k]/10).toFixed(1)}</b></div>`).join('');
@@ -2271,6 +2291,7 @@ document.addEventListener('click',e=>{if(!D)return;const pop=$('#jgPop');if(!pop
   const a=el.dataset.act;
   if(a==='mz-start'){mzStart();window.scrollTo({top:$('#askBox').getBoundingClientRect().top+scrollY-90,behavior:RM?'auto':'smooth'});return;}
   if(a==='mz-back'){mzBack();return;}
+  if(a==='mz-edit'){mzEditAt(+el.dataset.i);return;}
   if(a==='mz-score'||a==='mz-picks'){if(!S.match)return;askMode='match';mz={i:MZ_Q.length,a:{...S.match.a},view:a==='mz-score'?'score':'picks'};if(cur!=='ask'){go('ask');}else{drawAsk();if(a==='mz-score')window.scrollTo({top:$('#askBox').getBoundingClientRect().top+scrollY-90,behavior:RM?'auto':'smooth'});}return;}
   if(a==='mz-ask'){mzAsk();return;}
   if(a==='close')closeSheet();
