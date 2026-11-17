@@ -1455,6 +1455,25 @@ h1{letter-spacing:-.03em}
 .in .mkc .nw{opacity:1}.mkc .nw b{font:800 21px var(--f-display);color:#fff}
 
 .ph-note{text-align:center}.mkc .nw b{white-space:nowrap}.in-bg{overflow:hidden}
+
+@media (min-width:640px){.vg.v4{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:980px){.vg.v4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.wp p{font-size:clamp(19px,5vw,24px)}
+
+.ph-frame{display:flex;flex-direction:column;height:calc(min(300px,80vw) * 2.04);aspect-ratio:auto}
+.ph-scr{flex:1;height:auto;min-height:0}
+.ph-dots{display:flex;gap:7px;justify-content:center}.ph-dots i{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.22);transition:all .4s cubic-bezier(.2,.8,.2,1)}.ph-dots i.on{width:22px;background:#fff}
+
+.ph-frame{display:flex;flex-direction:column}.ph-scr{flex:1;height:auto;min-height:0}
+.in-pw .ph-cap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
+.ph-cap b{font:700 15px var(--f-display);color:#fff;letter-spacing:-.01em;transition:opacity .25s ease,transform .25s ease}
+.ph-cap b.sw{opacity:0;transform:translateY(6px)}
+.ph-cap .ph-dots{display:flex;gap:6px;margin:0}.ph-cap .ph-dots i{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.22);transition:width .4s ease,background .4s ease}
+.ph-cap .ph-dots i.on{width:22px;background:#8fc1ff}
+.pv-mix{display:flex;gap:3px;height:12px;border-radius:99px;overflow:hidden}
+.pv-mix i{display:block;height:100%;flex:0 0 0;background:var(--c);transition:flex-basis 1s cubic-bezier(.2,.8,.2,1)}
+.done .pv-mix i{flex-basis:calc(var(--w) * 1% - 3px)}
+.pv-leg{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:7px;font-size:10.5px;color:#4a5d80}.pv-leg span{display:flex;align-items:center;gap:4px}.pv-leg i{width:7px;height:7px;border-radius:2px}
+.pv-line circle{fill:#c2384d;opacity:0;transition:opacity .4s ease 1.2s}.done .pv-line circle{opacity:1}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -2953,115 +2972,97 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSheet();$('#jg
 
 /* ================= boot ================= */
 /* ================= INTRO BRIEFING v2: the whole platform, with a live AI phone ================= */
-const INTRO_KEY='nivo.intro.v2';
+const INTRO_KEY='nivo.intro.v3';
 const GIVE=['a plan','clarity','ambition','discipline','superpowers','independence','a second opinion'];
 const NV_MARK='<svg viewBox="0 0 34 34" aria-hidden="true"><defs><linearGradient id="inG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6db3ff"/><stop offset="1" stop-color="#1a52d6"/></linearGradient></defs><rect width="34" height="34" rx="10" fill="url(#inG)"/><path d="M10 25V10l13 15V10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const DEMOS=[
- {chip:'Check my adviser',q:'Is my wealth manager pushing me into costly products?',steps:['Reading your CAS · 14 holdings','Tracing 9 switches in 12 months','Comparing with Direct plans'],
-  a:'3 of your last 5 switches moved money into Regular plans with higher costs. Together they cost about ₹1.4 lakh a year, and none was in your IPS.',
-  viz:`<div class="pv-list">${[['Small cap fund → Regular','₹62,000'],['Thematic NFO','₹48,000'],['Hybrid → Regular','₹31,000']].map(([n,v],i)=>`<div style="--i:${i}"><span>${n}</span><b>${v}/yr</b></div>`).join('')}</div>`,acts:['Show Direct twins','Draft a question for my RM']},
- {chip:'Monsoon impact',q:'The monsoon is 12% below normal. Does it affect me?',steps:['Reading IMD rainfall data','Mapping rural demand → sectors','Looking through your funds and PMS'],
-  a:'Some of it does. 18% of your equity sits in rural-linked businesses, mostly through one PMS. That is a watch item, not a sell signal.',
-  viz:`<div class="pv-bars">${[['Tractors',6],['FMCG',7],['Fertilisers',3],['Two-wheelers',2]].map(([n,v],i)=>`<div style="--i:${i};--v:${v/8}"><span>${n}</span><i></i><b>${v}%</b></div>`).join('')}</div>`,acts:['See the evidence','Set an alert']},
- {chip:'Find my PMS',q:'Which PMS actually fits me?',steps:['Your Investor Score: 7.2/10','Scanning 1,128 strategies','Checking falls, fees and style'],
-  a:'Three strategies fit your score and your 20% comfort limit. Each beat its own index after fees over 5 years.',
-  viz:`<div class="pv-list m">${[['Flexi cap strategy','9.1'],['Large cap strategy','8.7'],['Multi-asset strategy','8.2']].map(([n,v],i)=>`<div style="--i:${i}"><span><em>${i+1}</em>${n}</span><b>${v}</b></div>`).join('')}</div>`,acts:['Compare all five','Invest, commission-free']},
- {chip:'Retire at 55?',q:'Am I on track to retire at 55?',steps:['Projecting ₹2.4 Cr across 6 accounts','Inflation at 6% a year','Stress-testing a 2020-style crash'],
-  a:'On today’s plan you get there at 58. Adding ₹18,000 a month, or moving 10% from cash into your plan’s equity, brings it to 55.',
-  viz:`<svg class="pv-line" viewBox="0 0 220 74" aria-hidden="true"><path class="g" d="M4 70 C 50 64, 90 52, 130 38 S 190 14, 216 8" /><path class="b" d="M4 70 C 50 66, 90 58, 130 48 S 190 30, 216 24" /><line x1="160" y1="4" x2="160" y2="72"/><text x="163" y="12">55</text></svg>`,acts:['Show the plan','Adjust my SIP']}];
+ {cap:'Builds your plan',q:'I want ₹2 crore in 15 years. What should I do?',steps:['Understanding your goal','Checking how much risk suits you','Building your mix'],
+  a:'Invest ₹42,000 a month in this mix and you’re on track. NIVO picks a good low-cost fund for each part.',
+  viz:`<div class="pv-mix"><i style="--w:65;--c:#3f86ff"></i><i style="--w:25;--c:#8fd3ff"></i><i style="--w:10;--c:#f0b43a"></i></div><div class="pv-leg"><span><i style="background:#3f86ff"></i>Shares 65%</span><span><i style="background:#8fd3ff"></i>Bonds 25%</span><span><i style="background:#f0b43a"></i>Gold 10%</span></div>`,acts:['See my funds','Start a SIP']},
+ {cap:'Finds hidden fees',q:'Am I paying too much in fees?',steps:['Reading your statement','Finding costly Regular plans','Comparing with cheaper Direct plans'],
+  a:'Yes. Two of your funds are Regular plans. Moving to their Direct versions saves about ₹12,800 a year.',
+  viz:`<div class="pv-list">${[['Flexi cap fund','₹8,400'],['Mid cap fund','₹4,400']].map(([n,v],i)=>`<div style="--i:${i}"><span>${n}</span><b>${v}/yr</b></div>`).join('')}</div>`,acts:['Switch to Direct','Show me how']},
+ {cap:'Picks the right PMS',q:'Which PMS is right for me?',steps:['Your Investor Score: 7.2/10','Checking every PMS in India','Matching risk, returns and fees'],
+  a:'These three fit you best. Each beat its own index after fees over 5 years.',
+  viz:`<div class="pv-list m">${[['Flexi cap strategy','9.1'],['Large cap strategy','8.7'],['Multi-asset strategy','8.2']].map(([n,v],i)=>`<div style="--i:${i}"><span><em>${i+1}</em>${n}</span><b>${v}</b></div>`).join('')}</div>`,acts:['Compare them','Invest']},
+ {cap:'Keeps you calm in a fall',q:'Markets fell 10%. Should I sell?',steps:['Checking your plan','Looking at past falls','Reviewing your holdings'],
+  a:'No need. Your plan expects falls like this, and you won’t need this money for 12 years. Selling now would lock in the loss.',
+  viz:`<svg class="pv-line" viewBox="0 0 220 76" aria-hidden="true"><path class="b" d="M4 22 C 30 18, 52 20, 72 54 S 112 70, 140 44 S 190 16, 216 8"/><circle cx="96" cy="62" r="3.5"/><text x="82" y="75">Today</text></svg>`,acts:['Show my plan','Talk me through it']}];
 function introSeen(){try{return localStorage.getItem(INTRO_KEY)==='1';}catch(e){return false;}}
 function phoneHTML(){return `<div class="nph" id="inPh"><div class="ph-frame"><span class="ph-island"></span><div class="ph-scr">
   <div class="ph-sb"><b>9:41</b><span><i></i><i></i><i></i></span></div>
   <div class="ph-hd"><span class="ph-av">${NV_MARK}</span><span><b>Ask NIVO</b><small><i></i>Thinking with your data</small></span></div>
   <div class="ph-chat" id="phChat"></div>
-  <div class="ph-in"><span id="phIn" class="ph-ph">Ask about your money…</span><b class="ph-send">↑</b></div></div></div>
-  <p class="ph-note">Illustrative demo</p></div>`;}
+  <div class="ph-in"><span id="phIn" class="ph-ph">Ask about your money…</span><b class="ph-send">↑</b></div></div></div></div>`;}
 function introHTML(){const nP=D?D.pms.length:1128,nF=D?D.funds.length:3572;
   const step=(n,t,d,mk)=>`<article class="in-step" data-rv><div class="in-st"><span class="in-n">0${n}</span><h3>${t}</h3><p>${d}</p></div><div class="in-mk">${mk}</div></article>`;
-  const V=[[I.ai,'Intelligence','live','Ratings for every PMS and fund, manager research, and macro signals traced to your holdings.'],
-   [I.chart,'Wealth','live','Your IPS, goals, model portfolios, rebalancing and continuous monitoring.'],
-   [CART,'Execution','practice','Direct mutual funds and direct PMS onboarding, with checks before every order.'],
-   [I.shield,'Protection','early','Nominees, wills and succession, so your family can find and claim everything.'],
-   [I.target,'Capital','next','Fundraising readiness and PE, VC and banker discovery for founders.'],
-   [I.globe,'Institutions','next','Treasury analytics, bond-market transparency and research for companies.']];
-  const VL={live:'Live',practice:'Practice mode',early:'Early',next:'Coming next'};
-  const WHO=[['Investors','From your first SIP to your first PMS: a plan, honest ratings, and a check on every rupee of commission.','IPS in minutes|Commission X-ray|Find my right PMS|Panic guard'],
-   ['HNI & families','One view of every account across the family, PMS and AIF due diligence, and a second opinion on every adviser.','Family reporting|Manager due diligence|Adviser bias check|Succession'],
-   ['Founders','Know your options before you raise: readiness, the right investors and bankers, and your own wealth handled alongside.','Fundraising readiness|Investor discovery|Banker ratings|Personal wealth'],
-   ['Companies','Treasury and fixed-income intelligence without a bank’s product shelf deciding what you see.','Treasury analytics|Bond transparency|Enterprise research|Board reporting']];
+  const V=[[I.ai,'Honest ratings','Every PMS and mutual fund in India, scored on one fair yardstick that no one can pay to change.'],
+   [I.target,'A plan made for you','Your goals, how much risk suits you, and the mix that gets you there, in two minutes.'],
+   [CART,'Invest without commission','Direct funds and direct PMS sign-up, with a safety check before every order.'],
+   [I.shield,'Look after your family','Nominees, a will and one list of everything, so your family can find and claim it all.']];
+  const WHO=[['First-time investor','Start right: a simple plan, the best low-cost funds for it, and plain answers to every question.','Your plan in 2 minutes|Best funds for you|Ask anything'],
+   ['Moving up from mutual funds','See if a PMS is really worth its fees for you, and which ones fit before you put in ₹50 lakh.','Find my right PMS|Fees in rupees|Mutual fund twin'],
+   ['HNI & family','One view of every account in the family, honest checks on every adviser’s pitch, and your family’s future sorted.','Family view|Pitch fact-check|Nominees and will']];
   return `<div class="in-bg" aria-hidden="true"><i class="rb"></i><i class="sp"></i><span class="grid"></span><span class="grain"></span></div>
   <div class="in-prog" aria-hidden="true"><i id="inProg"></i></div>
   <header class="in-top"><span class="in-logo">${NV_MARK}<b>NIVO</b></span><button class="in-skip" data-act="intro-done">Meet NIVO <span aria-hidden="true">→</span></button></header>
   <section class="in-s in-hero" id="inHero">
     <div class="in-hc">
-      <span class="in-tag" data-rv><i></i>One intelligence for your entire financial life</span>
+      <span class="in-tag" data-rv><i></i>One app for your whole financial life</span>
       <h1 class="in-h1" data-rv><span>Wealth that</span> <em>fits you.</em></h1>
-      <p class="in-sub" data-rv>NIVO is an independent AI wealth intelligence platform. It reads your whole financial life, traces what changes in the economy down to your holdings, and helps you act, without selling you anything.</p>
+      <p class="in-sub" data-rv>NIVO looks at everything you invest in, tells you in plain words what’s working and what isn’t, and helps you invest better, without selling you anything.</p>
       <div class="in-ctas" data-rv><button class="in-cta sm" data-act="intro-done">Meet NIVO <span aria-hidden="true">→</span></button><button class="in-ghost" data-act="intro-how">See how it works</button></div>
       <ul class="in-ticks" data-rv><li>₹0 commission</li><li>Ratings never for sale</li><li>Keep your current advisers</li></ul>
     </div>
-    <div class="in-pw" data-rv>${phoneHTML()}<div class="ph-chips" id="phChips" role="group" aria-label="Try a question">${DEMOS.map((d,i)=>`<button data-demo="${i}" class="${i?'':'on'}">${d.chip}</button>`).join('')}</div></div>
+    <div class="in-pw" data-rv>${phoneHTML()}<div class="ph-cap" aria-live="polite"><b id="phCap">${DEMOS[0].cap}</b><span class="ph-dots" aria-hidden="true">${DEMOS.map((d,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</span></div></div>
   </section>
   <section class="in-s in-give">
     <h2 class="in-give-h" data-rv>Give your money <span class="rot" id="inRot">${GIVE.map((w,i)=>`<span class="${i?'':'on'}">${w}</span>`).join('')}</span></h2>
-    <p class="in-p" data-rv>Your wealth should grow. Your fees shouldn’t grow just because your wealth does. NIVO gives a first-time investor and a family office the same institutional-quality intelligence, and charges for that intelligence, not a percentage of what you own.</p>
-  </section>
-  <section class="in-s in-eng" id="inEng">
-    <p class="in-kick" data-rv>The intelligence engine</p>
-    <h2 class="in-h2" data-rv>From the economy <em>to your portfolio.</em></h2>
-    <p class="in-p l" data-rv>Not another dashboard. NIVO connects what changes in the economy to the companies, managers and funds you actually own, then shows the evidence and how sure it is.</p>
-    <div class="tx" data-rv><span class="tx-pulse" aria-hidden="true"></span>${[['Economy','Monsoon 12% below normal'],['Markets','Rural demand softens'],['Companies','Tractors, FMCG, fertilisers'],['Managers','3 of your funds hold them'],['You','18% of equity exposed']].map(([h,t],i)=>`<div class="tx-n" style="--i:${i}"><small>${h}</small><b>${t}</b></div>`).join('')}</div>
-    <p class="tx-cap" data-rv>Observation, interpretation, exposure, scenarios and confidence, with every source kept.</p>
+    <p class="in-p" data-rv>Your wealth should grow. Your fees shouldn’t grow just because your wealth does. NIVO gives every investor the kind of honest, careful advice that only the very rich used to get, and never takes a commission.</p>
   </section>
   <section class="in-s in-vert">
-    <p class="in-kick" data-rv>One platform</p>
-    <h2 class="in-h2" data-rv>Everything your money <em>touches.</em></h2>
-    <div class="vg">${V.map(([ic,t,st,d],i)=>`<div class="vc" data-rv style="--i:${i}"><span class="vi">${ic}</span><span class="vs ${st}">${VL[st]}</span><b>${t}</b><p>${d}</p></div>`).join('')}</div>
-    <p class="tx-cap" data-rv>Use one service or all of them. You never have to leave your bank, broker or wealth manager.</p>
+    <p class="in-kick" data-rv>What NIVO does</p>
+    <h2 class="in-h2" data-rv>Everything your money <em>needs.</em></h2>
+    <div class="vg v4">${V.map(([ic,t,d],i)=>`<div class="vc" data-rv style="--i:${i}"><span class="vi">${ic}</span><b>${t}</b><p>${d}</p></div>`).join('')}</div>
+    <p class="tx-cap" data-rv>Use one part or all of it. You don’t have to leave your bank, broker or adviser.</p>
   </section>
   <section class="in-s in-how" id="inHow">
     <p class="in-kick" data-rv>How it works</p>
-    <h2 class="in-h2" data-rv>Trust first. <em>Then action.</em></h2>
+    <h2 class="in-h2" data-rv>Five simple <em>steps.</em></h2>
     <div class="in-steps" id="inSteps"><span class="in-line" aria-hidden="true"><i id="inLine"></i></span>
-    ${step(1,'Bring everything together','Upload your CAS or add holdings: funds, PMS, shares, deposits, gold. Your advisers stay. NIVO just sees the whole picture.',
-      `<div class="mk mkc">${[['Mutual funds','CAS · 14 holdings','₹1.12 Cr'],['PMS','2 strategies','₹78 L'],['Shares','Demat','₹34 L'],['Deposits & gold','4 holdings','₹16 L']].map(([a,b,c],i)=>`<div class="ac" style="--i:${i}"><span><b>${a}</b><small>${b}</small></span><em>${c}</em></div>`).join('')}<div class="nw"><small>Assets under intelligence</small><b>₹2.40 Cr</b></div></div>`)}
-    ${step(2,'Understand it, honestly','Cost, overlap, risk, concentration and what your adviser recommended, all checked against your own IPS.',
-      `<div class="mk mk2"><div class="cnt"><div><b data-to="${nP}">0</b><small>PMS rated</small></div><div><b data-to="${nF}">0</b><small>fund plans</small></div></div>${[['Cost vs Direct',.72],['Fund overlap',.48],['Concentration',.64],['IPS drift',.35],['Adviser bias',.56]].map(([l,v],i)=>`<div class="pl"><span>${l}</span><i style="--v:${v};--i:${i}"></i></div>`).join('')}</div>`)}
-    ${step(3,'Decide with evidence','Your top PMS, the best Direct fund for each slot, model portfolios and a second opinion on any pitch.',
+    ${step(1,'Add what you own','Upload your mutual fund statement or add holdings one by one. Keep your current adviser. NIVO just shows you the full picture.',
+      `<div class="mk mkc">${[['Mutual funds','CAS · 14 holdings','₹1.12 Cr'],['PMS','2 strategies','₹78 L'],['Shares','Demat','₹34 L'],['Deposits & gold','4 holdings','₹16 L']].map(([a,b,c],i)=>`<div class="ac" style="--i:${i}"><span><b>${a}</b><small>${b}</small></span><em>${c}</em></div>`).join('')}<div class="nw"><small>Your total wealth</small><b>₹2.40 Cr</b></div></div>`)}
+    ${step(2,'See what’s really going on','What you pay in fees, which funds overlap, how risky your mix is, and whether your adviser’s picks match your goals.',
+      `<div class="mk mk2"><div class="cnt"><div><b data-to="${nP}">0</b><small>PMS rated</small></div><div><b data-to="${nF}">0</b><small>fund plans</small></div></div>${[['Fees you pay',.72],['Funds that overlap',.48],['Risk vs your comfort',.64],['Gap from your plan',.35],['Adviser’s picks',.56]].map(([l,v],i)=>`<div class="pl"><span>${l}</span><i style="--v:${v};--i:${i}"></i></div>`).join('')}</div>`)}
+    ${step(3,'Get clear choices','Your best-fit PMS and funds, ranked by what suits you, not by who pays. Plus a second opinion on any pitch.',
       `<div class="mk mk3">${[['Flexi cap strategy','9.1'],['Balanced model portfolio','8.8'],['Large cap strategy','8.7']].map(([n,s],i)=>`<div class="mr" style="--i:${i}"><span class="rk">${i+1}</span><span><b>${n}</b><small>Ranked by fit, not by who pays</small></span><em>${s}</em></div>`).join('')}</div>`)}
-    ${step(4,'Act, commission-free','Direct plans, direct PMS onboarding and regulated partners. Checks before every order, and you approve every move.',
-      `<div class="mk mk5"><div class="tk"><span>Direct plan · BSE StAR MF</span><b>₹5,00,000</b></div><div class="tk"><span>NIVO commission</span><b class="z">₹0</b></div><div class="go"><span class="t1">Place order</span><span class="t2">✓ Order placed</span></div></div>`)}
-    ${step(5,'Stay on track, automatically','NIVO keeps watching the economy, your managers and your plan, and speaks up only when it matters.',
-      `<div class="mk mk4">${[['Macro signal','Monsoon 12% below normal · 18% of equity exposed'],['Style check','A large cap PMS is moving like midcap'],['Panic guard','You said you’d hold at a 20% fall']].map(([t,d],i)=>`<div class="al" style="--i:${i}"><i></i><span><b>${t}</b><small>${d}</small></span></div>`).join('')}</div>`)}
+    ${step(4,'Invest without commission','Direct funds and direct PMS sign-up, with a safety check before every order. You approve every move.',
+      `<div class="mk mk5"><div class="tk"><span>Direct plan, no middleman</span><b>₹5,00,000</b></div><div class="tk"><span>NIVO commission</span><b class="z">₹0</b></div><div class="go"><span class="t1">Place order</span><span class="t2">✓ Order placed</span></div></div>`)}
+    ${step(5,'Get a nudge when it matters','NIVO keeps watching your money and speaks up only when something needs you.',
+      `<div class="mk mk4">${[['Fund manager changed','The manager of one of your funds has left'],['Hidden commission','₹12,800 a year is going to one Regular plan'],['Market fall','You said you’d hold at a 20% fall. Here’s why.']].map(([t,d],i)=>`<div class="al" style="--i:${i}"><i></i><span><b>${t}</b><small>${d}</small></span></div>`).join('')}</div>`)}
     </div>
   </section>
   <section class="in-s in-who">
-    <p class="in-kick" data-rv>Built for every balance sheet</p>
-    <h2 class="in-h2" data-rv>₹50,000 or ₹500 crore. <em>Same intelligence.</em></h2>
+    <p class="in-kick" data-rv>Made for you</p>
+    <h2 class="in-h2" data-rv>Wherever you’re <em>starting from.</em></h2>
     <div class="who" data-rv><div class="who-t" role="tablist">${WHO.map((w,i)=>`<button role="tab" data-who="${i}" class="${i?'':'on'}" aria-selected="${!i}">${w[0]}</button>`).join('')}</div>
       <div class="who-p" id="whoP">${WHO.map((w,i)=>`<div class="wp ${i?'':'on'}" data-wp="${i}"><p>${w[1]}</p><div>${w[2].split('|').map(x=>`<span>${x}</span>`).join('')}</div></div>`).join('')}</div></div>
   </section>
-  <section class="in-s in-price">
-    <p class="in-kick" data-rv>A different economic model</p>
-    <h2 class="in-h2" data-rv>Pay for intelligence, <em>not a percentage of your wealth.</em></h2>
-    <div class="pr" data-rv>${[['On ₹1 crore',100000,5999],['On ₹5 crore',500000,14999]].map(([l,a,b])=>`<div class="pr-r"><small>${l}</small><div class="pr-b"><span>A typical 1% fee</span><i class="aum" style="--w:1"></i><b>₹${a.toLocaleString('en-IN')}</b></div><div class="pr-b"><span>NIVO, proposed</span><i class="nv" style="--w:${Math.max(.03,b/a)}"></i><b>₹${b.toLocaleString('en-IN')}</b></div></div>`).join('')}</div>
-    <p class="tx-cap" data-rv>Yearly cost. NIVO’s subscription prices are proposals, still being validated. Never a percentage of assets.</p>
-  </section>
   <section class="in-s in-trust">
-    <h2 class="in-h2" data-rv>Independence, <em>engineered.</em></h2>
-    <div class="in-pl">${[['No commission, ever','NIVO earns nothing from what you buy, so nothing gets pushed.'],['Ratings can’t be bought','Published methods, evidence behind every score, and a route to challenge one.'],['Your data stays yours','Consent first. No passwords, no account numbers. Delete everything any time.'],['You approve every move','NIVO checks, explains and suggests. You decide.']].map(([t,d])=>`<div data-rv><b>${t}</b><p>${d}</p></div>`).join('')}</div>
+    <h2 class="in-h2" data-rv>Always <em>on your side.</em></h2>
+    <div class="in-pl">${[['No commission, ever','NIVO earns nothing from what you buy, so nothing gets pushed.'],['Ratings can’t be bought','No one can pay NIVO to rank them higher.'],['Your data stays yours','No passwords, no account numbers. Delete everything any time.'],['You make the call','NIVO checks, explains and suggests. You decide.']].map(([t,d])=>`<div data-rv><b>${t}</b><p>${d}</p></div>`).join('')}</div>
   </section>
   <section class="in-s in-end">
-    <span class="in-tag" data-rv><i></i>Financial intelligence for everyone</span>
+    <span class="in-tag" data-rv><i></i>Honest advice for everyone</span>
     <h2 class="in-h2" data-rv>Ready when <em>you are.</em></h2>
     <button class="in-cta" data-act="intro-done" data-rv>Welcome to NIVO <span aria-hidden="true">→</span></button>
     <button class="in-alt" data-act="intro-pms" data-rv>Or start with “Find my right PMS”</button>
-    <p class="in-fine">NIVO is a research tool today, not yet a SEBI-registered investment adviser. Investing runs in practice mode until registration. Capital and Institutions are being built next.</p>
+    <p class="in-fine">NIVO offers research and education to help you decide. Orders placed in the app are practice orders.</p>
   </section>`;}
 let introT=null,demoTok=0,demoAuto=null,demoIdx=0;
 const wait=ms=>new Promise(r=>setTimeout(r,RM?0:ms));
-async function playDemo(i,user){const el=$('#intro');if(!el)return;const tok=++demoTok;clearTimeout(demoAuto);demoIdx=i;const d=DEMOS[i],chat=$('#phChat',el),inp=$('#phIn',el);
-  $$('#phChips button',el).forEach((b,k)=>b.classList.toggle('on',k===i));chat.innerHTML='';inp.className='';inp.textContent='';
+async function playDemo(i){const el=$('#intro');if(!el)return;const tok=++demoTok;clearTimeout(demoAuto);demoIdx=i;const d=DEMOS[i],chat=$('#phChat',el),inp=$('#phIn',el);
+  $$('.ph-dots i',el).forEach((b,k)=>b.classList.toggle('on',k===i));const cp=$('#phCap',el);if(cp&&cp.textContent!==d.cap){cp.classList.add('sw');setTimeout(()=>{cp.textContent=d.cap;cp.classList.remove('sw');},RM?0:250);}chat.innerHTML='';inp.className='';inp.textContent='';
   for(let k=1;k<=d.q.length;k+=RM?d.q.length:2){if(tok!==demoTok)return;inp.textContent=d.q.slice(0,k);await wait(26);}
   await wait(250);if(tok!==demoTok)return;inp.textContent='Ask about your money…';inp.className='ph-ph';
   chat.insertAdjacentHTML('beforeend',`<div class="pm u">${esc(d.q)}</div><div class="pm a th"><div class="pth">${d.steps.map(s=>`<span>${esc(s)}</span>`).join('')}</div></div>`);
@@ -3070,7 +3071,7 @@ async function playDemo(i,user){const el=$('#intro');if(!el)return;const tok=++d
   for(let k=1;k<=ws.length;k+=RM?ws.length:1){if(tok!==demoTok)return;p.textContent=ws.slice(0,k).join(' ');await wait(38);}
   th.insertAdjacentHTML('beforeend',`<div class="pv">${d.viz}</div><div class="pa">${d.acts.map(a=>`<span>${a}</span>`).join('')}</div>`);requestAnimationFrame(()=>th.classList.add('done'));
   chat.scrollTop=chat.scrollHeight;
-  demoAuto=setTimeout(()=>{if(tok===demoTok)playDemo((i+1)%DEMOS.length);},user?11000:6500);}
+  demoAuto=setTimeout(()=>{if(tok===demoTok)playDemo((i+1)%DEMOS.length);},6000);}
 function openIntro(){if($('#intro'))return;const el=document.createElement('div');el.id='intro';el.className='intro';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Welcome to NIVO');el.innerHTML=introHTML();document.body.appendChild(el);document.documentElement.classList.add('in-lock');
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');countUp2(e.target);}}),{root:el,threshold:.25});
   $$('[data-rv]',el).forEach(x=>io.observe(x));requestAnimationFrame(()=>el.classList.add('show'));
@@ -3081,7 +3082,6 @@ function openIntro(){if($('#intro'))return;const el=document.createElement('div'
   const rot=$('#inRot',el),ws=$$('span',rot);let k=0;const fit=()=>{rot.style.width=ws[k].offsetWidth+'px';};
   setTimeout(fit,60);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   if(!RM)introT=setInterval(()=>{const a=ws[k];k=(k+1)%ws.length;const b=ws[k];a.classList.remove('on');a.classList.add('out');b.classList.remove('out');b.classList.add('on');fit();setTimeout(()=>a.classList.remove('out'),700);},2300);
-  $('#phChips',el).addEventListener('click',e=>{const b=e.target.closest('[data-demo]');if(b)playDemo(+b.dataset.demo,true);});
   $('.who-t',el).addEventListener('click',e=>{const b=e.target.closest('[data-who]');if(!b)return;$$('.who-t button',el).forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b);});$$('.wp',el).forEach(x=>x.classList.toggle('on',x.dataset.wp===b.dataset.who));});
   const ph=$('#inPh',el),hero=$('#inHero',el);if(!RM&&matchMedia('(hover:hover)').matches)hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.setProperty('--rx',(-y*8).toFixed(2)+'deg');ph.style.setProperty('--ry',(x*12).toFixed(2)+'deg');});
   setTimeout(()=>playDemo(0),RM?0:900);
