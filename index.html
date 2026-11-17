@@ -1474,6 +1474,148 @@ h1{letter-spacing:-.03em}
 .done .pv-mix i{flex-basis:calc(var(--w) * 1% - 3px)}
 .pv-leg{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:7px;font-size:10.5px;color:#4a5d80}.pv-leg span{display:flex;align-items:center;gap:4px}.pv-leg i{width:7px;height:7px;border-radius:2px}
 .pv-line circle{fill:#c2384d;opacity:0;transition:opacity .4s ease 1.2s}.done .pv-line circle{opacity:1}
+/* ===== v27 home hero (dark, phone) ===== */
+.nhero{position:relative;overflow:hidden;isolation:isolate;border-radius:32px;color:#fff;background:linear-gradient(170deg,#070a12 0%,#0a1330 46%,#0d1d4d 100%);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 40px 80px -40px rgba(5,12,40,.85)}
+.hx-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hx-bg i{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75}
+.hx-bg .b1{width:62%;aspect-ratio:1;left:-18%;top:-30%;background:radial-gradient(closest-side,#2a5cff,transparent);animation:hxd 16s ease-in-out infinite alternate}
+.hx-bg .b2{width:55%;aspect-ratio:1;right:-14%;top:18%;background:radial-gradient(closest-side,#3a8bff,transparent);opacity:.55;animation:hxd 19s ease-in-out -6s infinite alternate-reverse}
+.hx-bg .b3{width:46%;aspect-ratio:1;left:30%;bottom:-38%;background:radial-gradient(closest-side,#7a5cff,transparent);opacity:.35;animation:hxd 22s ease-in-out -3s infinite alternate}
+.hx-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000,transparent);mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000,transparent)}
+@keyframes hxd{to{transform:translate(12%,10%) scale(1.12)}}
+.hx-in{display:grid;gap:30px;padding:38px 22px 0;align-items:center}
+.hx-copy{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;min-width:0}
+.hx-eye{display:inline-flex;align-items:center;gap:8px;margin:0;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:#b9cdf5}
+.hx-eye i{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.18)}
+.hx-h{margin:0;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(50px,13.5vw,96px);line-height:.95;letter-spacing:-.025em;text-wrap:balance;color:#fff}
+.hx-h em{display:block;font-style:italic;background:linear-gradient(100deg,#8fc1ff,#e2efff 45%,#a796ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.hx-sub{margin:0;max-width:30em;color:#b4c3e0;font-size:15.5px;line-height:1.6}
+.hx-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}
+.hx-cta button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:99px;font:700 15px var(--f-display);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.hx-cta svg{width:18px;height:18px}
+.hx-b1{background:#fff;color:#0a1c3d;border:0;box-shadow:0 14px 34px -12px rgba(120,170,255,.7)}
+.hx-b2{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hx-cta button:hover{transform:translateY(-2px)}.hx-b2:hover{background:rgba(255,255,255,.12)}
+.hx-ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin:0;padding:0;list-style:none;font-size:12.5px;color:#93a6cc}
+.hx-ticks li{display:flex;align-items:center;gap:6px}.hx-ticks li::before{content:"";width:14px;height:14px;border-radius:50%;background:rgba(74,222,128,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%234ade80' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+/* phone */
+.hp-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;min-width:0}
+.hp-cap{display:flex;flex-direction:column;align-items:center;gap:9px}
+.hp-cap b{font:700 15px var(--f-display);color:#fff;letter-spacing:-.01em;transition:opacity .24s ease,transform .24s ease}
+.hp-cap b.sw{opacity:0;transform:translateY(6px)}
+.hp-dots{display:flex;gap:6px}.hp-dots i{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.22);transition:width .4s ease,background .4s ease}.hp-dots i.on{width:22px;background:#8fc1ff}
+.hp{position:relative;height:420px;width:100%;display:flex;justify-content:center;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 74%,transparent);mask-image:linear-gradient(180deg,#000 74%,transparent)}
+.hp::before{content:"";position:absolute;left:50%;top:12%;width:340px;height:340px;margin-left:-170px;border-radius:50%;background:radial-gradient(closest-side,rgba(63,134,255,.5),transparent);filter:blur(30px);pointer-events:none}
+.hp-frame{position:relative;flex:0 0 auto;width:262px;height:534px;border-radius:46px;padding:10px;display:flex;flex-direction:column;background:linear-gradient(145deg,#2a2f3b,#0c0e13 40%,#1c2029);box-shadow:0 0 0 1.5px #3a404d,0 50px 90px -40px rgba(0,0,0,.95),inset 0 0 0 2px #000}
+.hp-frame .ph-island{top:19px;width:78px;height:22px;margin-left:-39px}
+.hp-scr{position:relative;flex:1;min-height:0;border-radius:37px;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,#f7faff,#e7f0ff);color:#0a1c3d}
+.hp-stage{position:relative;flex:1;min-height:0}
+.hp-s{position:absolute;inset:0;padding:22px 16px 10px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateX(22px);pointer-events:none;transition:opacity .45s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.hp-s.on{opacity:1;transform:none}
+.hp-t{margin:0;font:800 17px var(--f-display);letter-spacing:-.02em}
+.hp-hd{display:grid;gap:3px}.hp-hd small{font-size:11px;color:#5a6b8c;font-weight:600}
+.hp-big{font:800 25px var(--f-display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.hp-up{justify-self:start;font:700 10.5px var(--f-body);color:#0e8a4f;background:#dcf7e9;border-radius:99px;padding:3px 8px}
+.hp-spark{width:100%;height:58px;display:block}
+.hp-spark .ln{fill:none;stroke:#2f6bff;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.hp-spark .ar{opacity:0}
+.hp-s.on .hp-spark .ln{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1) .2s}
+.hp-s.on .hp-spark .ar{opacity:1;transition:opacity .8s ease .9s}
+.hp-mix{display:flex;gap:3px;height:9px;border-radius:99px;overflow:hidden}
+.hp-mix i{height:100%;flex:0 0 0;background:var(--c);border-radius:2px}
+.hp-s.on .hp-mix i{flex-basis:calc(var(--w) * 1% - 3px);transition:flex-basis 1s cubic-bezier(.2,.8,.2,1) .35s}
+.hp-rows{display:grid;gap:6px}
+.hp-rows>div{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:13px;background:#fff;box-shadow:0 6px 16px -10px rgba(26,79,214,.35);font-size:12px;opacity:0;transform:translateY(8px)}
+.hp-s.on .hp-rows>div{opacity:1;transform:none;transition:opacity .4s ease,transform .5s cubic-bezier(.2,.8,.2,1);transition-delay:calc(.5s + var(--i) * .12s)}
+.hp-rows i{width:8px;height:8px;border-radius:3px;flex:none}
+.hp-rows span{flex:1;min-width:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hp-rows b{font:700 12px var(--f-display)}
+.hp-rows.m em{width:20px;height:20px;border-radius:7px;display:grid;place-items:center;font:700 10.5px var(--f-display);font-style:normal;background:#e3edff;color:#1a52d6;flex:none}
+.hp-rows.m>div:first-child{background:linear-gradient(135deg,#1a52d6,#3f86ff);color:#fff}.hp-rows.m>div:first-child em{background:rgba(255,255,255,.22);color:#fff}
+.hp-ring{position:relative;width:120px;align-self:center}
+.hp-ring svg{width:100%;display:block;transform:rotate(-90deg)}
+.hp-ring circle{fill:none;stroke-width:10;stroke-linecap:round}
+.hp-ring .t{stroke:#dbe6fb}.hp-ring .f{stroke:url(#hpr);stroke-dasharray:314.2;stroke-dashoffset:314.2}
+.hp-s.on .hp-ring .f{stroke-dashoffset:28.3;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.8,.2,1) .15s}
+.hp-ring>div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.hp-ring b{font:800 30px/1 var(--f-display);letter-spacing:-.03em}.hp-ring small{font-size:10px;color:#5a6b8c;font-weight:600}
+.hp-fee{display:grid;justify-items:center;text-align:center;gap:2px;padding:18px 10px;border-radius:18px;background:#fff;box-shadow:0 10px 24px -14px rgba(26,79,214,.4)}
+.hp-fee small{font-size:11px;color:#5a6b8c}.hp-fee b{font:800 34px var(--f-display);letter-spacing:-.03em;color:#0e8a4f;font-variant-numeric:tabular-nums}
+.hp-cmp{display:grid;gap:10px}
+.hp-cmp>div{display:grid;grid-template-columns:1fr auto;gap:5px 10px;font-size:11.5px;font-weight:600}
+.hp-cmp i{grid-column:1/-1;grid-row:2;height:9px;border-radius:99px;background:#e25b6a;width:0}
+.hp-cmp i.g{background:#22b06b}
+.hp-s.on .hp-cmp i{width:calc(var(--w) * 1%);transition:width 1s cubic-bezier(.2,.8,.2,1) .4s}
+.hp-cmp b{font:700 11.5px var(--f-display)}
+.hp-btn{align-self:stretch;text-align:center;padding:11px;border-radius:13px;background:#1a52d6;color:#fff;font:700 12.5px var(--f-display)}
+.hp-s.on .hp-btn{animation:hpp 1.6s ease-in-out 1.4s 2}
+@keyframes hpp{50%{box-shadow:0 0 0 7px rgba(26,82,214,.18)}}
+.hp-n{display:flex;align-items:flex-start;gap:9px;padding:11px;border-radius:16px;background:rgba(255,255,255,.92);box-shadow:0 10px 24px -14px rgba(10,28,61,.45);opacity:0;transform:translateY(-14px) scale(.97)}
+.hp-s.on .hp-n{opacity:1;transform:none;transition:opacity .4s ease,transform .55s cubic-bezier(.2,.9,.25,1.2);transition-delay:calc(.25s + var(--i) * .45s)}
+.hp-ni{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,#6db3ff,#1a52d6);color:#fff;font:800 12px var(--f-display)}
+.hp-n>div{flex:1;min-width:0;display:grid;gap:2px}.hp-n b{font:700 12px var(--f-display)}.hp-n small{font-size:11px;color:#4a5d80;line-height:1.35}.hp-n em{font-style:normal;font-size:10px;color:#7d8dab}
+.hp-tab{display:flex;justify-content:space-around;padding:8px 8px 14px;border-top:1px solid rgba(10,28,61,.07);background:rgba(255,255,255,.7)}
+.hp-tab span{display:grid;justify-items:center;gap:3px;font:600 9.5px var(--f-body);color:#8a99b6;transition:color .3s ease}
+.hp-tab i{width:18px;height:4px;border-radius:99px;background:currentColor;opacity:.4;transition:width .3s ease,opacity .3s ease}
+.hp-tab span.on{color:#1a52d6}.hp-tab span.on i{width:26px;opacity:1}
+.hp-chip{display:none}
+@media (min-width:900px){
+ .hx-in{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);padding:64px 56px 56px;gap:40px}
+ .hx-copy{align-items:flex-start;text-align:left}
+ .hx-cta,.hx-ticks{justify-content:flex-start}
+ .hx-h{font-size:clamp(64px,7vw,104px)}
+ .hp-wrap{flex-direction:column-reverse}
+ .hp{height:auto;overflow:visible;-webkit-mask-image:none;mask-image:none;animation:hpf 7s ease-in-out infinite}
+ .hp-chip{display:inline-flex;align-items:center;gap:7px;position:absolute;z-index:2;padding:9px 14px;border-radius:99px;background:rgba(14,22,48,.72);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font:700 12px var(--f-display);color:#fff;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(0,0,0,.8)}
+ .hp-chip i{width:7px;height:7px;border-radius:50%;background:#4ade80}
+ .hp-chip.c1{left:calc(50% - 215px);top:92px;animation:hpf 6s ease-in-out -2s infinite}
+ .hp-chip.c2{right:calc(50% - 225px);bottom:120px;animation:hpf 6.5s ease-in-out -4s infinite}
+ .hp-chip.c2 i{background:#8fc1ff}
+}
+@keyframes hpf{50%{transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){.hx-bg i,.hp,.hp-chip{animation:none!important}}
+/* ===== v27 NIVO Score section ===== */
+.sc2 .land-h{color:#fff}
+.sc2 .sub{color:#a9b4c8!important}
+.sc2-card{display:grid;gap:22px;padding:24px 20px;border-radius:26px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.sc2-top{display:flex;align-items:center;gap:18px;min-width:0}
+.sc2-ring{position:relative;flex:none;width:118px}
+.sc2-ring svg{display:block;width:100%;transform:rotate(-90deg)}
+.sc2-ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.sc2-ring .t{stroke:rgba(255,255,255,.09)}
+.sc2-ring .f{stroke:url(#sc2g);stroke-dasharray:326.7;stroke-dashoffset:326.7;filter:drop-shadow(0 0 8px rgba(110,160,255,.55))}
+.sc2-card.on .sc2-ring .f{stroke-dashoffset:calc(326.7 * (1 - var(--v)));transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1) .15s}
+.sc2-ring>div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.sc2-ring b{font:800 36px/1 var(--f-display);letter-spacing:-.04em;color:#fff}
+.sc2-ring small{font-size:11px;color:#8d99b0;margin-top:3px}
+.sc2-meta{display:grid;gap:5px;min-width:0}
+.sc2-badge{justify-self:start;font:700 10.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#4ade80;background:rgba(74,222,128,.12);border-radius:99px;padding:4px 10px}
+.sc2-meta b{font:700 18px/1.25 var(--f-display);color:#fff;text-wrap:balance}
+.sc2-meta small{font-size:13px;color:#8d99b0}
+.sc2-pil{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.sc2-pil li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid rgba(255,255,255,.07)}
+.sc2-pil li:first-child{border-top:0}
+.sc2-pil span{font:600 14.5px var(--f-display);color:#e6ecf7}
+.sc2-pil em{display:flex;gap:4px}
+.sc2-pil em i{width:18px;height:6px;border-radius:99px;background:rgba(255,255,255,.1)}
+.sc2-pil em i.y{background:linear-gradient(90deg,#8fc1ff,#5a8dff);transform:scaleX(0);transform-origin:left}
+.sc2-card.on .sc2-pil em i.y{transform:none;transition:transform .5s cubic-bezier(.2,.8,.2,1);transition-delay:calc(.5s + var(--i) * .1s)}
+.sc2-mini{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sc2-mini>div{display:grid;gap:6px;align-content:start;padding:16px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.sc2-ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:rgba(143,193,255,.12);color:#8fc1ff}.sc2-ic svg{width:17px;height:17px}
+.sc2-mini b{font:700 14.5px var(--f-display);color:#fff}
+.sc2-mini small{font-size:12.5px;line-height:1.45;color:#a3aec2}
+@media (min-width:900px){.sc2-card{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;padding:34px 36px;align-items:center}.sc2-ring{width:150px}.sc2-ring b{font-size:46px}.sc2-meta b{font-size:21px}}
+@media (max-width:380px){.sc2-mini{grid-template-columns:1fr}.sc2-pil em i{width:14px}}
+@media (prefers-reduced-motion:reduce){.sc2-ring .f{stroke-dashoffset:calc(326.7 * (1 - var(--v)))!important}.sc2-pil em i.y{transform:none!important}}
+.hx-h em{padding-bottom:.14em;margin-bottom:-.14em}
+.sc2-ring .f{filter:none}
+.sc2-ring::before{content:"";position:absolute;inset:-14%;border-radius:50%;background:radial-gradient(closest-side,rgba(90,141,255,.28),transparent);pointer-events:none}
+@media (max-width:899px){
+ .hx-in{padding-top:30px;gap:24px}.hx-copy{gap:15px}
+ .hx-cta{flex-wrap:nowrap}.hx-cta button{flex:1 1 0;min-width:0;max-width:200px;min-height:48px;padding:0 14px;font-size:14.5px}
+ .hx-sub{font-size:14.5px}
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -1633,7 +1775,7 @@ function lineChart(o){const W=320,H=150,pl=6,pr=6,pt=12,pb=22;const all=[...o.a,
 function barPairs(a,b,labels,aria){const W=320,H=150,pt=16,pb=24;const vals=[...a,...b].filter(v=>v!=null);const mx=Math.max(5,...vals),mn=Math.min(0,...vals);const Y=v=>pt+(mx-v)/(mx-mn)*(H-pt-pb),z=Y(0);const gw=(W-8)/labels.length,bw=Math.min(16,gw/3.2);
   return `<svg class="bp" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(aria)}"><line x1="4" x2="${W-4}" y1="${z}" y2="${z}" class="lc-base"/>${labels.map((l,i)=>{const cx=4+gw*i+gw/2;const one=(v,dx,c,k)=>{if(v==null)return '';const y=Math.min(Y(v),z),h=Math.max(1.5,Math.abs(Y(v)-z));return `<rect x="${(cx+dx-bw/2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" class="bp-${c}" style="--o:${z.toFixed(1)}px;--d:${i*80+k*40}ms"/><text x="${(cx+dx).toFixed(1)}" y="${(v>=0?y-3:y+h+9).toFixed(1)}" class="bp-v ${c}" text-anchor="middle">${Math.round(v)}</text>`;};
     return one(a[i],-bw*0.6,'a',0)+one(b[i],bw*0.6,'b',1)+`<text x="${cx}" y="${H-6}" class="lc-t" text-anchor="middle">${l}</text>`;}).join('')}</svg>`;}
-function pillarsHTML(pp,note){if(!pp||pp.every(v=>v==null))return '';return `<div class="pillars">${PIL.map(([l,w],i)=>`<div class="pil"><span class="pl-l">${l}<small>${w}%</small></span><span class="pl-bar"><i style="--w:${pp[i]??0}%"></i></span><b>${pp[i]==null?'—':(pp[i]/10).toFixed(1)}</b></div>`).join('')}</div>${note?`<p class="tiny" style="margin:0">${note}</p>`:''}`;}
+function pillarsHTML(pp,note){if(!pp||pp.every(v=>v==null))return '';return `<div class="pillars">${PIL.map(([l,w],i)=>`<div class="pil"><span class="pl-l">${l}</span><span class="pl-bar"><i style="--w:${pp[i]??0}%"></i></span><b>${pp[i]==null?'—':(pp[i]/10).toFixed(1)}</b></div>`).join('')}</div>${note?`<p class="tiny" style="margin:0">${note}</p>`:''}`;}
 function cmpRow(l,a,b,fmt,lowerBetter,bName){const better=a!=null&&b!=null&&(lowerBetter?a<b:a>b);const mx=Math.max(Math.abs(a??0),Math.abs(b??0))||1;
   return `<div class="vr"><div class="vr-h"><span>${l}</span>${a!=null&&b!=null?`<span class="pill ${better?'good':'warn'}">${better?'Better':'Worse'} than index</span>`:''}</div><div class="vr-b"><span>This one</span><span class="vb"><i class="a" style="--w:${Math.abs(a??0)/mx*100}%"></i></span><b>${fmt(a)}</b></div>${b!=null?`<div class="vr-b"><span>${esc(bName)}</span><span class="vb"><i class="b" style="--w:${Math.abs(b)/mx*100}%"></i></span><b>${fmt(b)}</b></div>`:''}</div>`;}
 function fundPerf(f){if(!f.g||f.g.length<4)return '';const M=D.months,L=M.length-1,ga=f.ga;const idx=[];for(let i=ga;i<=L;i+=2)idx.push(i);if(idx[idx.length-1]!==L)idx.push(L);
@@ -1650,7 +1792,7 @@ function fundVol(f){const v=f.vm;if(!v)return '';const bk=f.bk&&D.benchS[f.bk],b
   ${cmpRow('Biggest fall from a peak',v.mdd==null?null:Math.abs(v.mdd),v.bmdd==null?null:Math.abs(v.bmdd),x=>x==null?'—':'−'+x.toFixed(1)+'%',true,bn)}
   ${cmpRow('Worst 12 months',v.w12,v.bw12,x=>pc(x,1),false,bn)}
   <div class="kvg">${v.dc!=null?`<div><small>When the index fell</small><b>${v.dc}%</b><small>of its fall</small></div>`:''}${v.uc!=null?`<div><small>When the index rose</small><b>${v.uc}%</b><small>of its rise</small></div>`:''}<div><small>Recovery from the biggest fall</small><b>${v.rec!=null?v.rec+' mo':'Not yet'}</b></div></div>
-  <p class="tiny" style="margin:0">Volatility index: 5 means it moves like its index. Higher is calmer. It blends yearly swings (40%), the biggest fall (30%) and how much of the index’s down months it caught (30%).</p></div>`;}
+  <p class="tiny" style="margin:0">Volatility index: 5 means it moves like its index. Higher is calmer. It looks at how much it swung, its biggest fall and how it did in the index’s bad months.</p></div>`;}
 function pmsPerf(p){const B=D.pmsBench[p.bk];if(!B)return '';const ys=p.yr||[];const first=ys.findIndex(v=>v!=null);if(first<0)return '';const labs=yrLabels();
   const a=[1e7],b=[1e7];for(let i=first;i<5;i++){a.push(ys[i]==null?null:a[a.length-1]*(1+ys[i]/100));b.push(b[b.length-1]*(1+B.yr[i]/100));}
   const n=5-first,start=+D.winEnd.slice(0,4)-n;
@@ -1889,7 +2031,7 @@ function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.ho
   ${faqHTML()}
   <button class="replay" data-act="intro-open"><i></i>Replay the NIVO briefing</button>
   <p class="foot">NIVO works only for you. No fund house pays for a rating or a ranking.</p>`;
-  animateIn($('#v-home'));startGlobe();}
+  animateIn($('#v-home'));startGlobe();hpStart();sc2Wire();}
 const PERSONAS=[
  {k:'first',img:'https://images.unsplash.com/photo-1573165850883-9b0e18c44bd2?w=900&q=70&auto=format&fit=crop',t:'First-time PMS investor',tag:'₹50 L – ₹1 Cr',h:'Your mutual funds have done their job. Now you want to know if a PMS is worth the fees, and which one.',pts:['A straight answer on whether PMS suits you yet','A shortlist of steady strategies with long records','Fees, lock-ins and exit loads in rupees','The questions to ask before you sign'],pre:{exp:'some',corpus:7500000,goal:'grow'},art:'seed'},
  {k:'mf',img:'https://images.unsplash.com/photo-1758598497485-300d809e55ad?w=900&q=70&auto=format&fit=crop',t:'Graduating from mutual funds',tag:'₹25 L – ₹1 Cr',h:'Your SIPs have grown up. You want to know what to keep, what to cut, and when a PMS starts to make sense.',pts:['Every fund you own scored against its category','Commission hiding in Regular plans, in rupees','A clear keep, switch or cut list','PMS that fit you once you cross ₹50 lakh'],pre:{exp:'some',corpus:3000000,goal:'grow'},art:'steps'},
@@ -1908,23 +2050,36 @@ function hexField(){const R=30,w=Math.sqrt(3)*R,hh=1.5*R,cols=Math.ceil(1400/w)+
   const pt=(cx,cy)=>[0,1,2,3,4,5].map(k=>{const a=Math.PI/180*(60*k-30);return (cx+R*Math.cos(a)).toFixed(1)+','+(cy+R*Math.sin(a)).toFixed(1);}).join(' ');
   for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const cx=c*w+(r%2?w/2:0),cy=r*hh;const lit=rnd()<.09;polys+=`<polygon points="${pt(cx,cy)}"${lit?` class="lit" style="animation-delay:${(rnd()*9).toFixed(2)}s;animation-duration:${(5+rnd()*5).toFixed(1)}s"`:''}/>`;}
   return `<svg class="hx" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${polys}</svg>`;}
+const HP_CAP=['All your wealth, one view','The right PMS for you','Hidden fees, found','A nudge only when it matters'];
+function hpHTML(){const rows=(r,m)=>`<div class="hp-rows${m?' m':''}">${r.map(([a,b,c],i)=>`<div style="--i:${i}">${m?`<em>${i+1}</em>`:`<i style="background:${c}"></i>`}<span>${a}</span><b>${b}</b></div>`).join('')}</div>`;
+  const S0=`<div class="hp-hd"><small>Your total wealth</small><b class="hp-big" data-to="24018500" data-pre="₹">₹2,40,18,500</b><span class="hp-up">▲ ₹3.2 L this month</span></div>
+   <svg class="hp-spark" viewBox="0 0 220 64" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="hpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f86ff" stop-opacity=".32"/><stop offset="1" stop-color="#3f86ff" stop-opacity="0"/></linearGradient></defs><path class="ar" d="M0 54 C20 50 34 52 50 44 S80 34 100 38 S140 26 160 22 S200 12 220 8 L220 64 L0 64Z" fill="url(#hpg)"/><path class="ln" pathLength="1" d="M0 54 C20 50 34 52 50 44 S80 34 100 38 S140 26 160 22 S200 12 220 8"/></svg>
+   <div class="hp-mix"><i style="--w:47;--c:#1a52d6"></i><i style="--w:32;--c:#3f86ff"></i><i style="--w:14;--c:#8fd3ff"></i><i style="--w:7;--c:#f0b43a"></i></div>
+   ${rows([['Mutual funds','₹1.12 Cr','#1a52d6'],['PMS','₹78 L','#3f86ff'],['Shares','₹34 L','#8fd3ff'],['Gold & deposits','₹16 L','#f0b43a']])}`;
+  const S1=`<p class="hp-t">Best PMS for you</p><div class="hp-ring"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="hpr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6db3ff"/><stop offset="1" stop-color="#1a52d6"/></linearGradient></defs><circle class="t" cx="60" cy="60" r="50"/><circle class="f" cx="60" cy="60" r="50"/></svg><div><b>9.1</b><small>Your match</small></div></div>
+   ${rows([['Flexi cap strategy','9.1'],['Large cap strategy','8.7'],['Multi-asset strategy','8.2']],1)}`;
+  const S2=`<p class="hp-t">Hidden fees found</p><div class="hp-fee"><small>You could save</small><b data-to="12800" data-pre="₹">₹12,800</b><small>every year, by switching two funds</small></div>
+   <div class="hp-cmp"><div><span>Regular plan</span><i style="--w:100"></i><b>1.9%</b></div><div><span>Direct plan</span><i class="g" style="--w:42"></i><b>0.8%</b></div></div><span class="hp-btn">Switch to Direct</span>`;
+  const S3=`<p class="hp-t">Today</p>${[['Markets fell 3% today','You’re still on track. No action needed.','now'],['SIP done','₹25,000 went into your plan.','9:00'],['Fund manager changed','We’re keeping an eye on it for you.','Mon']].map(([t,d,w],i)=>`<div class="hp-n" style="--i:${i}"><span class="hp-ni">N</span><div><b>${t}</b><small>${d}</small></div><em>${w}</em></div>`).join('')}`;
+  return `<div class="hp-wrap"><div class="hp-cap" aria-live="polite"><b id="hpCap">${HP_CAP[0]}</b><span class="hp-dots" aria-hidden="true">${HP_CAP.map((c,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</span></div>
+  <div class="hp" id="hp" aria-hidden="true"><span class="hp-chip c1"><i></i>₹0 commission</span><span class="hp-chip c2"><i></i>Ratings never for sale</span>
+  <div class="hp-frame"><span class="ph-island"></span><div class="hp-scr"><div class="ph-sb"><b>9:41</b><span><i></i><i></i><i></i></span></div>
+  <div class="hp-stage">${[S0,S1,S2,S3].map((s,i)=>`<div class="hp-s s${i}${i?'':' on'}">${s}</div>`).join('')}</div>
+  <div class="hp-tab">${['Wealth','Picks','Fees','Alerts'].map((t,i)=>`<span class="${i?'':'on'}"><i></i>${t}</span>`).join('')}</div></div></div></div></div>`;}
+let hpT=null,hpI=0;
+function hpCount(root){$$('[data-to]',root).forEach(b=>{const to=+b.dataset.to,pre=b.dataset.pre||'';if(RM){b.textContent=pre+to.toLocaleString('en-IN');return;}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1100),e=1-Math.pow(1-k,3);b.textContent=pre+Math.round(to*e).toLocaleString('en-IN');if(k<1&&b.isConnected)requestAnimationFrame(f);})(t0);});}
+function hpShow(i){const el=$('#hp');if(!el)return;hpI=i;const ss=$$('.hp-s',el);ss.forEach((s,k)=>s.classList.toggle('on',k===i));$$('.hp-tab span',el).forEach((s,k)=>s.classList.toggle('on',k===i));$$('.hp-dots i').forEach((s,k)=>s.classList.toggle('on',k===i));
+  const cp=$('#hpCap');if(cp&&cp.textContent!==HP_CAP[i]){cp.classList.add('sw');setTimeout(()=>{cp.textContent=HP_CAP[i];cp.classList.remove('sw');},RM?0:240);}hpCount(ss[i]);}
+function hpStart(){clearInterval(hpT);const el=$('#hp');if(!el)return;hpShow(0);if(RM)return;hpT=setInterval(()=>{if(!el.isConnected){clearInterval(hpT);return;}if(document.hidden)return;hpShow((hpI+1)%HP_CAP.length);},4600);}
 function heroBanner(P,h){const greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
-  return `<section class="hb2 hb3"><div class="au" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="beam"></i></div><div class="hb3-pts" aria-hidden="true">${Array.from({length:14},(_,k)=>`<b style="--x:${(k*37)%100}%;--t:${(k*0.7)%8}s;--s:${k%3+2}px;--d:${7+k%5}s"></b>`).join('')}</div>
-  <svg class="hb2-silk" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
-   <linearGradient id="sk1" x1="0" x2="1"><stop offset="0" stop-color="#3d84ff" stop-opacity="0"/><stop offset=".5" stop-color="#3d84ff" stop-opacity=".5"/><stop offset="1" stop-color="#7fd0ff" stop-opacity=".15"/></linearGradient>
-   <linearGradient id="sk2" x1="0" x2="1"><stop offset="0" stop-color="#1a4fd6" stop-opacity=".05"/><stop offset=".6" stop-color="#1a4fd6" stop-opacity=".35"/><stop offset="1" stop-color="#1a4fd6" stop-opacity="0"/></linearGradient>
-   <linearGradient id="sk3" x1="0" x2="1"><stop offset="0" stop-color="#9fd8ff" stop-opacity=".1"/><stop offset=".5" stop-color="#9fd8ff" stop-opacity=".6"/><stop offset="1" stop-color="#9fd8ff" stop-opacity=".1"/></linearGradient></defs>
-   <g class="sk a"><path d="M-400 300 C -250 220 -100 380 50 300 S 350 220 500 300 S 800 380 950 300 S 1250 220 1400 300 L1400 420 L-400 420Z" fill="url(#sk3)"/></g>
-   <g class="sk b"><path d="M-400 330 C -220 260 -60 400 120 330 S 460 250 640 330 S 980 400 1160 330 S 1400 280 1500 320 L1500 420 L-400 420Z" fill="url(#sk1)"/></g>
-   <g class="sk c"><path d="M-400 360 C -200 320 0 410 200 360 S 600 300 800 360 S 1200 410 1400 360 L1400 420 L-400 420Z" fill="url(#sk2)"/></g>
-  </svg>
-  <div class="hb2-in"><div class="hb2-copy">
-   <p class="hb2-eye"><i></i>${greet} · ${new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short'})}</p>
-   <h1 class="hb2-h"><span class="l1">Wealth that fits you.</span><span class="l2">Beyond returns.</span><span class="l3">Beyond bias.</span></h1>
-   <p class="hb2-sub">Every PMS and mutual fund in India, scored on one honest yardstick and matched to the plan you set. No commission. No paid rankings.</p>
-   <div class="hb2-cta"><button class="hb2-b1 tap" data-go="ask">${I.ai}Ask NIVO</button>${P?`<button class="hb2-b2 tap" data-go="ips">${I.target}View my IPS</button>`:`<button class="hb2-b2 tap" data-act="wizard">${I.target}Build my IPS</button>`}</div>
-   </div>
-</div></section>`;}
+  return `<section class="nhero"><div class="hx-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><span class="hx-grid"></span></div>
+  <div class="hx-in"><div class="hx-copy">
+   <p class="hx-eye"><i></i>${greet} · ${new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short'})}</p>
+   <h1 class="hx-h">Wealth that <em>fits you.</em></h1>
+   <p class="hx-sub">Every PMS and mutual fund in India, rated honestly and matched to your plan. No commission. No paid rankings.</p>
+   <div class="hx-cta"><button class="hx-b1 tap" data-go="ask">${I.ai}Ask NIVO</button>${P?`<button class="hx-b2 tap" data-go="ips">${I.target}View my IPS</button>`:`<button class="hx-b2 tap" data-act="wizard">${I.target}Build my plan</button>`}</div>
+   <ul class="hx-ticks"><li>₹0 commission</li><li>Ratings never for sale</li><li>Your data stays yours</li></ul>
+  </div>${hpHTML()}</div></section>`;}
 let gId=0;function globeHTML(){const top=D.pms.find(p=>p.q!=null&&!p.fl.includes('odd'));const u='g'+(++gId);
   return `<section class="about"><div class="globe-wrap" aria-hidden="true"><div class="g-ring r1"></div><div class="g-ring r2"><i></i></div>
   <div class="globe"><svg viewBox="0 0 200 200"><defs><clipPath id="${u}c"><circle cx="100" cy="100" r="92"/></clipPath><radialGradient id="${u}g" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#bfe9ff"/><stop offset=".35" stop-color="#5c9dff"/><stop offset=".8" stop-color="#1a48c9"/><stop offset="1" stop-color="#0a1f63"/></radialGradient></defs>
@@ -1939,16 +2094,19 @@ let gId=0;function globeHTML(){const top=D.pms.find(p=>p.q!=null&&!p.fl.includes
   <h2 class="land-h">Wealth advice, finally on <span>your side of the table.</span></h2>
   <p class="sub">NIVO reads every PMS performance report filed with APMI and every mutual fund NAV, scores them all on one yardstick, then matches them to a plan built around you. No fund house or portfolio manager pays NIVO, so nothing gets pushed up the list.</p>
   <div class="stats">${[[D.pms.length.toLocaleString('en-IN'),'PMS strategies scored'],[D.pmsProv.length,'PMS managers'],[D.funds.length.toLocaleString('en-IN'),'Mutual fund plans'],['0','Paid placements']].map(([v,l])=>`<div><b>${v}</b><small>${l}</small></div>`).join('')}</div></section>`;}
-function scoreHTML(){const ex=D.pms.find(p=>p.q!=null&&p.pil&&p.r5!=null&&!p.fl.includes('odd')&&p.q<90&&p.q>=75)||D.pms[0];
-  return `<section class="scoresec ob o2"><div class="eyebrow-pill"><i></i>The NIVO Score</div><h2 class="land-h">One yardstick. <span>Every fund, every PMS.</span></h2>
-  <p class="sub">Each strategy is scored out of 10 on five pillars. A short track record is pulled toward the middle, so one lucky year can’t top the table.</p>
-  <div class="card scard"><div class="scard-h">${meter(ex.q,{size:'lg'})}<div><small class="tiny">Example</small><b>${esc(ex.n)}</b><small class="tiny">${esc(ex.pm)}</small></div></div>
-  ${PIL.map(([l,w,d],i)=>`<div class="spil"><div class="spil-h"><b>${l}</b><span>${w}%</span></div><span class="pl-bar"><i style="--w:${ex.pil[i]??0}%"></i></span><small>${d}</small></div>`).join('')}</div>
-  <div class="mini2"><div class="card"><b>NIVO Fit</b><small>Your IPS turns the score personal: half the NIVO Score, plus how well the risk, role and size match your plan.</small></div><div class="card"><b>Volatility index</b><small>How bumpy the ride was against its closest index. 5 means it moved like the index; higher is calmer.</small></div></div></section>`;}
+const SC2_PIL=['Returns','Return for the risk','Holds up in falls','Consistency','Track record'];
+function scoreHTML(){const ex=D.pms.find(p=>p.q!=null&&p.pil&&p.r5!=null&&!p.fl.includes('odd')&&p.q<92&&p.q>=82)||D.pms.find(p=>p.q!=null&&p.pil)||D.pms[0];const v=(ex.q||0)/100,lb=fitLab(ex.q)[0];
+  return `<section class="scoresec ob o2 sc2"><div class="eyebrow-pill"><i></i>The NIVO Score</div><h2 class="land-h">One honest score. <span>For every fund and PMS.</span></h2>
+  <p class="sub">Everything is rated out of 10 on the five things that matter. No one can pay to move up.</p>
+  <div class="sc2-card"><div class="sc2-top"><div class="sc2-ring" style="--v:${v.toFixed(3)}"><svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="sc2g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fc1ff"/><stop offset="1" stop-color="#3f6dff"/></linearGradient></defs><circle class="t" cx="60" cy="60" r="52"/><circle class="f" cx="60" cy="60" r="52"/></svg><div><b>${((ex.q||0)/10).toFixed(1)}</b><small>out of 10</small></div></div>
+   <div class="sc2-meta"><span class="sc2-badge">${lb}</span><b>${esc(ex.n)}</b><small>${esc(ex.pm)}</small></div></div>
+   <ul class="sc2-pil">${SC2_PIL.map((l,i)=>{const n=Math.max(1,Math.round((ex.pil[i]??0)/20));return `<li style="--i:${i}"><span>${l}</span><em>${[0,1,2,3,4].map(k=>`<i class="${k<n?'y':''}"></i>`).join('')}</em></li>`;}).join('')}</ul></div>
+  <div class="sc2-mini"><div><span class="sc2-ic">${I.target}</span><b>NIVO Fit</b><small>The same score, made personal to your plan.</small></div><div><span class="sc2-ic">${I.shield||I.info}</span><b>Calm-ride check</b><small>How bumpy the ride was next to its index.</small></div></div></section>`;}
+function sc2Wire(){if(!('IntersectionObserver' in window)){$$('.sc2-card').forEach(c=>c.classList.add('on'));return;}const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.3});$$('.sc2-card:not(.on)').forEach(c=>io.observe(c));}
 function featHTML(){const F=[[I.target,'Your IPS in two minutes','Six questions become a written mandate: risk, mix, return needed and the fixes if you fall short.'],[I.search,'Every PMS on one page','Search any manager or strategy. 360 ONE, Unifi, Ithought and 350 more, ranked for you.'],[I.ai,'AI picks with reasons','NIVO AI shortlists PMS for your plan, sizes each one and tells you what to ask.'],[I.chart||I.info,'Volatility check','See how each fund and PMS handled the falls of the last five years against its index.'],[I.scan,'Pitch checker','Upload any RM deck. NIVO checks every claim against the real numbers.'],[I.upload,'Commission finder','Import your CAS to see what Regular plans cost you in rupees each year.']];
   const FF=HAS_AI?F:F.filter(f=>!/AI picks|Pitch checker/.test(f[1]));return `<section><div class="eyebrow-pill"><i></i>What NIVO does</div><h2 class="land-h">Built for the questions <span>advisers dodge.</span></h2><div class="feat">${FF.map(([ic,t,d])=>`<div class="card ft"><span class="ic">${ic}</span><b>${t}</b><small>${d}</small></div>`).join('')}</div></section>`;}
 const FAQ=[['The data','Where do the numbers come from?','Two public sources, refreshed monthly. PMS returns are what each portfolio manager reports to APMI, the PMS industry body, after fees. Mutual fund numbers come from AMFI’s daily NAVs. Index lines use the NAVs of Direct index funds, so they carry the real cost of tracking.'],
- ['The score','What goes into a NIVO Score?','Five pillars, scored against peers: returns against the closest index (30%), return per unit of risk (25%), how little it lost in falls (20%), how often it beat its index (15%), and its size and years of record (10%). Records under five years are pulled toward the middle.'],
+ ['The score','What goes into a NIVO Score?','Five things, each compared with similar funds: returns, return for the risk taken, how well it held up in falls, how often it beat its index, and its track record. One lucky year can’t put a strategy on top.'],
  ['The match','How does NIVO decide what fits me?','Your answers become an IPS: how much risk you can carry, how much you are willing to carry, and a target mix. Each PMS and fund gets a NIVO Fit from its score plus how well its risk, role and size suit that mix. Below ₹50 lakh, PMS are shown as ones to watch.'],
  ['The money','Who pays NIVO?','Not fund houses and not portfolio managers. NIVO takes no commission and sells no placements, so the order you see is the order the data gives. NIVO is a research tool, not a SEBI-registered adviser or distributor. Use it to question advice before you sign.'],
  ['Your data','What happens to my information?','Your IPS and portfolio are saved privately to you. Before NIVO AI reads a CAS statement, your PAN, email and phone numbers are stripped out. You can delete any of it from My data, the person icon at the top.']];
@@ -1956,7 +2114,7 @@ function faqHTML(){return `<section class="faqsec ob o3"><div class="eyebrow-pil
 function wzSection(){if(!wz)wz={i:0,a:{...(S.answers||BLANK_A),...((PERSONAS.find(x=>x.k===(S.persona||'first'))||{}).pre||{})}};
   return `<section class="wz-sec"><div class="eyebrow-pill"><i></i>The questionnaire</div><h2 class="land-h">Six steps to <span>your IPS.</span></h2><div class="card wz-inline" id="wzCard"><div id="wzBox"></div></div>${S.ips?`<button class="link" data-act="wz-cancel" style="justify-self:center">Cancel, keep my current IPS</button>`:''}</section>`;}
 function mountWz(){if(!$('#wzBox'))return;drawWz(0);if(S.wzScroll){S.wzScroll=false;setTimeout(()=>{const c=$('#wzCard');if(c)c.scrollIntoView({block:'start',behavior:RM?'auto':'smooth'});},80);}}
-function renderAbout(){$('#v-about').innerHTML=`<button class="replay" data-act="intro-open"><i></i>Replay the NIVO briefing</button>${globeHTML()}${personaHTML()}${scoreHTML()}${featHTML()}${faqHTML()}<p class="foot">NIVO is a research tool, not a SEBI-registered investment adviser. Data: APMI to ${dt(D.pmsU.asof)}, AMFI to ${dt(D.asof)}.</p>`;animateIn($('#v-about'));startGlobe();}
+function renderAbout(){$('#v-about').innerHTML=`<button class="replay" data-act="intro-open"><i></i>Replay the NIVO briefing</button>${globeHTML()}${personaHTML()}${scoreHTML()}${featHTML()}${faqHTML()}<p class="foot">NIVO is a research tool, not a SEBI-registered investment adviser. Data: APMI to ${dt(D.pmsU.asof)}, AMFI to ${dt(D.asof)}.</p>`;animateIn($('#v-about'));startGlobe();sc2Wire();}
 function startGlobe(){if(RM)$$('.globe svg').forEach(g=>{try{g.pauseAnimations();}catch(e){}});}
 function alHTML(a){const ic=a.s==='info'?I.info:a.s==='good'?I.tick:I.warn;return `<button class="al ${a.s} tap" ${a.act?`data-act="${a.act}"`:`data-go="${a.go||'portfolio'}"`}><span class="sv">${ic}</span><span><b>${esc(a.t)}</b><span>${esc(a.d)}</span></span></button>`;}
 
@@ -2037,7 +2195,7 @@ function openFund(code){const f=D.byCode.get(+code);if(!f)return;const ft=fitFor
   <div class="btn-row"><button class="btn sec" data-act="cmp-add" data-code="${f.c}">Compare</button><button class="btn sec" data-act="ask-fund" data-code="${f.c}">${I.ai}Ask AI</button></div>
   <button class="btn pri" data-act="inv-fund" data-code="${f.c}">${CART}${f.direct?'Invest in this fund':'Invest in the Direct plan'}</button>
   ${held?`<button class="btn sec" data-act="hold-remove" data-id="${held.id}">Remove from my portfolio</button>`:`<button class="btn sec" data-act="add-fund" data-code="${f.c}">${I.plus}I already own this: track it</button>`}
-  <p class="tiny" style="margin:0">Returns from AMFI daily NAVs, annualised, to ${dt(D.asof)}. NIVO Score ranks the fund among Direct plans in its category on five pillars: returns 30%, risk-adjusted return 25%, downside protection 20%, consistency 15%, structure and track record 10%.</p>`,
+  <p class="tiny" style="margin:0">Returns from AMFI daily NAVs, annualised, to ${dt(D.asof)}. NIVO Score ranks the fund among Direct plans in its category on five things: returns, return for the risk taken, how it held up in falls, consistency and track record.</p>`,
   b=>{const r=$('#camt',b);if(r){const g=(f.gap??.9)/100;const c=()=>{const A=+r.value;$('#camtO',b).textContent=inr(A);$('#cout',b).innerHTML=`<div><small>Extra cost each year</small><b>${inr(A*g)}</b></div><div><small>Lost growth in 10 yrs</small><b>${inr(A*(Math.pow(1.11,10)-Math.pow(1.11-g,10)))}</b></div><div class="keep" style="grid-column:1/-1"><small>Same money in the Direct plan after 10 years (at 11% a year)</small><b>${inr(A*Math.pow(1.11,10))}</b></div>`;};r.addEventListener('input',c);c();}});}
 function openPMS(id){const p=pmsById(id);if(!p)return;const ft=pmsFit(p),lb=fitLab(ft.fit),U=D.pmsU;const held=S.holdings.find(h=>h.type==='pms'&&h.pms===p.id);
   const per=[['1 year','r1'],['2 years','r2'],['3 years','r3'],['4 years','r4'],['5 years','r5']];const mx=Math.max(...per.map(([,k])=>Math.abs(p[k]??0)),...per.map(([,k])=>Math.abs(U[k]??0)))*1.1||1;
@@ -3088,8 +3246,8 @@ function openIntro(){if($('#intro'))return;const el=document.createElement('div'
   el.addEventListener('keydown',e=>{if(e.key==='Escape')closeIntro();});setTimeout(()=>{const s=$('.in-skip',el);if(s)s.focus({preventScroll:true});},400);}
 function countUp2(root){$$('[data-to]',root).forEach(b=>{if(b._d)return;b._d=1;const to=+b.dataset.to;if(RM){b.textContent=to.toLocaleString('en-IN');return;}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);b.textContent=Math.round(to*e).toLocaleString('en-IN');if(k<1)requestAnimationFrame(f);})(t0);});}
 function closeIntro(then){const el=$('#intro');try{localStorage.setItem(INTRO_KEY,'1');}catch(e){}if(!el){if(then)then();return;}clearInterval(introT);clearTimeout(demoAuto);demoTok++;el.classList.add('bye');document.documentElement.classList.remove('in-lock');
-  setTimeout(()=>{el.remove();},RM?0:650);if(then)then();else{if(location.hash.slice(1)!=='home')go('home');window.scrollTo(0,0);}}
-function maybeIntro(){const h=location.hash.slice(1);if(introSeen())return;if(h&&h!=='home')return;openIntro();}
+  setTimeout(()=>{el.remove();},RM?0:650);if(then)then();else{const h=location.hash.slice(1);if(!(h&&h!=='home'&&VIEWS.includes(h)))go('home');window.scrollTo(0,0);}}
+function maybeIntro(){openIntro();}
 
 document.addEventListener('click',e=>{const b=e.target.closest('#intro [data-act]');if(!b)return;e.stopPropagation();e.preventDefault();const a=b.dataset.act;
   if(a==='intro-done')closeIntro();else if(a==='intro-how'){const h=$('#inHow');if(h)h.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}else if(a==='intro-pms')closeIntro(()=>{askMode='match';mz=null;go('ask');window.scrollTo(0,0);});},true);
