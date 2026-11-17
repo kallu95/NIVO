@@ -1234,50 +1234,137 @@ textarea.inp{min-height:110px;resize:vertical;font-weight:500;font-size:14px}
 #v-ips .hero{background:linear-gradient(150deg,#010207 0%,#081536 58%,#123276 125%);border-color:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 26px 50px -26px rgba(0,0,0,.6)}
 .ask-hero{background:radial-gradient(120% 100% at 50% 0%,#2a2470 0%,#0e0c22 55%,#020205 100%)}
 #v-portfolio .hero .btn-glass,#v-ips .hero .btn-glass{background:#fff;color:#0b0d12}
-/* v25: intro briefing */
+/* v26: intro briefing, redesigned */
 html.in-lock,html.in-lock body{overflow:hidden}
-.intro{position:fixed;inset:0;z-index:100;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#03050a;color:#eef2f9;font-family:var(--f-body);opacity:0;transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.2,1),filter .65s ease}
+.intro{position:fixed;inset:0;z-index:100;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:#040509;color:#eef2f9;font-family:var(--f-body);opacity:0;transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.2,1),filter .65s ease;--sy:0}
 .intro.show{opacity:1}.intro.bye{opacity:0;transform:scale(1.035);filter:blur(6px);pointer-events:none}
-.in-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(120% 70% at 50% -10%,#0d2257 0%,#050a18 45%,#020306 100%)}
-.in-bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:inDrift 22s ease-in-out infinite alternate}
-.in-bg .g1{width:520px;height:520px;left:-160px;top:-120px;background:#1a52d6}
-.in-bg .g2{width:420px;height:420px;right:-140px;top:30%;background:#3b2aa8;opacity:.35;animation-duration:28s}
-.in-bg .g3{width:380px;height:380px;left:20%;bottom:-180px;background:#0f8fa8;opacity:.22;animation-duration:34s}
-@keyframes inDrift{to{transform:translate(60px,40px) scale(1.15)}}
-.in-bg .grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.in-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,#05070e 0%,#040509 60%,#030306 100%)}
+.in-bg .rb{position:absolute;left:-20%;right:-20%;top:-26vh;height:70vh;background:conic-gradient(from 200deg at 50% 50%,transparent 0deg,#1b4fd8 60deg,#6d5cff 110deg,#0fa3c4 160deg,transparent 220deg);filter:blur(90px);opacity:.5;transform:rotate(-8deg) translateY(calc(var(--sy) * -0.15px));animation:inRib 18s ease-in-out infinite alternate}
+@keyframes inRib{to{transform:rotate(4deg) translateX(6%)}}
+.in-bg .sp{position:absolute;right:-10%;top:18vh;width:70vw;max-width:820px;height:70vh;background:radial-gradient(closest-side,rgba(63,134,255,.22),transparent);filter:blur(40px)}
+.in-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 55% at 50% 30%,#000 10%,transparent 75%);mask-image:radial-gradient(70% 55% at 50% 30%,#000 10%,transparent 75%)}
+.in-bg .grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .in-prog{position:fixed;top:0;left:0;right:0;height:2px;z-index:6;pointer-events:none}
 .in-prog i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#3f86ff,#8fd3ff)}
-.in-top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 14px) max(20px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(3,5,10,.82),rgba(3,5,10,0));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.in-logo{display:flex;align-items:center;gap:9px}.in-logo svg{width:30px;height:30px}.in-logo b{font:800 18px var(--f-display);letter-spacing:.02em}
-.in-skip{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:99px;border:0;background:#fff;color:#05070d;font:800 13.5px var(--f-body);cursor:pointer;box-shadow:0 10px 30px -10px rgba(63,134,255,.6);transition:transform .2s}
-.in-skip:hover{transform:translateY(-1px)}.in-skip:focus-visible,.in-cta:focus-visible{outline:2px solid #8fb8ff;outline-offset:3px}
-.in-s{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 max(22px,env(safe-area-inset-right,0px)) 0 max(22px,env(safe-area-inset-left,0px))}
-.in-kick{margin:0;font:600 11px var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:#8fb8ff}
-.in-h1,.in-h2,.in-give-h{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.02em;margin:0;text-wrap:balance}
-.in-h1 em,.in-h2 em{font-style:italic;background:linear-gradient(100deg,#8fc1ff,#c7e6ff 45%,#9b8cff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-.in-hero{min-height:calc(100svh - 70px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px;padding-top:4vh;padding-bottom:6vh}
-.in-h1{font-size:clamp(54px,14.5vw,128px);line-height:.94}
+.in-top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 12px) max(20px,env(safe-area-inset-right,0px)) 12px max(20px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(4,5,9,.85),rgba(4,5,9,0));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+@media (min-width:1080px){.in-top{padding-inline:max(40px,calc((100vw - 1160px)/2))}}
+.in-logo{display:flex;align-items:center;gap:9px}.in-logo svg{width:28px;height:28px}.in-logo b{font:800 17px var(--f-display);letter-spacing:.04em}
+.in-skip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font:700 13.5px var(--f-body);cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:background .2s}
+.in-skip:hover{background:rgba(255,255,255,.16)}
+.in-skip:focus-visible,.in-cta:focus-visible,.in-ghost:focus-visible{outline:2px solid #8fb8ff;outline-offset:3px}
+.in-s{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 max(22px,env(safe-area-inset-right,0px)) 0 max(22px,env(safe-area-inset-left,0px))}
+.in-kick{margin:0;font:600 11px var(--f-mono);letter-spacing:.22em;text-transform:uppercase;color:#7fa9f5}
+.in-tag{display:inline-flex;align-items:center;gap:9px;align-self:center;padding:7px 14px 7px 10px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font:600 12.5px var(--f-body);color:#cfd8e8;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.in-tag i{width:8px;height:8px;border-radius:50%;background:#6ee7a8;box-shadow:0 0 0 4px rgba(110,231,168,.18);animation:inPulse2 2.4s ease-in-out infinite}
+@keyframes inPulse2{50%{box-shadow:0 0 0 7px rgba(110,231,168,0)}}
+.in-h1,.in-h2,.in-give-h{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.in-h1 em,.in-h2 em{font-style:italic;background:linear-gradient(100deg,#8fc1ff,#dcecff 45%,#a796ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.in-hero{display:grid;gap:44px;align-items:center;padding-top:5vh;padding-bottom:10vh;min-height:calc(100svh - 64px)}
+.in-hc{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+.in-h1{font-size:clamp(58px,15.5vw,124px);line-height:.9}
 .in-h1 span{display:block;color:#fff}
-.in-sub{margin:0;max-width:48ch;font-size:clamp(15px,3.9vw,18px);line-height:1.6;color:#aeb9cd}
-.in-stage{position:relative;width:min(100%,560px);height:250px;margin-top:6px;--sy:0}
-.fc{position:absolute;display:grid;gap:3px;text-align:left;padding:13px 15px;border-radius:18px;background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 50px -24px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.12);translate:0 calc(var(--sy) * var(--k) * 1px);animation:inFloat 7s ease-in-out infinite}
-.fc small{font:600 10px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb8ff}.fc b{font:700 16px var(--f-display);color:#fff}.fc span{font-size:12.5px;color:#aeb9cd;line-height:1.4}
-.fc b.big{font-size:34px;line-height:1}.fc b.big em{font-style:normal;font-size:15px;color:#8d97aa;margin-left:2px}
-.fc1{left:0;top:18px;width:58%;--k:-.16;z-index:2}
-.fc2{right:0;top:0;width:36%;--k:-.3;animation-delay:-2s}
-.fc3{right:6%;bottom:6px;width:52%;--k:-.08;animation-delay:-4s}
-@keyframes inFloat{50%{transform:translateY(-10px)}}
-.orb{display:none}
-.in-cue{display:flex;flex-direction:column;align-items:center;gap:10px;font:600 10.5px var(--f-mono);letter-spacing:.18em;text-transform:uppercase;color:#7d879b}
-.in-cue i{width:22px;height:34px;border-radius:12px;border:1.5px solid rgba(255,255,255,.3);position:relative}
-.in-cue i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:inCue 1.8s ease-in-out infinite}
-@keyframes inCue{60%{transform:translateY(10px);opacity:0}}
-.in-give{min-height:92svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:28px;padding-block:8vh}
-.in-give-h{font-size:clamp(46px,11vw,104px);line-height:1;color:#fff}
+.in-sub{margin:0;max-width:46ch;font-size:clamp(15.5px,4vw,18px);line-height:1.62;color:#a9b4c8}
+.in-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.in-cta{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 32px;border-radius:99px;border:0;background:#fff;color:#05070d;font:800 16.5px var(--f-body);cursor:pointer;box-shadow:0 20px 50px -18px rgba(63,134,255,.85),inset 0 -2px 0 rgba(0,0,0,.08);transition:transform .25s}
+.in-cta.sm{height:52px;padding:0 26px;font-size:15px}
+.in-cta:hover{transform:translateY(-2px)}
+.in-ghost{height:52px;padding:0 22px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#e6ecf6;font:700 15px var(--f-body);cursor:pointer;transition:background .2s}
+.in-ghost:hover{background:rgba(255,255,255,.07)}
+.in-ticks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font-size:13px;color:#8d97aa}
+.in-ticks li{display:flex;align-items:center;gap:7px}.in-ticks li::before{content:"";width:14px;height:14px;border-radius:50%;background:rgba(110,231,168,.16) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236ee7a8' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/9px no-repeat}
+@media (min-width:980px){.in-hero{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:40px;padding-top:2vh}.in-hc{align-items:flex-start;text-align:left}.in-tag{align-self:flex-start}.in-ctas,.in-ticks{justify-content:flex-start}.in-h1{font-size:clamp(84px,8.4vw,124px)}}
+/* phone */
+.in-pw{display:flex;flex-direction:column;align-items:center;gap:16px;perspective:1400px}
+.nph{--rx:0deg;--ry:0deg;position:relative;transform:rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.nph::before{content:"";pointer-events:none;position:absolute;inset:8% -14% -6%;background:radial-gradient(closest-side,rgba(63,134,255,.55),transparent);filter:blur(40px);z-index:-1}
+.ph-frame{position:relative;width:min(300px,80vw);aspect-ratio:300/612;border-radius:50px;padding:11px;background:linear-gradient(145deg,#2a2f3b,#0c0e13 40%,#1c2029);box-shadow:0 0 0 1.5px #3a404d,0 50px 90px -40px rgba(0,0,0,.95),inset 0 0 0 2px #000}
+.ph-island{position:absolute;top:21px;left:50%;width:84px;height:24px;margin-left:-42px;border-radius:99px;background:#000;z-index:3}
+.ph-scr{position:relative;height:100%;border-radius:40px;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,#f6f9ff,#e6efff);color:#0a1c3d}
+.ph-sb{display:flex;justify-content:space-between;align-items:center;padding:14px 26px 0 30px;font:700 12px var(--f-body)}
+.ph-sb span{display:flex;gap:3px}.ph-sb i{width:4px;height:9px;border-radius:2px;background:#0a1c3d}.ph-sb i:nth-child(1){height:5px;margin-top:4px}.ph-sb i:nth-child(2){height:7px;margin-top:2px}
+.ph-hd{display:flex;align-items:center;gap:10px;padding:16px 16px 10px;border-bottom:1px solid rgba(26,72,160,.1)}
+.ph-av svg{width:30px;height:30px;display:block}.ph-hd b{display:block;font:800 14px var(--f-display)}.ph-hd small{display:flex;align-items:center;gap:5px;font-size:10.5px;color:#4a5d80}.ph-hd small i{width:6px;height:6px;border-radius:50%;background:#1fb57a}
+.ph-chat{flex:1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:12px}
+.pm{max-width:88%;font-size:11.8px;line-height:1.45;border-radius:16px;padding:9px 11px;animation:pmIn .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pmIn{from{opacity:0;transform:translateY(8px) scale(.98)}}
+.pm.u{align-self:flex-end;background:linear-gradient(135deg,#1846c4,#3f86ff);color:#fff;border-bottom-right-radius:5px}
+.pm.a{align-self:flex-start;background:#fff;border:1px solid rgba(26,72,160,.1);border-bottom-left-radius:5px;box-shadow:0 8px 20px -14px rgba(10,28,61,.35);max-width:94%}
+.pm.a p{margin:0}
+.pth{display:grid;gap:5px}.pth span{display:flex;align-items:center;gap:7px;font-size:11px;color:#7f8fae;opacity:.35;transition:opacity .3s}
+.pth span::before{content:"";flex:none;width:11px;height:11px;border-radius:50%;border:2px solid #c9d6ef;border-top-color:#3f86ff}
+.pth span.go{opacity:1;color:#0a1c3d}.pth span.go::before{animation:pmSpin .7s linear infinite}
+.pth span.ok::before{animation:none;border-color:#1fb57a;background:#1fb57a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/8px no-repeat}
+@keyframes pmSpin{to{transform:rotate(360deg)}}
+.pv{margin-top:8px}
+.pv-list{display:grid;gap:5px}.pv-list>div{display:flex;justify-content:space-between;gap:8px;padding:7px 9px;border-radius:10px;background:#f2f6ff;font-size:11px;opacity:0;transform:translateX(12px);transition:all .5s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * .12s)}
+.pv-list b{color:#c2384d;white-space:nowrap}.pv-list.m b{color:#1846c4;font:800 13px var(--f-display)}
+.pv-list em{display:inline-grid;place-items:center;width:17px;height:17px;margin-right:6px;border-radius:6px;background:#1846c4;color:#fff;font:800 10px var(--f-display);font-style:normal}
+.done .pv-list>div{opacity:1;transform:none}
+.pv-bars{display:grid;gap:6px}.pv-bars>div{display:grid;grid-template-columns:72px 1fr 26px;gap:7px;align-items:center;font-size:10.5px}
+.pv-bars i{display:block;height:6px;border-radius:9px;background:linear-gradient(90deg,#f0a43a,#ffcf70);transform-origin:0 50%;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * .12s)}
+.done .pv-bars i{transform:scaleX(var(--v))}.pv-bars b{font-weight:800;text-align:right}
+.pv-line{width:100%;height:auto;display:block}.pv-line path{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.pv-line .g{stroke:#1fb57a}.pv-line .b{stroke:#3f86ff;transition-delay:.3s}.pv-line line{stroke:#c2384d;stroke-dasharray:3 3;stroke-width:1.2}.pv-line text{font:700 9px var(--f-body);fill:#c2384d}
+.done .pv-line path{stroke-dashoffset:0}
+.pa{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;opacity:0;transition:opacity .5s .6s}.done .pa{opacity:1}
+.pa span{padding:5px 9px;border-radius:99px;background:#e9f0ff;color:#1846c4;font:700 10.5px var(--f-body)}
+.ph-in{display:flex;align-items:center;gap:8px;margin:8px 12px 16px;padding:9px 9px 9px 14px;border-radius:99px;background:#fff;border:1px solid rgba(26,72,160,.14);font-size:11.5px;min-height:38px}
+.ph-in>span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ph-ph{color:#8b9ab7}
+.ph-send{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#1846c4;color:#fff;font-size:13px}
+.ph-note{margin:0;font:600 10px var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#5f6a7e}
+.ph-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;max-width:360px}
+.ph-chips button{height:34px;padding:0 13px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#c9d3e4;font:700 12.5px var(--f-body);cursor:pointer;transition:all .2s}
+.ph-chips button.on{background:#fff;color:#05070d;border-color:#fff}
+.ph-chips button:hover:not(.on){background:rgba(255,255,255,.1)}
+/* give */
+.in-give{min-height:86svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:28px;padding-block:10vh}
+.in-give-h{font-size:clamp(46px,11vw,108px);line-height:1;color:#fff}
 .rot{display:block;position:relative;height:1.12em;margin:.06em auto 0;width:auto;transition:width .55s cubic-bezier(.2,.8,.2,1);text-align:left}
-.rot span{position:absolute;left:0;top:0;white-space:nowrap;font-style:italic;background:linear-gradient(100deg,#6fb1ff 0%,#b9e3ff 50%,#9f8bff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em;opacity:0;transform:translateY(55%);filter:blur(10px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+.rot span{position:absolute;left:0;top:0;white-space:nowrap;font-style:italic;background:linear-gradient(100deg,#6fb1ff 0%,#c9e8ff 50%,#a08cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em;opacity:0;transform:translateY(55%);filter:blur(10px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1),filter .6s ease}
 .rot span.on{opacity:1;transform:none;filter:none}.rot span.out{opacity:0;transform:translateY(-55%);filter:blur(10px)}
-.in-p{margin:0;max-width:56ch;font-size:clamp(15.5px,4vw,19px);line-height:1.65;color:#b6c0d2}
+.in-p{margin:0;max-width:56ch;font-size:clamp(15.5px,4vw,19px);line-height:1.65;color:#b0bacc}
+.in-p.l{max-width:58ch}
+/* engine */
+.in-eng,.in-vert,.in-who,.in-price{display:flex;flex-direction:column;gap:18px;padding-block:10vh}
+.tx{position:relative;display:grid;gap:10px;margin-top:14px}
+@media (min-width:860px){.tx{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}}
+.tx-n{position:relative;display:grid;gap:4px;padding:16px;border-radius:18px;background:linear-gradient(155deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);opacity:.25;transition:opacity .6s ease,border-color .6s ease,box-shadow .6s ease;transition-delay:calc(var(--i) * .35s + .3s)}
+.tx.in .tx-n{opacity:1}
+.tx.in .tx-n:last-child{border-color:rgba(110,231,168,.5);box-shadow:0 0 40px -10px rgba(110,231,168,.4)}
+.tx-n small{font:600 10px var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#7fa9f5}.tx-n b{font:700 15px/1.3 var(--f-display);color:#fff}
+.tx-n:not(:last-child)::after{content:"";position:absolute;left:24px;bottom:-11px;width:2px;height:10px;background:rgba(143,184,255,.4)}
+@media (min-width:860px){.tx-n:not(:last-child)::after{left:auto;right:-15px;bottom:auto;top:50%;width:16px;height:2px}}
+.tx-cap{margin:4px 0 0;font-size:13px;color:#7d879b}
+/* verticals */
+.vg{display:grid;gap:10px;margin-top:10px}
+@media (min-width:640px){.vg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:980px){.vg{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+.vc{position:relative;display:grid;gap:8px;align-content:start;padding:20px;border-radius:22px;background:linear-gradient(155deg,rgba(255,255,255,.075),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.1);overflow:hidden;transition-delay:calc(var(--i) * .07s)!important}
+.vc::after{content:"";position:absolute;inset:-1px;border-radius:inherit;background:radial-gradient(60% 50% at 20% 0%,rgba(63,134,255,.18),transparent 70%);pointer-events:none}
+.vi{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(140deg,#1a52d6,#6db3ff);color:#fff}.vi svg{width:20px;height:20px}
+.vs{position:absolute;top:18px;right:18px;padding:4px 9px;border-radius:99px;font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.vs.live{background:rgba(110,231,168,.14);color:#6ee7a8}.vs.practice{background:rgba(143,184,255,.14);color:#9cc2ff}.vs.early{background:rgba(255,207,112,.14);color:#ffcf70}.vs.next{background:rgba(255,255,255,.08);color:#9aa4b8}
+.vc b{font:700 19px var(--f-display);color:#fff;margin-top:4px}.vc p{margin:0;font-size:14px;line-height:1.55;color:#a9b4c8}
+/* who */
+.who{display:grid;gap:14px;margin-top:8px}
+.who-t{display:flex;gap:6px;padding:5px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);overflow-x:auto;scrollbar-width:none;align-self:start;max-width:100%}
+.who-t button{flex:none;height:38px;padding:0 16px;border-radius:99px;border:0;background:transparent;color:#a9b4c8;font:700 13.5px var(--f-body);cursor:pointer;transition:all .25s}
+.who-t button.on{background:#fff;color:#05070d}
+.who-p{position:relative;min-height:150px}
+.wp{display:none;gap:14px;padding:22px;border-radius:22px;background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1)}
+.wp.on{display:grid;animation:pmIn .5s cubic-bezier(.2,.8,.2,1)}
+.wp p{margin:0;font-size:clamp(16px,4.2vw,20px);line-height:1.55;color:#e6ecf6;font-family:"Instrument Serif",Georgia,serif;font-size:clamp(20px,5.2vw,26px)}
+.wp div{display:flex;flex-wrap:wrap;gap:7px}.wp span{padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.07);font:600 12.5px var(--f-body);color:#cfd8e8}
+/* price */
+.pr{display:grid;gap:14px;margin-top:8px}
+@media (min-width:860px){.pr{grid-template-columns:1fr 1fr}}
+.pr-r{display:grid;gap:12px;padding:20px;border-radius:22px;background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1)}
+.pr-r>small{font:600 10.5px var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:#7fa9f5}
+.pr-b{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px;color:#a9b4c8}
+.pr-b i{display:block;height:12px;border-radius:99px;transform-origin:0 50%;transform:scaleX(0);transition:transform 1.3s cubic-bezier(.2,.8,.2,1) .3s}
+.pr-b i.aum{background:linear-gradient(90deg,#c2384d,#ff7a8a)}.pr-b i.nv{background:linear-gradient(90deg,#1fb57a,#6ee7a8);transition-delay:.7s}
+.pr.in .pr-b i{transform:scaleX(var(--w))}
+.pr-b b{font:800 16px var(--f-display);color:#fff;white-space:nowrap}
 .in-how{display:flex;flex-direction:column;gap:18px;padding-block:10vh 6vh}
 .in-h2{font-size:clamp(38px,9vw,72px);line-height:1.02;color:#fff;max-width:18ch}
 .in-steps{position:relative;display:grid;gap:clamp(54px,12vh,120px);margin-top:28px;padding-left:44px}
@@ -1355,6 +1442,19 @@ html.in-lock,html.in-lock body{overflow:hidden}
 h1{letter-spacing:-.03em}
 .replay{display:inline-flex;align-items:center;gap:8px;justify-self:center;align-self:center;padding:10px 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink2);font:700 13px var(--f-body);cursor:pointer}
 .replay i{width:8px;height:8px;border-radius:50%;background:linear-gradient(140deg,#1a52d6,#6db3ff)}
+
+.in-hero{grid-template-columns:minmax(0,1fr)}.in-hc,.in-pw{min-width:0;width:100%}
+.in-tag{max-width:100%;white-space:normal;text-align:left;line-height:1.3}
+@media (min-width:980px){.in-hero{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}}
+.in-eng,.in-vert,.in-who,.in-price{padding-block:8vh}
+.mkc .ac{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 12px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * .14s + .2s)}
+.in .mkc .ac{opacity:1;transform:none}
+.mkc .ac span{display:grid;min-width:0}.mkc .ac b{color:#fff;font-size:13.5px}.mkc .ac small{text-transform:none;letter-spacing:0;font:500 11.5px var(--f-body);color:#8d97aa}
+.mkc .ac em{font-style:normal;font:800 15px var(--f-display);color:#fff;white-space:nowrap}
+.mkc .nw{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:4px;padding:13px 14px;border-radius:14px;background:linear-gradient(135deg,rgba(63,134,255,.28),rgba(110,231,168,.12));border:1px solid rgba(143,184,255,.35);opacity:0;transition:opacity .7s ease .9s}
+.in .mkc .nw{opacity:1}.mkc .nw b{font:800 21px var(--f-display);color:#fff}
+
+.ph-note{text-align:center}.mkc .nw b{white-space:nowrap}.in-bg{overflow:hidden}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -2852,82 +2952,147 @@ document.addEventListener('click',e=>{if(!D)return;const pop=$('#jgPop');if(!pop
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSheet();$('#jgPop').hidden=true;}if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="link"]')){e.preventDefault();e.target.click();}});
 
 /* ================= boot ================= */
-/* ================= INTRO BRIEFING: scroll-told story of NIVO, skippable ================= */
+/* ================= INTRO BRIEFING v2: the whole platform, with a live AI phone ================= */
 const INTRO_KEY='nivo.intro.v1';
 const GIVE=['a plan','clarity','ambition','discipline','superpowers','independence','a second opinion'];
 const NV_MARK='<svg viewBox="0 0 34 34" aria-hidden="true"><defs><linearGradient id="inG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6db3ff"/><stop offset="1" stop-color="#1a52d6"/></linearGradient></defs><rect width="34" height="34" rx="10" fill="url(#inG)"/><path d="M10 25V10l13 15V10" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const DEMOS=[
+ {chip:'Check my adviser',q:'Is my wealth manager pushing me into costly products?',steps:['Reading your CAS · 14 holdings','Tracing 9 switches in 12 months','Comparing with Direct plans'],
+  a:'3 of your last 5 switches moved money into Regular plans with higher costs. Together they cost about ₹1.4 lakh a year, and none was in your IPS.',
+  viz:`<div class="pv-list">${[['Small cap fund → Regular','₹62,000'],['Thematic NFO','₹48,000'],['Hybrid → Regular','₹31,000']].map(([n,v],i)=>`<div style="--i:${i}"><span>${n}</span><b>${v}/yr</b></div>`).join('')}</div>`,acts:['Show Direct twins','Draft a question for my RM']},
+ {chip:'Monsoon impact',q:'The monsoon is 12% below normal. Does it affect me?',steps:['Reading IMD rainfall data','Mapping rural demand → sectors','Looking through your funds and PMS'],
+  a:'Some of it does. 18% of your equity sits in rural-linked businesses, mostly through one PMS. That is a watch item, not a sell signal.',
+  viz:`<div class="pv-bars">${[['Tractors',6],['FMCG',7],['Fertilisers',3],['Two-wheelers',2]].map(([n,v],i)=>`<div style="--i:${i};--v:${v/8}"><span>${n}</span><i></i><b>${v}%</b></div>`).join('')}</div>`,acts:['See the evidence','Set an alert']},
+ {chip:'Find my PMS',q:'Which PMS actually fits me?',steps:['Your Investor Score: 7.2/10','Scanning 1,128 strategies','Checking falls, fees and style'],
+  a:'Three strategies fit your score and your 20% comfort limit. Each beat its own index after fees over 5 years.',
+  viz:`<div class="pv-list m">${[['Flexi cap strategy','9.1'],['Large cap strategy','8.7'],['Multi-asset strategy','8.2']].map(([n,v],i)=>`<div style="--i:${i}"><span><em>${i+1}</em>${n}</span><b>${v}</b></div>`).join('')}</div>`,acts:['Compare all five','Invest, commission-free']},
+ {chip:'Retire at 55?',q:'Am I on track to retire at 55?',steps:['Projecting ₹2.4 Cr across 6 accounts','Inflation at 6% a year','Stress-testing a 2020-style crash'],
+  a:'On today’s plan you get there at 58. Adding ₹18,000 a month, or moving 10% from cash into your plan’s equity, brings it to 55.',
+  viz:`<svg class="pv-line" viewBox="0 0 220 74" aria-hidden="true"><path class="g" d="M4 70 C 50 64, 90 52, 130 38 S 190 14, 216 8" /><path class="b" d="M4 70 C 50 66, 90 58, 130 48 S 190 30, 216 24" /><line x1="160" y1="4" x2="160" y2="72"/><text x="163" y="12">55</text></svg>`,acts:['Show the plan','Adjust my SIP']}];
 function introSeen(){try{return localStorage.getItem(INTRO_KEY)==='1';}catch(e){return false;}}
+function phoneHTML(){return `<div class="nph" id="inPh"><div class="ph-frame"><span class="ph-island"></span><div class="ph-scr">
+  <div class="ph-sb"><b>9:41</b><span><i></i><i></i><i></i></span></div>
+  <div class="ph-hd"><span class="ph-av">${NV_MARK}</span><span><b>Ask NIVO</b><small><i></i>Thinking with your data</small></span></div>
+  <div class="ph-chat" id="phChat"></div>
+  <div class="ph-in"><span id="phIn" class="ph-ph">Ask about your money…</span><b class="ph-send">↑</b></div></div></div>
+  <p class="ph-note">Illustrative demo</p></div>`;}
 function introHTML(){const nP=D?D.pms.length:1128,nF=D?D.funds.length:3572;
   const step=(n,t,d,mk)=>`<article class="in-step" data-rv><div class="in-st"><span class="in-n">0${n}</span><h3>${t}</h3><p>${d}</p></div><div class="in-mk">${mk}</div></article>`;
-  return `<div class="in-bg" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i><span class="grain"></span></div>
+  const V=[[I.ai,'Intelligence','live','Ratings for every PMS and fund, manager research, and macro signals traced to your holdings.'],
+   [I.chart,'Wealth','live','Your IPS, goals, model portfolios, rebalancing and continuous monitoring.'],
+   [CART,'Execution','practice','Direct mutual funds and direct PMS onboarding, with checks before every order.'],
+   [I.shield,'Protection','early','Nominees, wills and succession, so your family can find and claim everything.'],
+   [I.target,'Capital','next','Fundraising readiness and PE, VC and banker discovery for founders.'],
+   [I.globe,'Institutions','next','Treasury analytics, bond-market transparency and research for companies.']];
+  const VL={live:'Live',practice:'Practice mode',early:'Early',next:'Coming next'};
+  const WHO=[['Investors','From your first SIP to your first PMS: a plan, honest ratings, and a check on every rupee of commission.','IPS in minutes|Commission X-ray|Find my right PMS|Panic guard'],
+   ['HNI & families','One view of every account across the family, PMS and AIF due diligence, and a second opinion on every adviser.','Family reporting|Manager due diligence|Adviser bias check|Succession'],
+   ['Founders','Know your options before you raise: readiness, the right investors and bankers, and your own wealth handled alongside.','Fundraising readiness|Investor discovery|Banker ratings|Personal wealth'],
+   ['Companies','Treasury and fixed-income intelligence without a bank’s product shelf deciding what you see.','Treasury analytics|Bond transparency|Enterprise research|Board reporting']];
+  return `<div class="in-bg" aria-hidden="true"><i class="rb"></i><i class="sp"></i><span class="grid"></span><span class="grain"></span></div>
   <div class="in-prog" aria-hidden="true"><i id="inProg"></i></div>
   <header class="in-top"><span class="in-logo">${NV_MARK}<b>NIVO</b></span><button class="in-skip" data-act="intro-done">Meet NIVO <span aria-hidden="true">→</span></button></header>
-  <section class="in-s in-hero">
-    <p class="in-kick" data-rv>Independent wealth intelligence · India</p>
-    <h1 class="in-h1" data-rv><span>Wealth that</span> <em>fits you.</em></h1>
-    <p class="in-sub" data-rv>NIVO reads every PMS and mutual fund in India, scores them on one honest yardstick, and matches them to the investor you actually are. No commission. No paid rankings.</p>
-    <div class="in-stage" id="inStage" aria-hidden="true">
-      <div class="fc fc1"><small>NIVO insight</small><b>54% of PMS strategies</b><span>with a 3-year record trailed their own index, after fees.</span></div>
-      <div class="fc fc2"><small>Your match</small><b class="big">8.7<em>/10</em></b><span>Flexi cap · fits your score</span></div>
-      <div class="fc fc3"><small>Commission X-ray</small><b>₹12,800 a year</b><span>leaving one Regular plan</span></div>
-      <div class="orb"></div>
+  <section class="in-s in-hero" id="inHero">
+    <div class="in-hc">
+      <span class="in-tag" data-rv><i></i>One intelligence for your entire financial life</span>
+      <h1 class="in-h1" data-rv><span>Wealth that</span> <em>fits you.</em></h1>
+      <p class="in-sub" data-rv>NIVO is an independent AI wealth intelligence platform. It reads your whole financial life, traces what changes in the economy down to your holdings, and helps you act, without selling you anything.</p>
+      <div class="in-ctas" data-rv><button class="in-cta sm" data-act="intro-done">Meet NIVO <span aria-hidden="true">→</span></button><button class="in-ghost" data-act="intro-how">See how it works</button></div>
+      <ul class="in-ticks" data-rv><li>₹0 commission</li><li>Ratings never for sale</li><li>Keep your current advisers</li></ul>
     </div>
-    <div class="in-cue" aria-hidden="true"><i></i>Scroll to see how it works</div>
+    <div class="in-pw" data-rv>${phoneHTML()}<div class="ph-chips" id="phChips" role="group" aria-label="Try a question">${DEMOS.map((d,i)=>`<button data-demo="${i}" class="${i?'':'on'}">${d.chip}</button>`).join('')}</div></div>
   </section>
   <section class="in-s in-give">
     <h2 class="in-give-h" data-rv>Give your money <span class="rot" id="inRot">${GIVE.map((w,i)=>`<span class="${i?'':'on'}">${w}</span>`).join('')}</span></h2>
-    <p class="in-p" data-rv>For decades, rigorous and unbiased wealth management sat behind a ₹10 crore minimum and a private banker. Everyone else got products pushed for commission. NIVO brings a family office’s research, scoring and discipline to every investor, and never takes a commission.</p>
+    <p class="in-p" data-rv>Your wealth should grow. Your fees shouldn’t grow just because your wealth does. NIVO gives a first-time investor and a family office the same institutional-quality intelligence, and charges for that intelligence, not a percentage of what you own.</p>
   </section>
-  <section class="in-s in-how">
-    <p class="in-kick" data-rv>How NIVO works</p>
-    <h2 class="in-h2" data-rv>From first question to first investment, <em>in five steps.</em></h2>
+  <section class="in-s in-eng" id="inEng">
+    <p class="in-kick" data-rv>The intelligence engine</p>
+    <h2 class="in-h2" data-rv>From the economy <em>to your portfolio.</em></h2>
+    <p class="in-p l" data-rv>Not another dashboard. NIVO connects what changes in the economy to the companies, managers and funds you actually own, then shows the evidence and how sure it is.</p>
+    <div class="tx" data-rv><span class="tx-pulse" aria-hidden="true"></span>${[['Economy','Monsoon 12% below normal'],['Markets','Rural demand softens'],['Companies','Tractors, FMCG, fertilisers'],['Managers','3 of your funds hold them'],['You','18% of equity exposed']].map(([h,t],i)=>`<div class="tx-n" style="--i:${i}"><small>${h}</small><b>${t}</b></div>`).join('')}</div>
+    <p class="tx-cap" data-rv>Observation, interpretation, exposure, scenarios and confidence, with every source kept.</p>
+  </section>
+  <section class="in-s in-vert">
+    <p class="in-kick" data-rv>One platform</p>
+    <h2 class="in-h2" data-rv>Everything your money <em>touches.</em></h2>
+    <div class="vg">${V.map(([ic,t,st,d],i)=>`<div class="vc" data-rv style="--i:${i}"><span class="vi">${ic}</span><span class="vs ${st}">${VL[st]}</span><b>${t}</b><p>${d}</p></div>`).join('')}</div>
+    <p class="tx-cap" data-rv>Use one service or all of them. You never have to leave your bank, broker or wealth manager.</p>
+  </section>
+  <section class="in-s in-how" id="inHow">
+    <p class="in-kick" data-rv>How it works</p>
+    <h2 class="in-h2" data-rv>Trust first. <em>Then action.</em></h2>
     <div class="in-steps" id="inSteps"><span class="in-line" aria-hidden="true"><i id="inLine"></i></span>
-    ${step(1,'NIVO gets to know you','22 questions on your money, your horizon and what you’d really do in a fall. You get an Investor Score out of 10.',
-      `<div class="mk mk1"><small>Part 4 of 7 · Risk, for real</small><p>Your ₹1 crore is worth ₹74 lakh. You…</p><ol><li>Sell it all</li><li>Take half out</li><li class="pk">Hold and wait</li><li>Read the manager’s note</li></ol><div class="mk-score"><span class="ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"/><circle class="f" cx="22" cy="22" r="18"/></svg></span><span><small>Investor Score</small><b>7.2/10</b></span></div></div>`)}
-    ${step(2,'It reads every PMS and fund','Returns against the closest index, risk, falls, consistency and track record, for every strategy in the market.',
-      `<div class="mk mk2"><div class="cnt"><div><b data-to="${nP}">0</b><small>PMS strategies</small></div><div><b data-to="${nF}">0</b><small>fund plans</small></div></div>${[['Returns',30,.82],['Risk-adjusted',25,.74],['Downside',20,.9],['Consistency',15,.66],['Track record',10,.58]].map(([l,w,v],i)=>`<div class="pl"><span>${l} <em>${w}%</em></span><i style="--v:${v};--i:${i}"></i></div>`).join('')}</div>`)}
-    ${step(3,'It matches what fits you','Your top 5 PMS and the best Direct funds for each slot of your plan, ranked by fit, not by who pays.',
-      `<div class="mk mk3">${[['Flexi cap strategy','9.1'],['Large cap strategy','8.7'],['Multi-asset strategy','8.2']].map(([n,s],i)=>`<div class="mr" style="--i:${i}"><span class="rk">${i+1}</span><span><b>${n}</b><small>One per manager · 5+ year record</small></span><em>${s}</em></div>`).join('')}</div>`)}
-    ${step(4,'It watches, and speaks up','Hidden commissions, managers drifting from their style, and your own rules when markets fall.',
-      `<div class="mk mk4">${[['Commission X-ray','₹12,800 a year is leaving one Regular plan'],['Style check','Sold as large cap, moving like midcap'],['Panic guard','You said you’d hold at a 20% fall']].map(([t,d],i)=>`<div class="al" style="--i:${i}"><i></i><span><b>${t}</b><small>${d}</small></span></div>`).join('')}</div>`)}
-    ${step(5,'You act, commission-free','Direct plans and direct PMS onboarding, with suitability checks before every order. You approve every move.',
+    ${step(1,'Bring everything together','Upload your CAS or add holdings: funds, PMS, shares, deposits, gold. Your advisers stay. NIVO just sees the whole picture.',
+      `<div class="mk mkc">${[['Mutual funds','CAS · 14 holdings','₹1.12 Cr'],['PMS','2 strategies','₹78 L'],['Shares','Demat','₹34 L'],['Deposits & gold','4 holdings','₹16 L']].map(([a,b,c],i)=>`<div class="ac" style="--i:${i}"><span><b>${a}</b><small>${b}</small></span><em>${c}</em></div>`).join('')}<div class="nw"><small>Assets under intelligence</small><b>₹2.40 Cr</b></div></div>`)}
+    ${step(2,'Understand it, honestly','Cost, overlap, risk, concentration and what your adviser recommended, all checked against your own IPS.',
+      `<div class="mk mk2"><div class="cnt"><div><b data-to="${nP}">0</b><small>PMS rated</small></div><div><b data-to="${nF}">0</b><small>fund plans</small></div></div>${[['Cost vs Direct',.72],['Fund overlap',.48],['Concentration',.64],['IPS drift',.35],['Adviser bias',.56]].map(([l,v],i)=>`<div class="pl"><span>${l}</span><i style="--v:${v};--i:${i}"></i></div>`).join('')}</div>`)}
+    ${step(3,'Decide with evidence','Your top PMS, the best Direct fund for each slot, model portfolios and a second opinion on any pitch.',
+      `<div class="mk mk3">${[['Flexi cap strategy','9.1'],['Balanced model portfolio','8.8'],['Large cap strategy','8.7']].map(([n,s],i)=>`<div class="mr" style="--i:${i}"><span class="rk">${i+1}</span><span><b>${n}</b><small>Ranked by fit, not by who pays</small></span><em>${s}</em></div>`).join('')}</div>`)}
+    ${step(4,'Act, commission-free','Direct plans, direct PMS onboarding and regulated partners. Checks before every order, and you approve every move.',
       `<div class="mk mk5"><div class="tk"><span>Direct plan · BSE StAR MF</span><b>₹5,00,000</b></div><div class="tk"><span>NIVO commission</span><b class="z">₹0</b></div><div class="go"><span class="t1">Place order</span><span class="t2">✓ Order placed</span></div></div>`)}
+    ${step(5,'Stay on track, automatically','NIVO keeps watching the economy, your managers and your plan, and speaks up only when it matters.',
+      `<div class="mk mk4">${[['Macro signal','Monsoon 12% below normal · 18% of equity exposed'],['Style check','A large cap PMS is moving like midcap'],['Panic guard','You said you’d hold at a 20% fall']].map(([t,d],i)=>`<div class="al" style="--i:${i}"><i></i><span><b>${t}</b><small>${d}</small></span></div>`).join('')}</div>`)}
     </div>
   </section>
-  <section class="in-s in-cap">
-    <p class="in-kick" data-rv>Built for the questions advisers dodge</p>
-    <div class="in-mq" aria-hidden="true"><div>${['NIVO Score for every PMS','Find my right PMS','Commission X-ray','Panic guard','Mutual fund twin','Style check','Model portfolios','Your IPS in minutes','Pitch fact-check','Family readiness'].map(x=>`<span>${x}</span>`).join('').repeat(2)}</div></div>
+  <section class="in-s in-who">
+    <p class="in-kick" data-rv>Built for every balance sheet</p>
+    <h2 class="in-h2" data-rv>₹50,000 or ₹500 crore. <em>Same intelligence.</em></h2>
+    <div class="who" data-rv><div class="who-t" role="tablist">${WHO.map((w,i)=>`<button role="tab" data-who="${i}" class="${i?'':'on'}" aria-selected="${!i}">${w[0]}</button>`).join('')}</div>
+      <div class="who-p" id="whoP">${WHO.map((w,i)=>`<div class="wp ${i?'':'on'}" data-wp="${i}"><p>${w[1]}</p><div>${w[2].split('|').map(x=>`<span>${x}</span>`).join('')}</div></div>`).join('')}</div></div>
+  </section>
+  <section class="in-s in-price">
+    <p class="in-kick" data-rv>A different economic model</p>
+    <h2 class="in-h2" data-rv>Pay for intelligence, <em>not a percentage of your wealth.</em></h2>
+    <div class="pr" data-rv>${[['On ₹1 crore',100000,5999],['On ₹5 crore',500000,14999]].map(([l,a,b])=>`<div class="pr-r"><small>${l}</small><div class="pr-b"><span>A typical 1% fee</span><i class="aum" style="--w:1"></i><b>₹${a.toLocaleString('en-IN')}</b></div><div class="pr-b"><span>NIVO, proposed</span><i class="nv" style="--w:${Math.max(.03,b/a)}"></i><b>₹${b.toLocaleString('en-IN')}</b></div></div>`).join('')}</div>
+    <p class="tx-cap" data-rv>Yearly cost. NIVO’s subscription prices are proposals, still being validated. Never a percentage of assets.</p>
   </section>
   <section class="in-s in-trust">
-    <h2 class="in-h2" data-rv>Built to be <em>on your side.</em></h2>
-    <div class="in-pl">${[['No commission, ever','NIVO earns nothing from what you buy, so nothing gets pushed.'],['Ratings can’t be bought','No paid placement. Every score comes from public data and one method.'],['Your data stays yours','No passwords, no account numbers. Delete everything any time.'],['You approve every move','NIVO checks and suggests. You decide.']].map(([t,d])=>`<div data-rv><b>${t}</b><p>${d}</p></div>`).join('')}</div>
+    <h2 class="in-h2" data-rv>Independence, <em>engineered.</em></h2>
+    <div class="in-pl">${[['No commission, ever','NIVO earns nothing from what you buy, so nothing gets pushed.'],['Ratings can’t be bought','Published methods, evidence behind every score, and a route to challenge one.'],['Your data stays yours','Consent first. No passwords, no account numbers. Delete everything any time.'],['You approve every move','NIVO checks, explains and suggests. You decide.']].map(([t,d])=>`<div data-rv><b>${t}</b><p>${d}</p></div>`).join('')}</div>
   </section>
   <section class="in-s in-end">
+    <span class="in-tag" data-rv><i></i>Financial intelligence for everyone</span>
     <h2 class="in-h2" data-rv>Ready when <em>you are.</em></h2>
     <button class="in-cta" data-act="intro-done" data-rv>Welcome to NIVO <span aria-hidden="true">→</span></button>
     <button class="in-alt" data-act="intro-pms" data-rv>Or start with “Find my right PMS”</button>
-    <p class="in-fine">NIVO is a research tool, not yet a SEBI-registered investment adviser. Investing is in practice mode until registration.</p>
+    <p class="in-fine">NIVO is a research tool today, not yet a SEBI-registered investment adviser. Investing runs in practice mode until registration. Capital and Institutions are being built next.</p>
   </section>`;}
-let introT=null;
+let introT=null,demoTok=0,demoAuto=null,demoIdx=0;
+const wait=ms=>new Promise(r=>setTimeout(r,RM?0:ms));
+async function playDemo(i,user){const el=$('#intro');if(!el)return;const tok=++demoTok;clearTimeout(demoAuto);demoIdx=i;const d=DEMOS[i],chat=$('#phChat',el),inp=$('#phIn',el);
+  $$('#phChips button',el).forEach((b,k)=>b.classList.toggle('on',k===i));chat.innerHTML='';inp.className='';inp.textContent='';
+  for(let k=1;k<=d.q.length;k+=RM?d.q.length:2){if(tok!==demoTok)return;inp.textContent=d.q.slice(0,k);await wait(26);}
+  await wait(250);if(tok!==demoTok)return;inp.textContent='Ask about your money…';inp.className='ph-ph';
+  chat.insertAdjacentHTML('beforeend',`<div class="pm u">${esc(d.q)}</div><div class="pm a th"><div class="pth">${d.steps.map(s=>`<span>${esc(s)}</span>`).join('')}</div></div>`);
+  const th=chat.lastElementChild,ss=$$('.pth span',th);for(let k=0;k<ss.length;k++){if(tok!==demoTok)return;ss[k].classList.add('go');await wait(620);ss[k].classList.add('ok');}
+  if(tok!==demoTok)return;th.classList.remove('th');th.innerHTML='<p></p>';const p=$('p',th),ws=d.a.split(' ');
+  for(let k=1;k<=ws.length;k+=RM?ws.length:1){if(tok!==demoTok)return;p.textContent=ws.slice(0,k).join(' ');await wait(38);}
+  th.insertAdjacentHTML('beforeend',`<div class="pv">${d.viz}</div><div class="pa">${d.acts.map(a=>`<span>${a}</span>`).join('')}</div>`);requestAnimationFrame(()=>th.classList.add('done'));
+  chat.scrollTop=chat.scrollHeight;
+  demoAuto=setTimeout(()=>{if(tok===demoTok)playDemo((i+1)%DEMOS.length);},user?11000:6500);}
 function openIntro(){if($('#intro'))return;const el=document.createElement('div');el.id='intro';el.className='intro';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Welcome to NIVO');el.innerHTML=introHTML();document.body.appendChild(el);document.documentElement.classList.add('in-lock');
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.classList.contains('in-step'))countUp2(e.target);}}),{root:el,threshold:.28});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');countUp2(e.target);}}),{root:el,threshold:.25});
   $$('[data-rv]',el).forEach(x=>io.observe(x));requestAnimationFrame(()=>el.classList.add('show'));
-  const prog=$('#inProg',el),stage=$('#inStage',el),steps=$('#inSteps',el),line=$('#inLine',el);
-  const onS=()=>{const st=el.scrollTop,max=el.scrollHeight-el.clientHeight;prog.style.transform=`scaleX(${max>0?st/max:0})`;
-    if(!RM){stage.style.setProperty('--sy',Math.min(st,900));}
-    const r=steps.getBoundingClientRect(),vh=el.clientHeight;const p=Math.max(0,Math.min(1,(vh*.6-r.top)/r.height));line.style.transform=`scaleY(${p})`;};
+  const prog=$('#inProg',el),steps=$('#inSteps',el),line=$('#inLine',el);
+  const onS=()=>{const st=el.scrollTop,max=el.scrollHeight-el.clientHeight;prog.style.transform=`scaleX(${max>0?st/max:0})`;el.style.setProperty('--sy',Math.min(st,1200));
+    const r=steps.getBoundingClientRect(),vh=el.clientHeight;line.style.transform=`scaleY(${Math.max(0,Math.min(1,(vh*.6-r.top)/r.height))})`;};
   el.addEventListener('scroll',onS,{passive:true});onS();
-  const rot=$('#inRot',el),ws=$$('span',rot);let k=0;const fit=()=>{const on=ws[k];rot.style.width=on.offsetWidth+'px';};
+  const rot=$('#inRot',el),ws=$$('span',rot);let k=0;const fit=()=>{rot.style.width=ws[k].offsetWidth+'px';};
   setTimeout(fit,60);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   if(!RM)introT=setInterval(()=>{const a=ws[k];k=(k+1)%ws.length;const b=ws[k];a.classList.remove('on');a.classList.add('out');b.classList.remove('out');b.classList.add('on');fit();setTimeout(()=>a.classList.remove('out'),700);},2300);
+  $('#phChips',el).addEventListener('click',e=>{const b=e.target.closest('[data-demo]');if(b)playDemo(+b.dataset.demo,true);});
+  $('.who-t',el).addEventListener('click',e=>{const b=e.target.closest('[data-who]');if(!b)return;$$('.who-t button',el).forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b);});$$('.wp',el).forEach(x=>x.classList.toggle('on',x.dataset.wp===b.dataset.who));});
+  const ph=$('#inPh',el),hero=$('#inHero',el);if(!RM&&matchMedia('(hover:hover)').matches)hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.setProperty('--rx',(-y*8).toFixed(2)+'deg');ph.style.setProperty('--ry',(x*12).toFixed(2)+'deg');});
+  setTimeout(()=>playDemo(0),RM?0:900);
   el.addEventListener('keydown',e=>{if(e.key==='Escape')closeIntro();});setTimeout(()=>{const s=$('.in-skip',el);if(s)s.focus({preventScroll:true});},400);}
-function countUp2(stepEl){$$('[data-to]',stepEl).forEach(b=>{if(b._d)return;b._d=1;const to=+b.dataset.to;if(RM){b.textContent=to.toLocaleString('en-IN');return;}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);b.textContent=Math.round(to*e).toLocaleString('en-IN');if(k<1)requestAnimationFrame(f);})(t0);});}
-function closeIntro(then){const el=$('#intro');try{localStorage.setItem(INTRO_KEY,'1');}catch(e){}if(!el){if(then)then();return;}clearInterval(introT);el.classList.add('bye');document.documentElement.classList.remove('in-lock');
+function countUp2(root){$$('[data-to]',root).forEach(b=>{if(b._d)return;b._d=1;const to=+b.dataset.to;if(RM){b.textContent=to.toLocaleString('en-IN');return;}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);b.textContent=Math.round(to*e).toLocaleString('en-IN');if(k<1)requestAnimationFrame(f);})(t0);});}
+function closeIntro(then){const el=$('#intro');try{localStorage.setItem(INTRO_KEY,'1');}catch(e){}if(!el){if(then)then();return;}clearInterval(introT);clearTimeout(demoAuto);demoTok++;el.classList.add('bye');document.documentElement.classList.remove('in-lock');
   setTimeout(()=>{el.remove();},RM?0:650);if(then)then();else{if(location.hash.slice(1)!=='home')go('home');window.scrollTo(0,0);}}
 function maybeIntro(){const h=location.hash.slice(1);if(introSeen())return;if(h&&h!=='home')return;openIntro();}
 
 document.addEventListener('click',e=>{const b=e.target.closest('#intro [data-act]');if(!b)return;e.stopPropagation();e.preventDefault();const a=b.dataset.act;
-  if(a==='intro-done')closeIntro();else if(a==='intro-pms')closeIntro(()=>{askMode='match';mz=null;go('ask');window.scrollTo(0,0);});},true);
+  if(a==='intro-done')closeIntro();else if(a==='intro-how'){const h=$('#inHow');if(h)h.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}else if(a==='intro-pms')closeIntro(()=>{askMode='match';mz=null;go('ask');window.scrollTo(0,0);});},true);
 (async function boot(){maybeIntro();
   $('#v-home').innerHTML='<div class="skel" style="height:90px"></div><div class="skel" style="height:180px"></div><div class="skel"></div><div class="skel"></div>';
   try{await loadData();}catch(e){$('#v-home').innerHTML=`<div class="flag">${I.warn}<span>The fund database didn't load. Reload the page to try again.</span></div>`;($('#asof')||{}).textContent='Offline';return;}
