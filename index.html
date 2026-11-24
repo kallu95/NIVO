@@ -2091,7 +2091,7 @@ function topFunds(pred,n,needR3){const r=[];D.funds.forEach(f=>{if(!f.direct||f.
 function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.holdings.length>0;
   let best;
   if(P)best=['core','sat','intl','debt','gold','cash'].filter(k=>P.al[k]>0).map(k=>{const fs=topFunds(f=>roleOf(f.cat)===k,P.al[k]>=15?2:1,k==='core'||k==='debt');return `<div class="slot"><div class="slot-h"><i style="background:${BK[k].c}"></i><b>${BK[k].l}</b><span>${P.al[k]}% of plan</span></div>${fs.map(frow).join('')}<button class="link more" data-act="slot" data-k="${k}">More ${BK[k].l.toLowerCase()} options</button></div>`;}).join('');
-  else best=[['Flexi Cap','Flexi cap'],['Large Cap','Large cap'],['Mid Cap','Mid cap'],['Corporate Bond','Corporate bond']].map(([c,l])=>`<div class="slot"><div class="slot-h"><i style="background:var(--blue-2)"></i><b>${l}</b><span>Highest score</span></div>${topFunds(f=>f.cat===c,1,true).map(frow).join('')}</div>`).join('');
+  else best=[['Large Cap','Large cap'],['Flexi Cap','Flexi cap'],['Mid Cap','Mid cap'],['Small Cap','Small cap'],['Corporate Bond','Corporate bond'],['Liquid','Liquid']].map(([c,l])=>`<div class="slot"><div class="slot-h"><i style="background:var(--blue-2)"></i><b>${l}</b><span>Highest score</span></div>${topFunds(f=>f.cat===c,1,true).map(frow).join('')}</div>`).join('');
   const idx=[[120716,'Nifty 50'],[147625,'Nifty 500'],[147622,'Midcap 150'],[147623,'Smallcap 250']].map(([c,l])=>({f:D.byCode.get(c),l})).filter(x=>x.f);
   const al=alertsFor(A).slice(0,3);
   const hero=has?`<article class="hero tap" data-go="portfolio" role="link" tabindex="0"><div class="hero-row"><span class="eyebrow">My portfolio</span>${P?`<span class="glass">${P.profile}</span>`:''}</div>
@@ -2103,26 +2103,32 @@ function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.ho
    :`<article class="hero"><span class="eyebrow">Get started</span><div style="font:800 22px/1.2 var(--f-display);margin:6px 0 12px">Two steps to your own wealth view</div>
     <div class="steps2"><button class="st tap" data-act="wizard"><span class="no ${P?'done':''}">${P?I.tick:'1'}</span><span><b>${P?'IPS ready':'Build your IPS'}</b><small>${P?P.profile+' · '+P.eqT+'% equity':'Six quick questions, about two minutes'}</small></span></button>
     <button class="st tap" data-act="import"><span class="no">2</span><span><b>Import your portfolio</b><small>CAS statement or add holdings by hand</small></span></button></div><div class="shine"></div></article>`;
-  const greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
   $('#v-home').innerHTML=`
-  <p class="hm-greet">${greet}</p>
-  ${wealthCard()}
-  <div class="hm-qa">
-    <button class="tap" data-go="ask"><span>${I.ai}</span>Ask NIVO</button>
-    <button class="tap" data-act="mz-go"><span>${I.target}</span>Find my PMS</button>
-    <button class="tap" data-act="wizard"><span>${I.chart||I.target}</span>${P?'My plan':'Build my plan'}</button>
-    <button class="tap" data-act="pitch-tab"><span>${I.scan}</span>Check a pitch</button>
+  ${heroBanner(P,h)}
+  <button class="sbox" data-act="search-focus" style="cursor:text;text-align:left;width:100%">${I.search}<span style="flex:1;color:var(--ink3);font-weight:500">Search a PMS, manager or fund</span></button>
+  ${hero}
+  <div class="qa">
+    <button class="qa-t tap" data-act="wizard"><span class="ic">${I.target}</span><b>${P?'Update my IPS':'Build my IPS'}</b><small>Six quick steps to a full investment mandate</small></button>
+    <button class="qa-t tap" data-act="import"><span class="ic">${I.upload}</span><b>Import portfolio</b><small>CAS statement, demat or manual entry</small></button>
+    <button class="qa-t tap" data-act="pitch-tab"><span class="ic">${I.scan}</span><b>Check a pitch</b><small>Fact-check any RM deck against real data</small></button>
+    <button class="qa-t tap" data-go="ask"><span class="ic">${I.ai}</span><b>Ask NIVO</b><small>Questions about funds, fees or your plan</small></button>
   </div>
+  ${investBand()}
+  ${globeHTML()}
   ${al.length?`<div class="sec-h"><h3>Needs your attention</h3></div><div class="card alerts">${al.map(alHTML).join('')}</div>`:''}
-  <div class="sec-h"><h3>${P?'PMS picks for you':'Top-rated PMS'}</h3><button class="link" data-act="xseg-pms">See all</button></div>
+  <div class="sec-h"><h3>${P?'PMS picks for your IPS':'Top-rated PMS strategies'}</h3><button class="link" data-act="xseg-pms">See all ${D.pms.length.toLocaleString('en-IN')}</button></div>
   <div class="card fitlist">${P&&!P.pmsOK?`<div class="flag" style="margin:4px 6px 6px">${I.info}<span>${P.a.corpus<5e6?`PMS needs at least ₹50 lakh and you are investing ${inr(P.a.corpus)}. These are the strategies to watch for later.`:'Your risk profile says PMS is not suitable right now. These are shown for reference.'}</span></div>`:''}${pmsPicks(4).map(prow).join('')}</div>
-  ${P?aiPmsCard():''}
-  <div class="sec-h"><h3>${P?'Mutual funds for your plan':'Top mutual funds'}</h3><button class="link" data-act="xseg-mf">See all</button></div>
+  ${P?aiPmsCard():`<p class="tiny" style="margin:-8px 4px 0">NIVO Scores rank every strategy against all ${D.pmsU.n.toLocaleString('en-IN')} equity PMS on five pillars. Build your IPS to rank by fit instead.</p>`}
+  ${P?'':featHTML()}
+  <div class="sec-h"><h3>${P?'Mutual fund best fits':'Top mutual funds by category'}</h3><button class="link" data-act="xseg-mf">See all</button></div>
   <div class="card fitlist">${best}</div>
+  ${P?'':`<p class="tiny" style="margin:-8px 4px 0">Scores rank each Direct plan against its category. Build your IPS to rank by fit with your goals instead.</p>`}
+  <div class="sec-h"><h3>Market check</h3><span class="tiny">Index funds · to ${dt(D.asof)}</span></div>
+  <div class="mkt">${idx.map(x=>`<div><small>${x.l}</small><b>${pc(x.f.r1)}</b> <span>1Y</span><br><span>3Y ${pc(x.f.r3)} / yr</span></div>`).join('')}<div style="grid-column:1/-1"><small>Median of ${D.pmsU.n.toLocaleString('en-IN')} equity PMS strategies (APMI, to ${dt(D.pmsU.asof)})</small><b>${pc(D.pmsU.r1)}</b> <span>1Y</span> · <span>3Y ${pc(D.pmsU.r3)} / yr · 5Y ${pc(D.pmsU.r5)} / yr</span></div></div>
   ${faqHTML()}
   <button class="replay" data-act="intro-open"><i></i>Replay the NIVO briefing</button>
   <p class="foot">NIVO works only for you. No fund house pays for a rating or a ranking.</p>`;
-  animateIn($('#v-home'));}
+  animateIn($('#v-home'));startGlobe();hpStart();sc2Wire();}
 const PERSONAS=[
  {k:'first',img:'https://images.unsplash.com/photo-1573165850883-9b0e18c44bd2?w=900&q=70&auto=format&fit=crop',t:'First-time PMS investor',tag:'₹50 L – ₹1 Cr',h:'Your mutual funds have done their job. Now you want to know if a PMS is worth the fees, and which one.',pts:['A straight answer on whether PMS suits you yet','A shortlist of steady strategies with long records','Fees, lock-ins and exit loads in rupees','The questions to ask before you sign'],pre:{exp:'some',corpus:7500000,goal:'grow'},art:'seed'},
  {k:'mf',img:'https://images.unsplash.com/photo-1758598497485-300d809e55ad?w=900&q=70&auto=format&fit=crop',t:'Graduating from mutual funds',tag:'₹25 L – ₹1 Cr',h:'Your SIPs have grown up. You want to know what to keep, what to cut, and when a PMS starts to make sense.',pts:['Every fund you own scored against its category','Commission hiding in Regular plans, in rupees','A clear keep, switch or cut list','PMS that fit you once you cross ₹50 lakh'],pre:{exp:'some',corpus:3000000,goal:'grow'},art:'steps'},
