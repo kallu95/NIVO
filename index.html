@@ -1695,6 +1695,91 @@ h1{letter-spacing:-.03em}
  .hm-qa button{grid-auto-flow:column;justify-content:center;align-items:center;gap:10px;padding:12px;font-size:13.5px}
  .hm-qa span{width:34px;height:34px}
 }
+/* ===== v29 demo bar ===== */
+.demo-bar{display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px;border-radius:20px;background:var(--card,#fff);border:1px solid var(--line,rgba(10,28,61,.08));box-shadow:0 10px 30px -22px rgba(10,28,61,.5)}
+.demo-bar>span:not(.demo-ic){flex:1;min-width:0;display:grid;gap:2px}
+.demo-bar b{font:700 14px var(--f-display);color:var(--ink)}.demo-bar small{font-size:12px;color:var(--ink3);line-height:1.35}
+.demo-ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#6db3ff,#1a52d6);color:#fff}.demo-ic svg{width:19px;height:19px}
+.demo-b1,.demo-b2{flex:none;min-height:40px;padding:0 16px;border-radius:99px;font:700 13.5px var(--f-display);cursor:pointer;border:0}
+.demo-b1{background:#0a1c3d;color:#fff}
+.demo-bar.on{background:linear-gradient(135deg,#fff7e6,#fff);border-color:#f3d28c}
+.demo-b2{background:#fff;color:#8a5a00;border:1px solid #f0c66a}
+.demo-pill{position:fixed;z-index:60;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top,0px) + 8px);display:flex;align-items:center;gap:8px;padding:5px 5px 5px 12px;border-radius:99px;background:rgba(20,16,8,.86);color:#ffe2a6;font:700 11.5px var(--f-body);box-shadow:0 10px 24px -10px rgba(0,0,0,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.demo-pill i{width:7px;height:7px;border-radius:50%;background:#f0b43a;box-shadow:0 0 0 3px rgba(240,180,58,.25)}
+.demo-pill button{border:0;border-radius:99px;padding:5px 10px;background:#ffe2a6;color:#2a1d00;font:700 11px var(--f-body);cursor:pointer}
+@media (min-width:900px){.demo-pill{top:auto;bottom:18px}}
+/* ===== v29 wealth dashboard ===== */
+.wd{position:relative;overflow:hidden;isolation:isolate;display:grid;gap:6px;padding:18px 18px 20px;border-radius:30px;color:#fff;background:radial-gradient(110% 70% at 100% 0%,rgba(60,110,255,.28),transparent 60%),linear-gradient(180deg,#0d1220 0%,#07090f 100%);border:1px solid rgba(255,255,255,.07);box-shadow:0 34px 70px -40px rgba(5,10,30,.9)}
+.wd-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.wd-fam{display:flex;gap:3px;padding:3px;border-radius:99px;background:rgba(255,255,255,.07);overflow-x:auto;scrollbar-width:none;min-width:0}
+.wd-fam button{border:0;background:none;color:#aab6cf;font:600 12px var(--f-body);padding:6px 12px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.wd-fam button.on{background:linear-gradient(135deg,#e9f1ff,#bcd3ff);color:#0a1c3d}
+.wd-eye{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#cbd6ea;display:grid;place-items:center;cursor:pointer}.wd-eye svg{width:18px;height:18px}
+.wd-k{margin:0;font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#8292b3}
+.wd-big{font:600 clamp(36px,10vw,52px)/1.05 var(--f-display);letter-spacing:-.035em;font-variant-numeric:tabular-nums;background:linear-gradient(180deg,#fff,#c9d8f5);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wd-ch1{margin:0;font:600 12.5px var(--f-body);color:#8292b3}.wd-ch1.up{color:#5ee0a0}.wd-ch1.dn{color:#ff8a8a}
+.wd-ch{width:100%;height:110px;display:block;margin:8px 0 4px}
+.wd-ch .ln{fill:none;stroke:#8fc1ff;stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:wdl 1.6s cubic-bezier(.4,0,.2,1) .2s forwards}
+.wd-ch circle{fill:#fff;stroke:#6ea8ff;stroke-width:2}
+@keyframes wdl{to{stroke-dashoffset:0}}
+.wd-as{display:grid;gap:10px;margin-top:6px}
+.wd-ah{display:flex;align-items:center;justify-content:space-between}.wd-ah b{font:700 15px var(--f-display)}
+.wd-ah .link{display:inline-flex;align-items:center;gap:4px;color:#8fc1ff}.wd-ah .link svg{width:15px;height:15px}
+.wd-stack{display:flex;flex-direction:column}
+.wd-card{position:relative;z-index:calc(1 + var(--i));display:flex;align-items:flex-start;justify-content:space-between;gap:10px;min-height:76px;margin-top:-16px;padding:14px 16px 26px;border-radius:20px;border:1px solid rgba(255,255,255,.1);border-bottom:0;background:linear-gradient(150deg,color-mix(in srgb,var(--c) 62%,#0b0f1a) 0%,color-mix(in srgb,var(--c) 26%,#0b0f1a) 100%);box-shadow:0 -10px 24px -14px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.14);color:#fff;text-align:left;cursor:pointer;transition:transform .25s ease;animation:wdc .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 60ms)}
+.wd-card:first-child{margin-top:0}
+.wd-card:last-child{padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.wd-card:hover{transform:translateY(-4px)}
+@keyframes wdc{from{opacity:0;transform:translateY(14px)}}
+.wd-cl{font:700 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82);padding-top:3px}
+.wd-cv{display:grid;justify-items:end;gap:2px}.wd-cv b{font:700 17px var(--f-display);font-variant-numeric:tabular-nums}.wd-cv small{font-size:11px;color:rgba(255,255,255,.62)}
+/* honest take */
+.hon{display:grid;gap:10px;padding:18px;border-radius:26px;color:#fff;background:linear-gradient(160deg,#16244d 0%,#0d1430 55%,#0a0f22 100%);border:1px solid rgba(143,193,255,.16)}
+.hon-h{display:flex;align-items:center;gap:12px;margin-bottom:2px}
+.hon-ic{flex:none;width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#8fc1ff,#3f6dff);box-shadow:0 0 24px -4px rgba(110,160,255,.7)}.hon-ic svg{width:20px;height:20px}
+.hon-h span:last-child{display:grid}.hon-h small{font:600 10.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fa6d6}.hon-h b{font:700 17px var(--f-display)}
+.hon-r{padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-left:3px solid #f0b43a}
+.hon-r.bad{border-left-color:#ff7a7a}
+.hon-r>div{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}.hon-r b{font:700 14px var(--f-display)}.hon-r em{font-style:normal;font-size:12px;color:#8fa6d6}
+.hon-r p{margin:5px 0 0;font-size:13px;line-height:1.5;color:#c3cfe6}
+.hon-ask{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:99px;border:1px solid rgba(143,193,255,.35);background:rgba(143,193,255,.08);color:#dfeaff;font:700 14px var(--f-display);cursor:pointer}.hon-ask svg{width:17px;height:17px}
+/* since last visit */
+.since{padding:16px 18px;border-radius:22px;background:var(--card,#fff);border:1px solid var(--line,rgba(10,28,61,.08));border-left:3px solid #3f6dff}
+.since-k{margin:0 0 8px;font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.since ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}.since li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.5;color:var(--ink2,#33415c)}
+.since li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:#3f6dff}
+@media (min-width:900px){.wd{padding:24px 28px 28px}.wd-ch{height:140px}}
+/* ===== v29 asset overview sheet ===== */
+.avw{display:grid;gap:14px}
+.av-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -2px;padding:2px}
+.av-tabs button{flex:none;border:1px solid var(--line,rgba(10,28,61,.1));background:var(--card,#fff);color:var(--ink2,#33415c);font:600 13px var(--f-body);padding:8px 14px;border-radius:99px;cursor:pointer;white-space:nowrap}
+.av-tabs button.on{background:#0a1c3d;color:#fff;border-color:transparent}
+.av-val{display:grid;gap:2px;padding:16px 18px;border-radius:20px;background:linear-gradient(160deg,#0d1220,#07090f);color:#fff}
+.av-val small{font-size:12px;color:#8292b3}.av-val b{font:700 30px var(--f-display);letter-spacing:-.03em}.av-val span{font-size:12px;color:#8292b3}
+.av-card{display:grid;gap:10px;padding:14px 16px;border-radius:20px;background:var(--card,#fff);border:1px solid var(--line,rgba(10,28,61,.08))}
+.av-k{margin:0;font:600 10.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.av-leg{list-style:none;margin:0;padding:0;display:grid;gap:7px}.av-leg li{display:flex;align-items:center;gap:8px;font-size:13px}.av-leg i{width:8px;height:8px;border-radius:50%;flex:none}.av-leg span{flex:1;min-width:0;color:var(--ink2,#33415c);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.av-leg b{font:700 13px var(--f-display);color:var(--ink)}
+.av-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.av-two .av-card{justify-items:center;text-align:center}
+.av-ring{position:relative;width:96px}.av-ring svg{display:block;width:100%;transform:rotate(-90deg)}.av-ring circle{fill:none;stroke-width:10;stroke-linecap:round}.av-ring .t{stroke:#e8eef8}.av-ring .f{stroke:#5cc8a8;stroke-dasharray:314.2;stroke-dashoffset:calc(314.2 * (1 - var(--v)));transition:stroke-dashoffset 1s ease}
+.av-ring>div{position:absolute;inset:0;display:grid;place-content:center}.av-ring b{font:800 22px/1 var(--f-display);color:var(--ink)}.av-ring small{font-size:10px;color:var(--ink3)}
+.av-gauge svg{width:112px;display:block}.av-gauge .g{fill:none;stroke-width:10;stroke-linecap:round;stroke:url(#avgg)}
+.av-gauge{position:relative}.av-gauge .g{stroke:#e8eef8}.av-gauge::before{content:'';position:absolute;inset:0 0 auto;height:62px;border-radius:62px 62px 0 0;background:conic-gradient(from 270deg at 50% 100%,#5cc8a8 0deg,#f0b43a 90deg,#ff7a7a 180deg,transparent 180deg);-webkit-mask:radial-gradient(circle at 50% 100%,transparent 45px,#000 46px,#000 56px,transparent 57px);mask:radial-gradient(circle at 50% 100%,transparent 45px,#000 46px,#000 56px,transparent 57px);top:0;left:0;width:112px}
+.av-gauge .n{stroke:var(--ink);stroke-width:3;stroke-linecap:round}.av-gauge .c{fill:var(--ink)}
+.av-l{font:700 14px var(--f-display);color:var(--ink)}
+.av-hold{padding:8px 14px}
+
+.avw{grid-template-columns:minmax(0,1fr);min-width:0;width:100%}.demo-pill span{white-space:nowrap}.demo-pill button{white-space:nowrap}
+
+.av-card{grid-template-columns:minmax(0,1fr);min-width:0}.av-two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}body.locked .demo-pill{opacity:0;pointer-events:none}.demo-pill{transition:opacity .2s}
+
+@media (max-width:899px){.demo-pill{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 104px)}}
+
+@media (min-width:900px){.wd{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);column-gap:40px;align-content:start}.wd>*:not(.wd-as){grid-column:1}.wd-as{grid-column:2;grid-row:1 / span 6;margin-top:0;align-self:start}.wd-ch{height:180px}}
+
+.wd-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 6px}.wd-st div{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);display:grid;gap:2px}.wd-st small{font-size:11px;color:#8292b3}.wd-st b{font:700 18px var(--f-display)}
+
+@media (min-width:900px){.wd{grid-template-rows:repeat(6,auto) 1fr}.wd-as{grid-row:1 / span 7}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -1901,7 +1986,7 @@ const Store={db:null,uid:null,t:null,
   ref(){return this.db.doc('data/users/'+this.uid+'/state');},
   async load(){let st=null;if(this.db){try{const s=await this.ref().get();if(s.exists)st=s.data();}catch(e){}}if(!st){try{st=JSON.parse(localStorage.getItem('neriwise.v2')||'null');}catch(e){}}return st;},
   async wipe(){clearTimeout(this.t);try{localStorage.removeItem('neriwise.v2');}catch(e){}if(this.db){try{await this.ref().delete();}catch(e){}}},
-  save(){clearTimeout(this.t);this.t=setTimeout(async()=>{const st=JSON.parse(JSON.stringify({answers:S.answers,holdings:S.holdings,aiPms:S.aiPms||null,persona:S.persona||null,match:S.match||null,basket:S.basket,orders:S.orders,ready:S.ready,calm:S.calm,legacy:S.legacy,updated:new Date().toISOString()}));try{localStorage.setItem('neriwise.v2',JSON.stringify(st));}catch(e){}if(this.db){try{await this.ref().set(st);}catch(e){}}},700);}};
+  save(){if(S.demo)return;clearTimeout(this.t);this.t=setTimeout(async()=>{const st=JSON.parse(JSON.stringify({answers:S.answers,holdings:S.holdings,aiPms:S.aiPms||null,persona:S.persona||null,match:S.match||null,basket:S.basket,orders:S.orders,ready:S.ready,calm:S.calm,legacy:S.legacy,nwHist:S.nwHist||[],lastSeen:S.lastSeen||null,updated:new Date().toISOString()}));try{localStorage.setItem('neriwise.v2',JSON.stringify(st));}catch(e){}if(this.db){try{await this.ref().set(st);}catch(e){}}},700);}};
 function getAI(){if(S.ai!==undefined)return Promise.resolve(S.ai);return (S._aiP||(S._aiP=(async()=>{try{S.ai=window.claude?await claude.use('sample'):null;}catch(e){S.ai=null;}return S.ai;})()));}
 
 /* ================= IPS engine ================= */
@@ -2088,6 +2173,93 @@ function meter(v,o={}){const lb=fitLab(v),n=v==null?0:Math.max(1,Math.round(v/10
 function prow(p){const ft=pmsFit(p);return `<button class="frow tap" data-pms="${p.id}"><span class="t"><b>${esc(p.n)}</b><small>${esc(p.pm)} · ${p.r3!=null?'3Y '+pc(p.r3)+' / yr':'1Y '+pc(p.r1)}</small></span>${meter(ft.fit)}</button>`;}
 function frow(f){const ft=fitFor(f);return `<button class="frow tap" data-fund="${f.c}"><span class="t"><b>${esc(f.sn)}</b><small>${esc(amcShort(f.amc))} · ${f.r3!=null?'3Y '+pc(f.r3)+' / yr':'1Y '+pc(f.r1)}</small></span>${meter(ft.fit)}</button>`;}
 function topFunds(pred,n,needR3){const r=[];D.funds.forEach(f=>{if(!f.direct||f.q==null||!pred(f))return;if(needR3&&f.r3==null)return;r.push(f);});return r.sort((a,b)=>(fitFor(b).fit??-1)-(fitFor(a).fit??-1)).slice(0,n);}
+/* ================= v29 WEALTH: demo, dashboard, asset view, honest take ================= */
+const DEF_AL={core:45,sat:15,intl:10,debt:20,gold:7,cash:3};
+const AL_LAB={core:'Large & flexi cap',sat:'Mid & small cap',intl:'International',debt:'Debt',gold:'Gold',cash:'Cash'};
+let REAL=null,bootDone=false;
+const mny=v=>S.hide?'₹ ••••':inr(v);
+function demoHoldings(){const by=(pred,dir=true)=>D.funds.filter(f=>pred(f)&&f.direct===dir&&f.q!=null).sort((a,b)=>(b.q??0)-(a.q??0));
+  const mf=(f,v,who)=>f?{type:'mf',code:f.c,name:f.sn,units:+(v/f.nav).toFixed(3),who}:null;
+  const fx=by(f=>f.cat==='Flexi Cap'),lc=by(f=>f.cat==='Large Cap'),mc=by(f=>f.cat==='Mid Cap'),sc=by(f=>f.cat==='Small Cap',false),it=by(f=>roleOf(f.cat)==='intl'),lq=by(f=>f.cat==='Liquid'),lr=by(f=>f.cat==='Large Cap',false);
+  const pm=D.pms.filter(p=>p.q!=null&&p.r5!=null&&!(p.fl||[]).includes('odd')).sort((a,b)=>b.q-a.q);
+  const o=(type,name,value,who='Me')=>({type,name,value,who});
+  return [mf(fx[0],4500000,'Me'),mf(lc[0],4000000,'Me'),mf(mc[0],3500000,'Me'),mf(sc[0],2200000,'Me'),mf(it[0],12500000,'Me'),mf(lq[0],600000,'Me'),
+   pm[0]&&{type:'pms',pms:pm[0].id,name:pm[0].n,value:11000000,who:'Me'},pm[3]&&{type:'pms',pms:pm[3].id,name:pm[3].n,value:7500000,who:'Me'},
+   o('stock','Reliance Industries',4200000),o('stock','HDFC Bank',3800000),o('stock','Infosys',2600000),o('stock','TCS',1800000),o('stock','Nifty 50 ETF',2200000),
+   o('aif','Long-short equity AIF (Cat III)',6000000),o('aif','Unlisted shares (pre-IPO)',1800000),
+   o('retire','EPF',2800000),o('retire','PPF',1500000),o('retire','NPS',1200000),o('property','Chennai apartment',16000000),o('cash','Savings accounts',900000),o('insure','ULIP policy',800000),o('gold','Gold ETF',1200000),
+   mf(fx[2]||fx[1],3000000,'Arjun'),mf(lr[0],1800000,'Arjun'),o('fd','Bank FDs',2500000,'Arjun'),o('gold','Sovereign Gold Bonds',1000000,'Arjun'),o('retire','PPF',900000,'Arjun'),
+   o('fd','Senior Citizen Savings Scheme',1500000,'Amma'),o('fd','Bank FDs',4000000,'Amma')].filter(Boolean).map(h=>({...h,id:uid()}));}
+function demoHist(tot){const out=[],n=25;let v=tot*.72;const now=new Date();for(let i=n-1;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth()-i,1);out.push({d:d.toISOString().slice(0,10),v:Math.round(v)});const k=n-1-i;v=v*(1+.011+.022*Math.sin(k*1.7)+(k===9?-.06:0)+(k===10?-.03:0));}
+  const f=tot/out[out.length-1].v;out.forEach(p=>p.v=Math.round(p.v*f));out[out.length-1].v=Math.round(tot);return out;}
+function startDemo(){if(!D||!bootDone){setTimeout(startDemo,200);return;}if(S.demo){go('home');return;}
+  REAL=JSON.parse(JSON.stringify({answers:S.answers,holdings:S.holdings,match:S.match,basket:S.basket,orders:S.orders,ready:S.ready,calm:S.calm,legacy:S.legacy,persona:S.persona,chat:S.chat,nwHist:S.nwHist||[],lastSeen:S.lastSeen||null,aiPms:S.aiPms||null}));
+  S.demo=true;S.holdings=demoHoldings();S.answers={...BLANK_A,...((PERSONAS.find(p=>p.k==='hni')||{}).pre||{}),age:44,goal:'grow',target:150000000,years:12,sip:300000};S.match=null;S.basket=[];S.orders=[];S.chat=[];S.aiPms=null;setIPS();
+  const tot=S.holdings.reduce((s,h)=>s+hv(h),0);S.nwHist=demoHist(tot);S.lastSeen={t:Date.now()-12*864e5,tot:Math.round(tot/1.0185)};wtWho='all';drawChip();drawDemoBar();go('home');refresh();window.scrollTo(0,0);toast('Demo portfolio loaded. Explore freely.');}
+function exitDemo(){if(!S.demo)return;Object.assign(S,REAL);REAL=null;S.demo=false;setIPS();wtWho='all';drawChip();drawDemoBar();go('home');refresh();window.scrollTo(0,0);toast('Back to your own data');}
+function drawDemoBar(){let b=$('#demoPill');if(!S.demo){if(b)b.remove();return;}if(!b){b=document.createElement('div');b.id='demoPill';b.className='demo-pill';document.body.appendChild(b);}b.innerHTML=`<i></i><span>Demo portfolio</span><button data-act="demo-exit">Exit demo</button>`;}
+function demoBarHTML(){return S.demo?`<div class="demo-bar on"><span><b>You’re exploring a demo family portfolio</b><small>Nothing you do here is saved. Your own data is safe.</small></span><button class="demo-b2 tap" data-act="demo-exit">Exit demo</button></div>`
+  :`<div class="demo-bar"><span class="demo-ic">${I.ai}</span><span><b>See NIVO with a sample portfolio</b><small>A family with ₹10 Cr across funds, PMS, shares, AIF, EPF, gold and property.</small></span><button class="demo-b1 tap" data-act="demo-start">Try demo</button></div>`;}
+/* net worth history + last visit */
+function snapNW(){if(S.demo||!S.holdings.length)return;const tot=Math.round(S.holdings.reduce((s,h)=>s+hv(h),0)),d=new Date().toISOString().slice(0,10);S.nwHist=S.nwHist||[];const L=S.nwHist[S.nwHist.length-1];if(L&&L.d===d)L.v=tot;else S.nwHist.push({d,v:tot});if(S.nwHist.length>400)S.nwHist=S.nwHist.slice(-400);}
+function chartSVG(pts){if(!pts||pts.length<2)return '';const W=320,H=110,vs=pts.map(p=>p.v),mn=Math.min(...vs),mx=Math.max(...vs),r=mx-mn||1;const xy=pts.map((p,i)=>[i/(pts.length-1)*W,H-8-(p.v-mn)/r*(H-20)]);
+  const d=xy.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');const L=xy[xy.length-1];
+  return `<svg class="wd-ch" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="wdg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6ea8ff" stop-opacity=".35"/><stop offset="1" stop-color="#6ea8ff" stop-opacity="0"/></linearGradient></defs><path d="${d} L${W} ${H} L0 ${H}Z" fill="url(#wdg)"/><path class="ln" pathLength="1" d="${d}"/><circle cx="${L[0].toFixed(1)}" cy="${L[1].toFixed(1)}" r="3.5"/></svg>`;}
+/* honest take */
+function invPct(H){const by={core:0,sat:0,intl:0,debt:0,gold:0,cash:0};let tot=0;H.forEach(h=>{const v=hv(h);let k=null;if(h.type==='mf'){const f=D.byCode.get(h.code);if(!f)return;const r=roleOf(f.cat);if(r==='hybrid'){const e=HYB[f.cat]??.5;by.core+=v*e;by.debt+=v*(1-e);tot+=v;return;}k=r;}
+  else if(h.type==='pms'){const p=pmsById(h.pms);k=p&&p.role==='cash'?'cash':p&&p.sat?'sat':'core';}else if(h.type==='stock')k=/\(PMS\)$/.test(h.name||'')?'core':'core';else if(h.type==='aif')k='sat';else if(h.type==='fd'||h.type==='retire'||h.type==='insure')k='debt';else if(h.type==='gold')k='gold';else if(h.type==='cash')k='cash';if(!k)return;by[k]+=v;tot+=v;});
+  const pct={};for(const k in by)pct[k]=tot?by[k]/tot*100:0;return {pct,tot};}
+function honestTake(){const H=S.holdings;if(!H.length)return [];const T=S.ips?S.ips.al:DEF_AL,{pct}=invPct(H),out=[],tot=H.reduce((s,h)=>s+hv(h),0);
+  const why={over:{core:'More here deepens the same bet on big Indian companies.',sat:'Mid and small caps fall hardest in a crash. Adding more would deepen that bet.',intl:'Adding another overseas fund wouldn’t diversify you. It would deepen the same bet.',debt:'You are safer than your plan needs, which may slow growth.',gold:'Gold doesn’t earn income. Keep it as a hedge, not a core holding.',cash:'Cash loses to inflation over time. Move what you don’t need soon.'},
+   under:{core:'Your core is thin. This is the steady base most plans build on.',sat:'Below plan. Fine if you prefer calm, but you give up some growth.',intl:'You are almost all in India. A little overseas money spreads country risk.',debt:'Little to cushion you if markets turn. Worth fixing before adding more equity.',gold:'Gold tends to hold up when stocks and the rupee fall.',cash:'Keep enough cash for emergencies so you never sell in a fall.'}};
+  Object.keys(T).forEach(k=>{const a=pct[k],t=T[k];if(t==null)return;const d=a-t;if(Math.abs(d)>=4&&(t>0||a>=4))out.push({k,a,t,d,h:`${AL_LAB[k]}: ${a.toFixed(0)}%`,rec:`Plan: ${t}%`,s:Math.abs(d)>=10?'bad':'warn',t2:why[d>0?'over':'under'][k],w:Math.abs(d)});});
+  out.sort((a,b)=>b.w-a.w);
+  const big=H.map(h=>({h,v:hv(h)})).sort((a,b)=>b.v-a.v)[0];if(big&&tot&&big.v/tot>=.15)out.push({h:`Biggest single holding: ${(big.v/tot*100).toFixed(0)}%`,rec:'Keep under 15%',s:big.v/tot>=.25?'bad':'warn',t2:`${big.h.name} is a large share of everything you own. If it has a bad year, you feel it.`,w:big.v/tot*40});
+  const prop=H.filter(h=>h.type==='property').reduce((s,h)=>s+hv(h),0);if(tot&&prop/tot>=.3)out.push({h:`Property: ${(prop/tot*100).toFixed(0)}%`,rec:'Hard to sell fast',s:'warn',t2:'A big part of your wealth can’t be turned into cash quickly. Keep a separate emergency fund.',w:8});
+  const A=analyse();if(A.leak>0)out.push({h:`Commission leak: ${inr(A.leak)} a year`,rec:'Switch to Direct',s:'bad',t2:`${A.regs.length} Regular plan${A.regs.length>1?'s':''} pay a distributor every year. Direct plans hold the same shares for less.`,w:12});
+  return out.sort((a,b)=>b.w-a.w).slice(0,4);}
+const MILES=[1e6,25e5,5e6,1e7,2e7,5e7,1e8,2e8,5e8,1e9];
+function milestone(tot){const nx=MILES.find(m=>m>tot);const prev=[...MILES].reverse().find(m=>m<=tot);if(!nx)return {prev,nx:null};const sip=S.answers&&S.answers.sip||0;let v=tot,m=0;while(v<nx&&m<600){v=v*(1+.10/12)+sip;m++;}return {prev,nx,m,sip};}
+function sinceVisit(){const ls=S.lastSeen;if(!ls||!S.holdings.length)return null;const tot=S.holdings.reduce((s,h)=>s+hv(h),0),days=Math.max(1,Math.round((Date.now()-ls.t)/864e5)),ch=tot-ls.tot;return {days,ch,tot,pc:ls.tot?ch/ls.tot*100:0};}
+/* dashboard */
+function wealthDash(){const H=S.holdings,fam=famList(),sel=fam.includes(wtWho)?wtWho:'all',HH=sel==='all'?H:H.filter(h=>whoOf(h)===sel),{by,tot,rows}=byCls(HH),sv=sel==='all'?sinceVisit():null;
+  const hist=sel==='all'?S.nwHist:null;
+  return `<section class="wd" id="wtCard"><div class="wd-top">${fam.length>1?`<div class="wd-fam">${['all',...fam].map(w=>`<button data-act="wt-who" data-w="${esc(w)}" class="${w===sel?'on':''}">${w==='all'?'Family':esc(w)}</button>`).join('')}</div>`:'<span></span>'}<button class="wd-eye" data-act="wd-hide" aria-label="${S.hide?'Show':'Hide'} values">${S.hide?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3l18 18M10.6 6.1A9.9 9.9 0 0 1 12 6c6 0 9.5 6 9.5 6a17 17 0 0 1-3.1 3.7M6.3 7.6C3.9 9.3 2.5 12 2.5 12S6 18 12 18c1.6 0 3-.4 4.3-1"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="3"/></svg>'}</button></div>
+   <p class="wd-k">${sel==='all'?(fam.length>1?'Family net worth':'Net worth'):esc(sel)+'’s net worth'}</p>
+   <div class="wd-big">${mny(tot)}</div>
+   ${sv&&Math.abs(sv.ch)>=1?`<p class="wd-ch1 ${sv.ch>=0?'up':'dn'}">${sv.ch>=0?'▲':'▼'} ${S.hide?'':inr(Math.abs(sv.ch))+' · '}${Math.abs(sv.pc).toFixed(1)}% since your last visit</p>`:`<p class="wd-ch1">${HH.length} holdings across ${rows.length} asset types</p>`}
+   ${hist&&hist.length>1?chartSVG(hist.slice(-25)):''}
+   ${(()=>{const g=ks=>ks.reduce((s,k)=>s+(by[k]||0),0)/tot*100;return `<div class="wd-st"><div><small>Market-linked</small><b>${g(['mf','stock','pms','aif']).toFixed(0)}%</b></div><div><small>Safe & steady</small><b>${g(['fd','retire','cash','insure']).toFixed(0)}%</b></div><div><small>Property & gold</small><b>${g(['property','gold','other']).toFixed(0)}%</b></div></div>`;})()}
+   <div class="wd-as"><div class="wd-ah"><b>Assets (${rows.length})</b><button class="link" data-act="add-manual">${I.plus}Add</button></div>
+   <div class="wd-stack">${rows.map((c,i)=>{const n=HH.filter(h=>clsOf(h)===c.k).length;return `<button class="wd-card tap" data-act="asset-view" data-k="${c.k}" style="--c:${c.c};--i:${i}"><span class="wd-cl">${c.l}</span><span class="wd-cv"><b>${mny(by[c.k])}</b><small>${n} holding${n>1?'s':''} · ${(by[c.k]/tot*100).toFixed(0)}%</small></span></button>`;}).join('')}</div></div></section>`;}
+function honestHTML(){const xs=honestTake();if(!xs.length)return '';
+  return `<section class="hon"><div class="hon-h"><span class="hon-ic">${I.ai}</span><span><small>NIVO’s honest take</small><b>It won’t just agree with you</b></span></div>
+   ${xs.map(x=>`<div class="hon-r ${x.s}"><div><b>${esc(x.h)}</b><em>${esc(x.rec)}</em></div><p>${esc(x.t2)}</p></div>`).join('')}
+   <button class="hon-ask tap" data-act="ask-honest">${I.ai}Talk it through with NIVO</button></section>`;}
+function sinceHTML(){const sv=sinceVisit();if(!sv)return '';const ms=milestone(sv.tot),al=alertsFor(analyse()).filter(a=>a.s!=='info').length;
+  const pts=[`Your ${famList().length>1?'family’s ':''}wealth ${sv.ch>=0?'rose':'fell'} ${S.hide?Math.abs(sv.pc).toFixed(1)+'%':inr(Math.abs(sv.ch))} in ${sv.days} day${sv.days>1?'s':''}.`,`Fund prices are updated to ${dt(D.asof)}, and PMS returns to ${dt(D.pmsU.asof)}.`];
+  if(al)pts.push(`${al} thing${al>1?'s':''} in your portfolio need${al>1?'':'s'} a look.`);
+  if(ms.nx)pts.push(`Next milestone: ${inr(ms.nx)}. ${ms.m<600?`At 10% a year${ms.sip?` plus your ${inr(ms.sip)} monthly SIP`:''}, about ${ms.m<24?ms.m+' months':(ms.m/12).toFixed(1)+' years'} away.`:''}`);
+  return `<section class="since"><p class="since-k">Since your last visit · ${sv.days} day${sv.days>1?'s':''} ago</p><ul>${pts.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></section>`;}
+/* asset overview */
+function divScore(H){const vs=H.map(hv),t=vs.reduce((a,b)=>a+b,0)||1,hhi=vs.reduce((s,v)=>s+(v/t)**2,0),eff=1/hhi;return Math.max(1,Math.min(5,1+Math.log2(eff+1)*1.15));}
+function riskOf(k,H){if(['fd','retire','cash','insure'].includes(k))return [.15,'Conservative'];if(k==='gold'||k==='property')return [.45,'Moderate'];if(k==='pms'||k==='aif')return [.85,'Aggressive'];if(k==='stock')return [.75,'Aggressive'];
+  if(k==='mf'){const {pct}=invPct(H),e=(pct.core+pct.sat*1.4+pct.intl)/100;return [Math.min(.95,.15+e*.75),e>.75?'Aggressive':e>.4?'Moderate':'Conservative'];}return [.5,'Moderate'];}
+function subSplit(k,H){const g={};H.forEach(h=>{let l;if(k==='mf'){const f=D.byCode.get(h.code);l=f?f.cat:'Other';}else if(k==='stock')l=/etf/i.test(h.name)?'ETFs':'Stocks';else if(k==='pms'){const p=pmsById(h.pms);l=p?p.pm:'PMS';}else l=h.name;g[l]=(g[l]||0)+hv(h);});return Object.entries(g).sort((a,b)=>b[1]-a[1]);}
+const SPC=['#6ea8ff','#9b8cff','#5cc8a8','#f0b43a','#e8866a','#6cc3e6','#c9d0dc'];
+function assetBody(k){const fam=famList(),sel=fam.includes(wtWho)?wtWho:'all',HA=sel==='all'?S.holdings:S.holdings.filter(h=>whoOf(h)===sel),{rows}=byCls(HA),H=HA.filter(h=>clsOf(h)===k),tot=H.reduce((s,h)=>s+hv(h),0),c=WCLS.find(x=>x.k===k)||WCLS[10];
+  const sp=subSplit(k,H),top=sp.slice(0,5),rest=sp.slice(5).reduce((s,x)=>s+x[1],0);if(rest)top.push(['Others',rest]);
+  const ds=divScore(H),[rv,rl]=riskOf(k,H),dl=ds>=3.5?'Diversified':ds>=2.5?'Fairly spread':'Concentrated';
+  return `<div class="av-tabs" role="tablist">${rows.map(r=>`<button role="tab" data-act="asset-view" data-k="${r.k}" class="${r.k===k?'on':''}">${r.l}</button>`).join('')}</div>
+   <div class="av-val"><small>Current value</small><b>${mny(tot)}</b><span>${H.length} holding${H.length>1?'s':''}${sel!=='all'?' · '+esc(sel):''}</span></div>
+   <div class="av-card"><p class="av-k">Composition</p><div class="wt-bar">${top.map(([l,v],i)=>`<i style="--w:${(v/tot*100).toFixed(2)};background:${SPC[i%SPC.length]}"></i>`).join('')}</div>
+    <ul class="av-leg">${top.map(([l,v],i)=>`<li><i style="background:${SPC[i%SPC.length]}"></i><span>${esc(l)} (${(v/tot*100).toFixed(1)}%)</span><b>${mny(v)}</b></li>`).join('')}</ul></div>
+   <div class="av-two"><div class="av-card"><p class="av-k">Diversification</p><div class="av-ring" style="--v:${(ds/5).toFixed(3)}"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="t" cx="60" cy="60" r="50"/><circle class="f" cx="60" cy="60" r="50"/></svg><div><b>${ds.toFixed(1)}</b><small>out of 5</small></div></div><b class="av-l">${dl}</b></div>
+    <div class="av-card"><p class="av-k">Risk level</p><div class="av-gauge"><svg viewBox="0 0 120 70" aria-hidden="true"><path d="M10 62 A50 50 0 0 1 110 62" class="g"/><line x1="60" y1="62" x2="${(60-44*Math.cos(Math.PI*rv)).toFixed(1)}" y2="${(62-44*Math.sin(Math.PI*rv)).toFixed(1)}" class="n"/><circle cx="60" cy="62" r="5" class="c"/></svg></div><b class="av-l">${rl}</b></div></div>
+   <div class="av-card av-hold"><p class="av-k">All holdings</p>${H.sort((a,b)=>hv(b)-hv(a)).map(holdRow).join('')}</div>
+   <button class="btn sec" data-act="ask-asset" data-k="${k}">${I.ai}Ask NIVO about my ${c.l.toLowerCase()}</button>`;}
+function openAssetView(k){const sb=$('#sheetBody');if($('#sheet').classList.contains('open')&&$('#avBody',sb)){$('#avBody',sb).innerHTML=assetBody(k);$('.sheet').scrollTop=0;return;}openSheet(`<p class="eyebrow">Asset overview</p><div id="avBody" class="avw">${assetBody(k)}</div>`);}
+
 function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.holdings.length>0;
   let best;
   if(P)best=['core','sat','intl','debt','gold','cash'].filter(k=>P.al[k]>0).map(k=>{const fs=topFunds(f=>roleOf(f.cat)===k,P.al[k]>=15?2:1,k==='core'||k==='debt');return `<div class="slot"><div class="slot-h"><i style="background:${BK[k].c}"></i><b>${BK[k].l}</b><span>${P.al[k]}% of plan</span></div>${fs.map(frow).join('')}<button class="link more" data-act="slot" data-k="${k}">More ${BK[k].l.toLowerCase()} options</button></div>`;}).join('');
@@ -2104,9 +2276,10 @@ function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.ho
     <div class="steps2"><button class="st tap" data-act="wizard"><span class="no ${P?'done':''}">${P?I.tick:'1'}</span><span><b>${P?'IPS ready':'Build your IPS'}</b><small>${P?P.profile+' · '+P.eqT+'% equity':'Six quick questions, about two minutes'}</small></span></button>
     <button class="st tap" data-act="import"><span class="no">2</span><span><b>Import your portfolio</b><small>CAS statement or add holdings by hand</small></span></button></div><div class="shine"></div></article>`;
   $('#v-home').innerHTML=`
-  ${heroBanner(P,h)}
+  ${demoBarHTML()}
+  ${has?'':heroBanner(P,h)}
   <button class="sbox" data-act="search-focus" style="cursor:text;text-align:left;width:100%">${I.search}<span style="flex:1;color:var(--ink3);font-weight:500">Search a PMS, manager or fund</span></button>
-  ${hero}
+  ${has?wealthDash()+honestHTML()+sinceHTML():hero}
   <div class="qa">
     <button class="qa-t tap" data-act="wizard"><span class="ic">${I.target}</span><b>${P?'Update my IPS':'Build my IPS'}</b><small>Six quick steps to a full investment mandate</small></button>
     <button class="qa-t tap" data-act="import"><span class="ic">${I.upload}</span><b>Import portfolio</b><small>CAS statement, demat or manual entry</small></button>
@@ -2816,10 +2989,12 @@ function toolDefs(note){return [
  {name:'pms_shortlist',description:'Top PMS strategies for the user\'s IPS, at most one per manager, with at least 3 years of record and Rs 25 crore managed, unusual figures excluded. Optional IPS slot: core (large, multi and flexi cap, multi-asset) or sat (mid and small cap, quant, thematic). Optional style.',inputSchema:{type:'object',properties:{slot:{type:'string',enum:['core','sat']},style:{type:'string',enum:PST.slice(1)},n:{type:'number'}}},
   execute:async(i)=>{note('Ranking PMS for your IPS');return {pms_budget:pmsBudget(),picks:pmsPicks(Math.min(+i.n||8,12),p=>(!i.slot||p.role===i.slot)&&(!i.style||p.st===i.style)).map(pmsBrief)};}},
  {name:'my_portfolio',description:'The user\'s holdings with current values, IPS signals and fit, allocation vs IPS targets (%), and yearly cost leakage from Regular plans.',
-  execute:async()=>{note('Reading your portfolio');const A=analyse();return {total:Math.round(A.tot),holdings:S.holdings.map(h=>{const f=h.type==='mf'&&D.byCode.get(h.code),pp=h.type==='pms'&&pmsById(h.pms);return {pms_id:pp?pp.id:undefined,name:f?f.sn:h.name,type:h.type,code:f?f.c:null,category:f?f.cat:null,plan:f?(f.direct?'Direct':'Regular'):null,value:Math.round(hv(h)),signal:signal(h)[0],ips_fit:f?fitFor(f).fit:null};}),allocation_now_pct:Object.fromEntries(Object.entries(A.pct).map(([k,v])=>[k,Math.round(v)])),ips_target_pct:S.ips?S.ips.al:null,regular_plan_cost_per_year:Math.round(A.leak)};}}];}
+  execute:async()=>{note('Reading your portfolio');const A=analyse(),ip=invPct(S.holdings),fam=famList(),bc=byCls(S.holdings),sv=sinceVisit(),ms=milestone(A.tot);return {total:Math.round(A.tot),by_asset_type:Object.fromEntries(bc.rows.map(c=>[c.l,Math.round(bc.by[c.k])])),by_family_member:Object.fromEntries(fam.map(w=>[w,Math.round(S.holdings.filter(h=>whoOf(h)===w).reduce((s,h)=>s+hv(h),0))])),investable_allocation_pct:Object.fromEntries(Object.entries(ip.pct).map(([k,v])=>[AL_LAB[k],Math.round(v)])),recommended_pct:Object.fromEntries(Object.entries(S.ips?S.ips.al:DEF_AL).map(([k,v])=>[AL_LAB[k]||k,v])),honest_flags:honestTake().map(x=>x.h+' ('+x.rec+'): '+x.t2),since_last_visit:sv?{days:sv.days,change:Math.round(sv.ch)}:null,next_milestone:ms.nx?{amount:ms.nx,months_at_10pct:ms.m}:null,holdings:S.holdings.map(h=>{const f=h.type==='mf'&&D.byCode.get(h.code),pp=h.type==='pms'&&pmsById(h.pms);return {pms_id:pp?pp.id:undefined,name:f?f.sn:h.name,owner:whoOf(h),asset_type:(WCLS.find(c=>c.k===clsOf(h))||{l:'Other'}).l,type:h.type,code:f?f.c:null,category:f?f.cat:null,plan:f?(f.direct?'Direct':'Regular'):null,value:Math.round(hv(h)),signal:signal(h)[0],ips_fit:f?fitFor(f).fit:null};}),allocation_now_pct:Object.fromEntries(Object.entries(A.pct).map(([k,v])=>[k,Math.round(v)])),ips_target_pct:S.ips?S.ips.al:null,regular_plan_cost_per_year:Math.round(A.leak)};}}];}
 function chatRules(){return `You are NIVO, an independent AI wealth assistant for Indian investors. You work only for the investor: no fund house or distributor pays you.
 Data: AMFI NAVs to ${D.asof} for ${D.funds.length} mutual fund plans (returns are point-to-point; 3Y and 5Y annualised), and APMI-reported returns to ${D.pmsU.asof} for ${D.pms.length} discretionary equity PMS strategies from ${D.pmsProv.length} managers (medians: 1Y ${D.pmsU.r1}%, 3Y ${D.pmsU.r3}%/yr, 5Y ${D.pmsU.r5}%/yr). Scores in the tools are out of 10 (NIVO Score, NIVO Fit, volatility index where 5 = moves like its index); quote them that way. PMS is NIVO's main focus: for PMS questions use search_pms, pms_details and pms_shortlist, and respect the ₹50 lakh minimum. Use the tools for every number; never invent returns, fees, ratings or fund details. Fund expense ratios, PMS fees and drawdowns are not in the data; PMS money managed and the Direct vs Regular return gap are. If a question goes beyond the data (stocks, insurance, property, specific tax cases), answer from general knowledge and say so.
 User's IPS: ${ipsBrief()}
+The user's wealth may span mutual funds, shares, PMS, AIF, FDs, EPF/PPF/NPS, gold, property, insurance and cash, across family members. For anything about their money, call my_portfolio first.
+Be honest, not agreeable. If they ask whether to add to something, first check how much they already hold against the recommended mix and say plainly when it would deepen an existing bet. Then name the one biggest gap you notice (for example low debt, a single holding over 15%, or Regular-plan commissions), with numbers like “International: 32% (Plan: 10%)”.
 Categories: ${D.catNames.join(', ')}.
 When you name a fund the tools returned, write it as {{code|Short name}}; a PMS as {{pms:id|Name}}. The app turns these into links.
 Style: plain English, warm and direct. Lead with the answer. Use ₹ with lakh and crore. Short bullet lists only for comparisons. Under 170 words unless asked for more. No headings. Close with one practical next step when it helps.`;}
@@ -2838,8 +3013,17 @@ function pmsLine(p){const B=D.pmsBench[p.bk]||{r:{}};const ft=S.ips?pmsFit(p).fi
 function fundLine(f){const ft=S.ips?fitFor(f).fit:null;return `- {{${f.c}|${f.sn}}} (${f.cat}): NIVO Score ${s10(f.q)}/10${ft!=null?`, fit ${s10(ft)}/10`:''}. 1Y ${pc(f.r1)}, 3Y ${pc(f.r3)}/yr, 5Y ${pc(f.r5)}/yr. Volatility index ${f.vm&&f.vm.vi!=null?f.vm.vi.toFixed(1):'—'}/10.`;}
 const MFCAT=[[/elss|tax sav/,'ELSS (tax saver)'],[/large\s*(and|&)\s*mid/,'Large & Mid Cap'],[/flexi/,'Flexi Cap'],[/multi\s*cap/,'Multi Cap'],[/large/,'Large Cap'],[/mid/,'Mid Cap'],[/small/,'Small Cap'],[/liquid|park|parking/,'Liquid'],[/arbitrage/,'Arbitrage'],[/index/,'Large Cap Index'],[/corporate bond|debt|bond/,'Corporate Bond'],[/gilt/,'Gilt'],[/hybrid|balanced/,'Aggressive Hybrid'],[/value/,'Value'],[/focus/,'Focused']];
 const PMSST=[[/small|mid|micro/,'Mid & small cap'],[/large|blue/,'Large cap'],[/quant|factor|momentum/,'Quant & factor'],[/thematic|sector|theme/,'Thematic & sector'],[/flexi|multi/,'Multi & flexi cap']];
+function wealthAnswer(ql){if(!S.holdings.length)return null;const T=S.ips?S.ips.al:DEF_AL,{pct}=invPct(S.holdings),tot=S.holdings.reduce((s,h)=>s+hv(h),0),xs=honestTake();
+  const line=k=>`**${AL_LAB[k]}: ${pct[k].toFixed(0)}%** (Plan: ${T[k]}%)`;const other=k=>{const o=xs.find(x=>x.k!==k);return o?`\n\nWhile reviewing, I noticed: **${o.h}** (${o.rec}). ${o.t2}`:'';};
+  const km=[[/\bus\b|international|global|overseas|nasdaq|foreign/,'intl'],[/gold/,'gold'],[/debt|bond|fd|fixed deposit/,'debt'],[/small ?cap|mid ?cap|smallcap|midcap/,'sat'],[/cash|liquid/,'cash'],[/large ?cap|index|nifty/,'core']].find(([r])=>r.test(ql));
+  if(km&&/increase|add|more|buy|invest|put|exposure|should i|allocat/.test(ql)){const k=km[1],a=pct[k],t=T[k];const v=a>t+3?`Your portfolio already has more ${AL_LAB[k].toLowerCase()} than your plan. Adding more wouldn’t diversify you. It would deepen the same bet.`:a<t-3?`You are below your plan here, so adding some makes sense. Fill the gap slowly, through a SIP or a few tranches.`:`You are close to your plan, so there’s no need to add much more.`;return `${line(k)}\n\n${v}${other(k)}`;}
+  if(/crossed|milestone|how long|reach|crore|next goal/.test(ql)){const ms=milestone(tot);return `You’re at **${inr(tot)}**${ms.prev?`, past the ${inr(ms.prev)} mark`:''}.${ms.nx?` Your next milestone is **${inr(ms.nx)}**. At 10% a year${ms.sip?` plus your ${inr(ms.sip)} monthly SIP`:''}, that’s about **${ms.m<24?ms.m+' months':(ms.m/12).toFixed(1)+' years'}** away.`:''}\n\nThe 10% is an assumption, not a promise. Markets will be lumpy along the way.`;}
+  if(/last visit|while i was away|what changed|since i|anything new/.test(ql)){const sv=sinceVisit();const al=alertsFor(analyse()).filter(a=>a.s!=='info');return `${sv?`Since your last visit ${sv.days} day${sv.days>1?'s':''} ago, your wealth ${sv.ch>=0?'rose':'fell'} **${inr(Math.abs(sv.ch))}** (${sv.pc.toFixed(1)}%).`:'This is your first visit with a portfolio, so there’s nothing to compare yet.'} Fund prices are updated to ${dt(D.asof)} and PMS returns to ${dt(D.pmsU.asof)}.${al.length?`\n\nNeeds a look:\n${al.slice(0,3).map(a=>'- '+a.t).join('\n')}`:''}`;}
+  if(/diversif|spread|concentrat|honest take|what would you change|how.*(look|doing)|review my/.test(ql)){const bc=byCls(S.holdings);return `Your wealth is **${inr(tot)}** across ${bc.rows.length} asset types${famList().length>1?` and ${famList().length} family members`:''}. Overall diversification: **${divScore(S.holdings).toFixed(1)} out of 5**.\n\n${xs.length?xs.map(x=>`- **${x.h}** (${x.rec}). ${x.t2}`).join('\n'):'Nothing stands out. Your mix is close to plan.'}`;}
+  return null;}
 function localAnswer(q){const ql=q.toLowerCase(),P=S.ips,out=[];const fq=FAQ.map(x=>x[2]);const qm=qaTop(q,3);
   if(qm[0]&&qm[0].s>=.8)return qaAns(qm);
+  {const wa=wealthAnswer(ql);if(wa)return wa;}
   if(/direct|regular|commission|expense|hidden cost|paying too much/.test(ql)){const A=analyse();out.push(`**Commissions:** Regular plans pay your distributor a trail commission every year, so they return less than the Direct plan of the same fund.${S.holdings.length?` In your portfolio, Regular plans cost about **${inr(A.leak||0)} a year**.`:' Import your portfolio and NIVO shows the cost in rupees.'} For PMS, ask for fixed fee, profit share, hurdle and exit load in rupees on your amount.`);return out.join('\n\n');}
   if(/what is (a )?pms|portfolio management service|pms minimum|minimum.*pms|50 ?lakh/.test(ql))return `**PMS (portfolio management service)** is a professionally managed stock portfolio held in your own demat account. SEBI sets the minimum at **₹50 lakh**. Fees are usually a fixed fee plus a share of profits, and you own the actual shares.\n\nNIVO tracks ${D.pms.length.toLocaleString('en-IN')} strategies. The median returned ${pc(D.pmsU.r3)} a year over 3 years and ${pc(D.pmsU.r5)} over 5 years, after fees.`;
   if(/\bips\b|investment policy|mandate/.test(ql))return P?`Your IPS: **${P.profile}**, risk score ${s10(P.R)}/10, about ${P.eqT}% in equity, aiming for ${P.req!=null?pc(P.req)+' a year':'your goal'}. Open My IPS for the full plan.`:`An **IPS (Investment Policy Statement)** turns your goal, time and comfort with falls into clear rules: a risk score, a target mix and how to pick funds. Build yours in My IPS. It takes about two minutes, then every ranking in NIVO fits you.`;
@@ -3068,7 +3252,7 @@ function renderAsk(){$('#v-ask').innerHTML=`
 function qaSugs(){if(!QA)return '';const cats=[...new Set(QA.items.map(x=>x.cat))];const pick=cats.slice().sort(()=>Math.random()-.5).slice(0,4).map(c=>{const xs=QA.items.filter(x=>x.cat===c);return xs[Math.floor(Math.random()*xs.length)];});
   return `<div class="qa-bank"><p class="eyebrow">From NIVO’s answer bank · ${QA.items.length} answers</p><div class="sugs">${pick.map(x=>`<button class="sug tap" data-sug="${esc(x.q)}">${esc(x.q)}</button>`).join('')}</div></div>`;}
 function drawAsk(){const box=$('#askBox');$$('#askSeg button').forEach(b=>b.classList.toggle('on',b.dataset.am===askMode));if(askMode==='match'){drawMatch();return;}
-  if(askMode==='chat'){box.innerHTML=`<div class="chat" id="chat">${S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.content):md(m.content)}</div>`).join(''):`<div class="sugs">${SUGS.map(s=>`<button class="sug tap" data-sug="${esc(s)}">${esc(s)}</button>`).join('')}</div>${qaSugs()}`}</div>
+  if(askMode==='chat'){box.innerHTML=`<div class="chat" id="chat">${S.chat.length?S.chat.map(m=>`<div class="msg ${m.role==='user'?'u':'a'}">${m.role==='user'?esc(m.content):md(m.content)}</div>`).join(''):`<div class="sugs">${(S.holdings.length?['What changed since my last visit?','Should I add more international funds?','How diversified is my family’s wealth?','When will I reach my next milestone?',...SUGS.slice(0,3)]:SUGS).map(s=>`<button class="sug tap" data-sug="${esc(s)}">${esc(s)}</button>`).join('')}</div>${qaSugs()}`}</div>
     <form class="composer" id="cform"><textarea id="cin" rows="1" placeholder="Ask about any PMS, fund or your plan" aria-label="Message"></textarea><button type="submit" id="csend" aria-label="Send">${I.send}</button></form>
     ${S.chat.length?'<button class="link" data-act="chat-clear" style="justify-self:start">Start a new chat</button>':''}<p class="tiny" style="margin:0;text-align:center">${HAS_AI?'Uses your Claude account. ':'Quick answers from NIVO’s own database. '}Answers are research, not investment advice.</p>`;
     const ta=$('#cin');ta.addEventListener('input',()=>{ta.style.height='auto';ta.style.height=Math.min(120,ta.scrollHeight)+'px';});ta.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('#cform').requestSubmit();}});
@@ -3201,6 +3385,12 @@ document.addEventListener('click',e=>{if(!D)return;const pop=$('#jgPop');if(!pop
   else if(a==='wz-next'){if(wz.i<WZ.length-1){const p=(wz.i+1)/WZ.length*100;wz.i++;drawWz(p);const c=$('#wzCard');if(c)c.scrollIntoView({block:'start',behavior:RM?'auto':'smooth'});}else finishWizard();}
   else if(a==='wz-back'){const p=(wz.i+1)/WZ.length*100;wz.i--;drawWz(p);}
   else if(a==='import')openImport();
+  else if(a==='demo-start')startDemo();
+  else if(a==='demo-exit')exitDemo();
+  else if(a==='wd-hide'){S.hide=!S.hide;refresh();}
+  else if(a==='asset-view')openAssetView(el.dataset.k);
+  else if(a==='ask-honest'){closeSheet&&$('#sheet').classList.contains('open')&&closeSheet();askMode='chat';go('ask');setTimeout(()=>sendChat('Give me your honest take on my portfolio. What would you change first?'),120);}
+  else if(a==='ask-asset'){const c=WCLS.find(x=>x.k===el.dataset.k);closeSheet();askMode='chat';go('ask');setTimeout(()=>sendChat(`How do my ${c?c.l.toLowerCase():'holdings'} look? Anything I should change?`),120);}
   else if(a==='add-cls'){const k=el.dataset.k;openAdd(k==='mf'||k==='pms'?k:'other',null,k);}
   else if(a==='wt-who'){wtWho=el.dataset.w;const c=$('#wtCard');if(c)c.outerHTML=wealthCard();}
   else if(a==='add-manual')openAdd('mf');
@@ -3321,7 +3511,7 @@ function introHTML(){const nP=D?D.pms.length:1128,nF=D?D.funds.length:3572;
     <span class="in-tag" data-rv><i></i>Honest advice for everyone</span>
     <h2 class="in-h2" data-rv>Ready when <em>you are.</em></h2>
     <button class="in-cta" data-act="intro-done" data-rv>Welcome to NIVO <span aria-hidden="true">→</span></button>
-    <button class="in-alt" data-act="intro-pms" data-rv>Or start with “Find my right PMS”</button>
+    <button class="in-alt" data-act="intro-demo" data-rv>Or try it with a demo portfolio</button>
     <p class="in-fine">NIVO offers research and education to help you decide. Orders placed in the app are practice orders.</p>
   </section>`;}
 let introT=null,demoTok=0,demoAuto=null,demoIdx=0;
@@ -3357,7 +3547,7 @@ function closeIntro(then){const el=$('#intro');try{localStorage.setItem(INTRO_KE
 function maybeIntro(){openIntro();}
 
 document.addEventListener('click',e=>{const b=e.target.closest('#intro [data-act]');if(!b)return;e.stopPropagation();e.preventDefault();const a=b.dataset.act;
-  if(a==='intro-done')closeIntro();else if(a==='intro-how'){const h=$('#inHow');if(h)h.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}else if(a==='intro-pms')closeIntro(()=>{askMode='match';mz=null;go('ask');window.scrollTo(0,0);});},true);
+  if(a==='intro-done')closeIntro();else if(a==='intro-how'){const h=$('#inHow');if(h)h.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}else if(a==='intro-pms')closeIntro(()=>{askMode='match';mz=null;go('ask');window.scrollTo(0,0);});else if(a==='intro-demo')closeIntro(()=>startDemo());},true);
 (async function boot(){maybeIntro();
   $('#v-home').innerHTML='<div class="skel" style="height:90px"></div><div class="skel" style="height:180px"></div><div class="skel"></div><div class="skel"></div>';
   try{await loadData();}catch(e){$('#v-home').innerHTML=`<div class="flag">${I.warn}<span>The fund database didn't load. Reload the page to try again.</span></div>`;($('#asof')||{}).textContent='Offline';return;}
@@ -3370,8 +3560,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('#intro [data-act
     if(st.answers&&!st.exIPS)S.answers={...BLANK_A,...st.answers};
     if(Array.isArray(st.holdings)){const keep=st.exPF?[]:st.holdings.filter(h=>!isOldExample(h));if(keep.length!==st.holdings.length)dirty=true;S.holdings=keep;
       S.holdings.forEach(h=>{if(h.type==='pms'&&!pmsById(h.pms)){const nm=norm(h.name),p=D.pms.find(x=>norm(x.n)===nm);dirty=true;if(p)h.pms=p.id;else{h.type='stock';h.name=h.name+' (PMS)';delete h.pms;}}});}
-    if(st.aiPms&&st.aiPms.text)S.aiPms=st.aiPms;if(st.persona)S.persona=st.persona;if(st.match&&st.match.a)S.match=st.match;if(Array.isArray(st.basket))S.basket=st.basket.filter(it=>bkObj(it));if(Array.isArray(st.orders))S.orders=st.orders;if(st.ready)S.ready=st.ready;if(Array.isArray(st.calm))S.calm=st.calm;if(st.legacy)S.legacy=st.legacy;drawChip();
+    if(st.aiPms&&st.aiPms.text)S.aiPms=st.aiPms;if(st.persona)S.persona=st.persona;if(st.match&&st.match.a)S.match=st.match;if(Array.isArray(st.basket))S.basket=st.basket.filter(it=>bkObj(it));if(Array.isArray(st.orders))S.orders=st.orders;if(st.ready)S.ready=st.ready;if(Array.isArray(st.calm))S.calm=st.calm;if(st.legacy)S.legacy=st.legacy;if(Array.isArray(st.nwHist))S.nwHist=st.nwHist;if(st.lastSeen)S.lastSeen=st.lastSeen;drawChip();
     setIPS();if(dirty)Store.save();if(!$('#sheet').classList.contains('open'))refresh();}
+  bootDone=true;if(!S.demo&&S.holdings.length){snapNW();const prevSeen=S.lastSeen;S.lastSeen=prevSeen;Store.save();window.addEventListener('pagehide',()=>{if(S.demo)return;S.lastSeen={t:Date.now(),tot:Math.round(S.holdings.reduce((s,h)=>s+hv(h),0))};try{const st=JSON.parse(localStorage.getItem('neriwise.v2')||'{}');st.lastSeen=S.lastSeen;st.nwHist=S.nwHist;localStorage.setItem('neriwise.v2',JSON.stringify(st));}catch(e){}if(Store.db)Store.save();});if(!S.lastSeen){S.lastSeen={t:Date.now(),tot:Math.round(S.holdings.reduce((s,h)=>s+hv(h),0))};Store.save();}if(!$('#sheet').classList.contains('open'))refresh();}
 })();
 })();
 
