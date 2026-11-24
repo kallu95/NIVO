@@ -1780,6 +1780,12 @@ h1{letter-spacing:-.03em}
 .wd-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 6px}.wd-st div{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);display:grid;gap:2px}.wd-st small{font-size:11px;color:#8292b3}.wd-st b{font:700 18px var(--f-display)}
 
 @media (min-width:900px){.wd{grid-template-rows:repeat(6,auto) 1fr}.wd-as{grid-row:1 / span 7}}
+
+.hx-demo{display:inline-flex;align-items:center;gap:8px;padding:9px 16px 9px 12px;border-radius:99px;border:1px solid rgba(240,180,58,.45);background:rgba(240,180,58,.1);color:#ffe2a6;font:700 13.5px var(--f-display);cursor:pointer;max-width:100%}
+.hx-demo i{flex:none;width:8px;height:8px;border-radius:50%;background:#f0b43a;box-shadow:0 0 0 4px rgba(240,180,58,.2)}
+.hx-demo span{font:500 12.5px var(--f-body);color:#d8c18f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.hx-demo:hover{background:rgba(240,180,58,.18)}
+@media (max-width:420px){.hx-demo span{display:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -2276,10 +2282,9 @@ function renderHome(){const P=S.ips,A=analyse(),h=new Date().getHours(),has=S.ho
     <div class="steps2"><button class="st tap" data-act="wizard"><span class="no ${P?'done':''}">${P?I.tick:'1'}</span><span><b>${P?'IPS ready':'Build your IPS'}</b><small>${P?P.profile+' · '+P.eqT+'% equity':'Six quick questions, about two minutes'}</small></span></button>
     <button class="st tap" data-act="import"><span class="no">2</span><span><b>Import your portfolio</b><small>CAS statement or add holdings by hand</small></span></button></div><div class="shine"></div></article>`;
   $('#v-home').innerHTML=`
-  ${demoBarHTML()}
-  ${has?'':heroBanner(P,h)}
+  ${S.demo?demoBarHTML():heroBanner(P,h)}
   <button class="sbox" data-act="search-focus" style="cursor:text;text-align:left;width:100%">${I.search}<span style="flex:1;color:var(--ink3);font-weight:500">Search a PMS, manager or fund</span></button>
-  ${has?wealthDash()+honestHTML()+sinceHTML():hero}
+  ${S.demo?wealthDash()+honestHTML()+sinceHTML():hero}
   <div class="qa">
     <button class="qa-t tap" data-act="wizard"><span class="ic">${I.target}</span><b>${P?'Update my IPS':'Build my IPS'}</b><small>Six quick steps to a full investment mandate</small></button>
     <button class="qa-t tap" data-act="import"><span class="ic">${I.upload}</span><b>Import portfolio</b><small>CAS statement, demat or manual entry</small></button>
@@ -2347,7 +2352,7 @@ function heroBanner(P,h){const greet=h<12?'Good morning':h<17?'Good afternoon':'
    <p class="hx-eye"><i></i>${greet} · ${new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short'})}</p>
    <h1 class="hx-h">Wealth that <em>fits you.</em></h1>
    <p class="hx-sub">Every PMS and mutual fund in India, rated honestly and matched to your plan. No commission. No paid rankings.</p>
-   <div class="hx-cta"><button class="hx-b1 tap" data-go="ask">${I.ai}Ask NIVO</button>${P?`<button class="hx-b2 tap" data-go="ips">${I.target}View my IPS</button>`:`<button class="hx-b2 tap" data-act="wizard">${I.target}Build my plan</button>`}</div>
+   <div class="hx-cta"><button class="hx-b1 tap" data-go="ask">${I.ai}Ask NIVO</button>${P?`<button class="hx-b2 tap" data-go="ips">${I.target}View my IPS</button>`:`<button class="hx-b2 tap" data-act="wizard">${I.target}Build my plan</button>`}</div><button class="hx-demo tap" data-act="demo-start"><i></i>Try demo<span>· explore NIVO with a sample family portfolio</span></button>
    <ul class="hx-ticks"><li>₹0 commission</li><li>Ratings never for sale</li><li>Your data stays yours</li></ul>
   </div>${hpHTML()}</div></section>`;}
 let gId=0;function globeHTML(){const top=D.pms.find(p=>p.q!=null&&!p.fl.includes('odd'));const u='g'+(++gId);
